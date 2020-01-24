@@ -91,8 +91,11 @@ private:
      * if non-zero offset is given all data before the first newline is dropped, and all data
      * after the last newline before end is dropped. This readjusts the _start and _end values to 
      * reflect that.
+     *
+     * @param init_start - check the start position for junk data.
+     * @param init_end - check the end position for junk data.
      */
-    void _init_start_end();
+    void _init_start_end(bool init_start, bool init_end);
 
     /**
      * Private function to initialize the column count. It parses

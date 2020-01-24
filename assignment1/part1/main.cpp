@@ -140,6 +140,7 @@ int main(int argc, char** argv){
             break;
         }
         default:
+            std::cout <<"No operation provided!" <<std::endl;
             return 1;
     }
 
