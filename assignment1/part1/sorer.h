@@ -23,7 +23,6 @@ public:
 
 
 private:
-
     void _init_columns();
     void _init_start_end();
     void _init_col_types();

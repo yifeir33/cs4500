@@ -39,7 +39,8 @@ Sorer::Sorer(char *filename, size_t start, size_t end) : _fd(-1), _start(start),
 
 Sorer::~Sorer(){
     if(_col_types) delete[] _col_types;
-    if(_mfile) assert(munmap((void *)_mfile, _fsize) == 0);
+    if(_mfile) assert(munmap((void *) _mfile, _fsize) == 0);
+    if(_fd > 0) close(_fd);
 }
 
 std::string Sorer::get(size_t col, size_t row){
@@ -49,7 +50,9 @@ std::string Sorer::get(size_t col, size_t row){
     // go to row
     size_t r_start = _row_index[row];
     bool in_col = false;
+    bool in_str = false;
     uint16_t col_index = 0;
+
     std::string output = "";
     while(r_start < _end && col_index <= col){
         if(_mfile[r_start] == '\n'){
@@ -59,11 +62,12 @@ std::string Sorer::get(size_t col, size_t row){
         } else if(_mfile[r_start] == '>'){
             in_col = false;
             col_index++;
-        }
-
-        if(in_col && col_index == col && !isspace(_mfile[r_start])){
+        } else if(in_col && col_index == col && (in_str || !isspace(_mfile[r_start]))){
+            if(_col_types[col] == Sorer::col_type::STRING && _mfile[r_start] == '"') in_str = !in_str;
             output += _mfile[r_start];
         }
+
+
         r_start++;
     }
     return output;
@@ -79,7 +83,7 @@ bool Sorer::exists(size_t col, size_t row){
 }
 
 void Sorer::_init_start_end(){
-    std::cout <<"_init_start_end" <<std::endl;
+    /* std::cout <<"_init_start_end" <<std::endl; */
     if(_end < _fsize){
         size_t index = _end;
         while(index > _start){
@@ -105,19 +109,17 @@ void Sorer::_init_start_end(){
 
 
 void Sorer::_init_columns() {
-    std::cout <<"_init_columns" <<std::endl;
+    /* std::cout <<"_init_columns" <<std::endl; */
     // get column count from first 500~ entries
     size_t row_count = 0;
     int col_count = 0;
     int max_cols = -1;
     size_t index = _start;
-    std::cout <<"End: " <<_end <<std::endl; 
     while(index < _end && row_count < 500){
         if(_mfile[index] == '<'){
             col_count++;
         } else if(_mfile[index] == '\n'){
             row_count++;
-            std::cout <<"Row Checked, Column Count: " <<col_count <<std::endl;
             if(col_count > max_cols){
                 max_cols = col_count;
                 col_count = 0;
@@ -127,39 +129,35 @@ void Sorer::_init_columns() {
         index++;
     }
 
-    std::cout <<"Col Count After While: " <<col_count <<std::endl;
     if(col_count > max_cols){
         max_cols = col_count;
         col_count = 0;
     }
     // have number of columns
     _col_cnt = max_cols;
-    std::cout <<"Column Size: " <<_col_cnt <<std::endl;
+    std::cout <<"Col Count: " << _col_cnt << std::endl;
     _col_types = new Sorer::col_type[_col_cnt];
 }
 
 void Sorer::_init_col_types() {
-    std::cout <<"_init_col_types" <<std::endl;
+    /* std::cout <<"_init_col_types" <<std::endl; */
     size_t index = _start;
     size_t rows_checked = 0;
     int col_index = 0;
     bool done = false;
+    size_t start = 0;
+    bool in_col = false;
 
     while(index < _end && !done) {
-        size_t s_index = index + 1;
         if(_mfile[index] == '<'){
-            while(s_index < _fsize && _mfile[s_index] != '\n'){
-                if(_mfile[s_index] == '>') {
-                    _col_types[col_index] = this->_parse_col(index, s_index);
-                    col_index++;
-                    break;
-                }
-                s_index++;
-            }
-        }
-        else if(_mfile[index] == '\n'){
+            start = index;
+            in_col = true;
+        } else if(in_col && _mfile[index] == '>'){
+            _col_types[col_index++] = this->_parse_col(start, index);
+            in_col = false;
+        } else if(_mfile[index] == '\n') {
             rows_checked++;
-            std::cout <<"Rows Checked: " <<rows_checked <<std::endl;
+            col_index = 0;
             done = true;
             for(size_t i = 0; i < _col_cnt; ++i){
                 if(_col_types[i] == Sorer::col_type::BOOL && rows_checked < 10){
@@ -174,7 +172,7 @@ void Sorer::_init_col_types() {
 }
 
 Sorer::col_type Sorer::_parse_col(size_t start, size_t end){
-    std::cout <<"_parse_col" <<std::endl;
+    /* std::cout <<"_parse_col" <<std::endl; */
     Sorer::col_type type = Sorer::col_type::STRING;
     bool type_set = false;
     // strip leading and trailing whitespace
@@ -215,11 +213,9 @@ Sorer::col_type Sorer::_parse_col(size_t start, size_t end){
 
 
 void Sorer::_init_row_indices(){
-    std::cout <<"_init_row_indices" <<std::endl;
-    std::cout <<"Start: " <<_start <<std::endl;
+    /* std::cout <<"_init_row_indices" <<std::endl; */
     _row_index.push_back(_start);
 
-    std::cout<< "Parsing Row Count!";
     for(size_t i = _start; i < _end; ++i){
         if(_mfile[i] == '\n' && i + 1 < _fsize){
             _row_index.push_back(i + 1);
