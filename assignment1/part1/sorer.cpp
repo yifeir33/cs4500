@@ -30,7 +30,24 @@ Sorer::Sorer(char *filename, size_t start, size_t end) : _fd(-1), _start(start),
     if(_end > _fsize){
         _end = _fsize;
     }
-    _mfile = (const char *) mmap(NULL, _fsize, PROT_READ, MAP_SHARED, _fd, 0);
+    off_t offset = 0;
+    if(_start > 0){
+        long page_size = sysconf(_SC_PAGE_SIZE);
+        long page_offset = start / page_size;
+        if(page_offset > 0){
+            offset = page_offset * page_size;
+            if(offset >= _start) {
+                offset = 0;
+            }
+            _start -= offset;
+            _end -= offset;
+        }
+    }
+    _mfile = (const char *) mmap(NULL, _end, PROT_READ, MAP_SHARED | MAP_NORESERVE, _fd, offset);
+    if(_mfile == MAP_FAILED){
+        perror("Error mapping file: ");
+        throw "Failed to map the file to memory";
+    }
     this->_init_start_end();
     this->_init_columns();
     this->_init_col_types();
@@ -39,7 +56,7 @@ Sorer::Sorer(char *filename, size_t start, size_t end) : _fd(-1), _start(start),
 
 Sorer::~Sorer(){
     if(_col_types) delete[] _col_types;
-    if(_mfile) assert(munmap((void *) _mfile, _fsize) == 0);
+    if(_mfile) assert(munmap((void *) _mfile, _end) == 0);
     if(_fd > 0) close(_fd);
 }
 
@@ -58,8 +75,10 @@ std::string Sorer::get(size_t col, size_t row){
         if(_mfile[r_start] == '\n'){
             return "";
         } else if(_mfile[r_start] == '<'){
+            if(in_col) return "";
             in_col = true;
         } else if(_mfile[r_start] == '>'){
+            if(!in_col) return "";
             in_col = false;
             col_index++;
         } else if(in_col && col_index == col && (in_str || !isspace(_mfile[r_start]))){
@@ -95,15 +114,13 @@ void Sorer::_init_start_end(){
         }
     }
 
-    if(_start != 0){
-        size_t index = _start;
-        while(index > _start){
-            if(_mfile[index] == '\n' && index > _start){
-                _end = index + 1;
-                break;
-            }
-            index++;
+    size_t index = _start;
+    while(index > _start){
+        if(_mfile[index] == '\n' && index > _start){
+            _end = index + 1;
+            break;
         }
+        index++;
     }
 }
 
@@ -135,7 +152,7 @@ void Sorer::_init_columns() {
     }
     // have number of columns
     _col_cnt = max_cols;
-    std::cout <<"Col Count: " << _col_cnt << std::endl;
+    /* std::cout <<"Col Count: " << _col_cnt << std::endl; */
     _col_types = new Sorer::col_type[_col_cnt];
 }
 

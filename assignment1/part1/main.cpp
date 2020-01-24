@@ -27,22 +27,22 @@ std::string col_type_to_str(Sorer::col_type type){
     }
 }
 
-void print_val(std::string sval, Sorer::col_type type){
-    if(type == Sorer::col_type::BOOL){
-        bool bval = atoi(sval.c_str());
-        std::cout <<bval <<std::endl;
-    } else if(type == Sorer::col_type::INTEGER){
-        int ival = atoi(sval.c_str());
-        std::cout <<ival <<std::endl;
+/* void print_val(std::string sval, Sorer::col_type type){ */
+/*     if(type == Sorer::col_type::BOOL){ */
+/*         bool bval = atoi(sval.c_str()); */
+/*         std::cout <<bval <<std::endl; */
+/*     } else if(type == Sorer::col_type::INTEGER){ */
+/*         int ival = atoi(sval.c_str()); */
+/*         std::cout <<ival <<std::endl; */
 
-    } else if(type == Sorer::col_type::FLOAT){
-        float fval = atof(sval.c_str());
-        std::cout <<fval <<std::endl;
+/*     } else if(type == Sorer::col_type::FLOAT){ */
+/*         float fval = atof(sval.c_str()); */
+/*         std::cout <<fval <<std::endl; */
 
-    } else if(type == Sorer::col_type::STRING){
-        std::cout <<sval <<std::endl;
-    }
-}
+/*     } else if(type == Sorer::col_type::STRING){ */
+/*         std::cout <<sval <<std::endl; */
+/*     } */
+/* } */
 
 int main(int argc, char** argv){
     char* filename = nullptr;
@@ -51,7 +51,7 @@ int main(int argc, char** argv){
     int col = -1;
     int row = -1;
     operation o = operation::INVALID;
-    std::cout <<"Argc: " <<argc <<std::endl;
+    /* std::cout <<"Argc: " <<argc <<std::endl; */
 
     for (int i = 0; i < argc; i++) {
         if (strcmp(argv[i],  "-f") == 0) {
@@ -116,9 +116,9 @@ int main(int argc, char** argv){
         }
     }
 
-    std::cout <<"From: " <<from <<",  To: " <<from+len <<std::endl;  
+    /* std::cout <<"From: " <<from <<",  To: " <<from+len <<std::endl; */  
     Sorer sorer(filename, from, from + len);
-    std::cout <<"Sorer Constructed!" <<std::endl;
+    /* std::cout <<"Sorer Constructed!" <<std::endl; */
 
     switch(o){
         case operation::COL_TYPE:{
@@ -126,9 +126,10 @@ int main(int argc, char** argv){
             break;
         }
         case operation::GET_VALUE:{
-            Sorer::col_type type = sorer.column_type(col);
+            /* Sorer::col_type type = sorer.column_type(col); */
             std::string val = sorer.get(col, row);
-            print_val(val, type);
+            std::cout <<val <<std::endl;
+            /* print_val(val, type); */
             break;
         }
         case operation::IS_MISSING:{
