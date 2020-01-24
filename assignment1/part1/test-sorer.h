@@ -5,6 +5,8 @@
 #ifndef GITCS4500_TEST_SORER_H
 #define GITCS4500_TEST_SORER_H
 
+#include "sorer.h"
+
 using namespace std;
 
 void FAIL() { exit(1); }
@@ -15,9 +17,11 @@ void t_true(bool p) { if (!p) FAIL(); }
 
 void t_false(bool p) { if (p) FAIL(); }
 
+Sorer sorer("SORfile", 0, 100);
+
 //test insert
 void test1() {
-
+    sorer.
 
 }
 
