@@ -101,11 +101,8 @@ public:
 
     // Add the elements of a list (or any iterable), to the end of the current list
     void extend(int i, Array* arr1){
-        this->_ensure_size(this->size()+arr1->size());
+//        this->_ensure_size(this->size()+arr1->size());
 
-        if(this->size()<= i){
-            for
-        }
     }
 
     // Returns the index of the first element with the specified value

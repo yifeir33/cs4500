@@ -14,10 +14,10 @@ clean:
 	rm *.o
 
 test:
-	$ ./sorer -f "SORfile" -from 0 -len 100 -print_col_type 0
-	$ ./sorer -f "SORfile" -from 0 -len 100 -print_col_type 2
-	$ ./sorer -f "SORfile" -from 0 -len 100 -is_missing_idx 2 0
-	$ ./sorer -f "SORfile" -from 0 -len 100 -is_missing_idx 2 1
-	$ ./sorer -f "SORfile" -from 0 -len 100 -is_missing_idx 2 2
-	$ ./sorer -f "SORfile" -from 0 -len 100 -print_col_idx 2 0
-	$ ./sorer -f "SORfile" -from 5 -len 100 -print_col_idx 1 0
+	./sorer -f "SORfile" -from 0 -len 100 -print_col_type 0
+	./sorer -f "SORfile" -from 0 -len 100 -print_col_type 2
+	./sorer -f "SORfile" -from 0 -len 100 -is_missing_idx 2 0
+	./sorer -f "SORfile" -from 0 -len 100 -is_missing_idx 2 1
+	./sorer -f "SORfile" -from 0 -len 100 -is_missing_idx 2 2
+	./sorer -f "SORfile" -from 0 -len 100 -print_col_idx 2 0
+	./sorer -f "SORfile" -from 5 -len 100 -print_col_idx 1 0
