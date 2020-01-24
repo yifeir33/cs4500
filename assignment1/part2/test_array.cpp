@@ -2,10 +2,9 @@
 // Created by 王镱霏 on 1/23/20.
 //
 
-#ifndef HW3_TEST_ARRAY_H
-#define HW3_TEST_ARRAY_H
+#include <iostream>
 
-#include <array.h>
+#include "array.h"
 
 using namespace std;
 
@@ -29,7 +28,7 @@ void test1() {
     bool exception_caught = false;
     try {
         arr->insert(100, "ok11");
-    } catch (Exception& e){
+    } catch (exception& e){
         exception_caught = true;
     }
     t_true(exception_caught);
@@ -44,7 +43,7 @@ void test2(){
     arr->append("ok1");
     t_true(arr->size() == 2);
     arr->clear();
-    true(arr->size() == 0);
+    t_true(arr->size() == 0);
     OK("test2");
 }
 
@@ -85,9 +84,9 @@ void test5(){
     arr->insert(3,"ok4");
     t_true(arr->size()== 5);
     t_true(arr->get(4) =="ok3");
-    arr->remove("ok1");
-    t_true(arr->size(4));
-    t_true(arr->get(1) == "ok2");
+    arr->remove(0);
+    t_true(arr->size() == 4);
+    t_true(arr->get(0) == "ok2");
     OK("test5");
 
 }
@@ -117,7 +116,7 @@ void test7(){
     arr->append("ok2");
     arr->append("ok3");
     arr->append("ok3");
-    t_true(arr->index("ok3") ==2);
+    t_true(arr->index("ok3") == 2);
     OK("test7");
 }
 
@@ -152,7 +151,7 @@ void test10(){
     arr->append("ok2");
     arr->append("ok3");
     t_true(arr->index("ok3") ==2);
-    arr.set(1,"ok3");
+    arr->set(1,"ok3");
     t_true(arr->index("ok3") ==1);
 }
 
@@ -168,7 +167,16 @@ void test11(){
     t_true(arr->equals(arr1));
 }
 
-
-
-
-#endif //HW3_TEST_ARRAY_H
+int main(int argc, char** argv){
+    test1();
+    test2();
+    test3();
+    test4();
+    test5();
+    test6();
+    test7();
+    test8();
+    test9();
+    test10();
+    test11();
+}
