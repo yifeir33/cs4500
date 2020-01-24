@@ -1,16 +1,17 @@
+COMPILER = g++
+CFLAGS = -Wall -std=c++11
 
 docker: main.o sorer.o
-	g++ -Wall -std=c++11 -g -o sorer main.o sorer.o
+	$(COMPILER) $(CFLAGS) -o sorer main.o sorer.o
 
 main.o: main.cpp sorer.h
-	g++ -Wall -std=c++11 -g -c main.cpp
+	$(COMPILER) $(CFLAGS) -c main.cpp
 
 sorer.o: sorer.cpp sorer.h
-	g++ -Wall -std=c++11 -g -c sorer.cpp
+	$(COMPILER) $(CFLAGS) -c sorer.cpp
 
 clean:
-	rm main.o
-	rm sorer.o
+	rm *.o
 
 test:
 	$ ./sorer -f "SORfile" -from 0 -len 100 -print_col_type 0
