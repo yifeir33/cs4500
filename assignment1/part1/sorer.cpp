@@ -44,7 +44,7 @@ Sorer::~Sorer(){
 }
 
 std::string Sorer::get(size_t col, size_t row){
-    if(col > _col_cnt || row > _row_index.size()){
+    if(col >= _col_cnt || row >= _row_index.size()){
         return "";
     }
     // go to row
