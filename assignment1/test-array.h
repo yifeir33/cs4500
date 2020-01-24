@@ -104,7 +104,7 @@ void test6(){
     arr1->append("ok2");
     arr1->append("ok3");
     arr1->append("ok3");
-    arr->extend(arr1);
+    arr->extend(4, arr1);
     t_true(arr->size() ==8 );
     OK("test6");
 
@@ -154,6 +154,18 @@ void test10(){
     t_true(arr->index("ok3") ==2);
     arr.set(1,"ok3");
     t_true(arr->index("ok3") ==1);
+}
+
+void test11(){
+    Array* arr = new Array(5);
+    arr->append("ok1");
+    arr->append("ok2");
+    arr->append("ok3");
+    Array* arr1 = new Array(5);
+    arr1->append("ok1");
+    arr1->append("ok2");
+    arr1->append("ok3");
+    t_true(arr->equals(arr1));
 }
 
 
