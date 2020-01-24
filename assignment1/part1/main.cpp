@@ -125,13 +125,17 @@ int main(int argc, char** argv){
         }
         case operation::GET_VALUE:{
             /* Sorer::ColType type = sorer.column_type(col); */
-            std::string val = sorer.get(col, row);
-            std::cout <<val <<std::endl;
+            std::cout <<sorer.get(col, row) <<std::endl;
             /* print_val(val, type); */
             break;
         }
         case operation::IS_MISSING:{
-            std::cout <<sorer.exists(col, row) <<std::endl;
+            bool exists = false;
+            if((exists = sorer.exists(col, row))){
+                std::cout <<sorer.get(col, row) <<std::endl;
+            } else {
+                std::cout <<exists <<std::endl;
+            }
             break;
         }
         default:

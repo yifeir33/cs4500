@@ -311,5 +311,7 @@ void Sorer::_init_row_indices(){
             _row_index.push_back(i + 1);
         }
     }
+
+    _row_index.shrink_to_fit();
 }
 
