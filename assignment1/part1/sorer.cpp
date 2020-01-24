@@ -217,7 +217,7 @@ void Sorer::_init_row_indices(){
     _row_index.push_back(_start);
 
     for(size_t i = _start; i < _end; ++i){
-        if(_mfile[i] == '\n' && i + 1 < _fsize){
+        if(_mfile[i] == '\n' && i + 1 < _end){
             _row_index.push_back(i + 1);
         }
     }
