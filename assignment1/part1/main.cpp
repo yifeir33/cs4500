@@ -118,7 +118,7 @@ int main(int argc, char** argv){
 
     std::cout <<"From: " <<from <<",  To: " <<from+len <<std::endl;  
     Sorer sorer(filename, from, from + len);
-    std::cout <<"Sorer Constructed!";
+    std::cout <<"Sorer Constructed!" <<std::endl;
 
     switch(o){
         case operation::COL_TYPE:{
