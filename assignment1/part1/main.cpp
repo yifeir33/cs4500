@@ -99,10 +99,8 @@ int main(int argc, char** argv){
             }
         } else if (strcmp(argv[i], "-is_missing_idx") == 0){
             o = operation::IS_MISSING;
-            i++;
             if(i + 1 < argc) {
                 col = atoi(argv[i + 1]);
-                i++;
                 if(i + 2 <argc){
                     row = atoi(argv[i + 2]);
                 } else{
