@@ -22,7 +22,7 @@ public:
     virtual void clear();
 
     // Returns the number of elements with the specified value
-    virtual void count(Object* val);
+    virtual int count(Object* val);
 
     // gets the index element
     virtual Object* get(int index);
@@ -30,18 +30,18 @@ public:
     virtual int size();
 
     // Adds an element at the specified position
-    virtual void insert(int index, char *input);
+    virtual void insert(int index, Object* input);
 
     // Removes the first item with the specified value
-    virtual Object* remove(int index);
+    virtual Object* remove(Object* val);
 
     // Add the elements of a array, to the end of the current list
-    virtual void extend(int i, Array* arr1);
+    virtual void extend(Array* arr1);
 
     // Returns the index of the first element with the specified value
     virtual int index(Object* input);
     
-        // 	Removes the element at the specified position
+    // 	Removes the element at the specified position
     virtual Object* pop(int index);
 
     // Reverses the order of the list
