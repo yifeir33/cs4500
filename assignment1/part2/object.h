@@ -6,7 +6,7 @@
 /**
  * StrList : This class a base object.
  *
- * Auther: resnik.n@husky.neu.edu
+ * Auther: resnik.n@husky.neu.edu & wang.yifei3@husky.neu.edu
  */
 class Object {
 public:

@@ -1,5 +1,5 @@
 //
-// Created by 王镱霏 on 1/23/20.
+// Auther: resnik.n@husky.neu.edu & wang.yifei3@husky.neu.edu
 //
 
 #include <iostream>
@@ -19,155 +19,202 @@ void t_false(bool p) { if (p) FAIL(); }
 
 //test insert
 void test1() {
-
+    String ok1("ok1");
+    String ok2("ok2");
+    String ok3("ok3");
+    String ok3_2("ok3");
     Array* arr = new Array(3);
     t_true(arr->size() == 0);
-    arr->insert(0, &String("ok1"));
+    arr->insert(0, &ok1);
     t_true(arr->size() == 1);
-    arr->insert(1, &String("ok2"));
+    arr->insert(1, &ok2);
     t_true(arr->size() == 2);
-    arr->insert(0, &String("ok3"));
-    t_true(arr->get(0)->equals(&String("ok3")));
+    arr->insert(0, &ok3);
+    t_true(arr->get(0)->equals(&ok3_2));
     bool exception_caught = false;
+    String ok11("ok11");
     try {
-        arr->insert(100, &String("ok11"));
+        arr->insert(100, &ok11);
     } catch (exception& e){
         exception_caught = true;
     }
     t_true(exception_caught);
+    delete arr;
     OK("test1");
 }
 
 //test append & clear
 void test2(){
+    String ok1("ok1");
+    String ok2("ok2");
     Array* arr = new Array(10);
-    arr->append(&String("ok1"));
+    arr->append(&ok1);
     t_true(arr->size() == 1);
-    arr->append(&String("ok1"));
+    arr->append(&ok2);
     t_true(arr->size() == 2);
     arr->clear();
     t_true(arr->size() == 0);
+    delete arr;
     OK("test2");
 }
 
 //test count
 void test3(){
+    String ok1("ok1");
     Array* arr = new Array(10);
-    arr->append(&String("ok1"));
+    arr->append(&ok1);
     t_true(arr->size() == 1);
-    arr->append(&String("ok1"));
+    arr->append(&ok1);
     t_true(arr->size() == 2);
-    arr->append(&String("ok1"));
+    arr->append(&ok1);
     t_true(arr->size() == 3);
-    arr->append(&String("ok1"));
+    arr->append(&ok1);
     t_true(arr->size() == 4);
-    t_true(arr->count(&String("ok1") == 4);
+    t_true(arr->count(&ok1) == 4);
+    delete arr;
     OK("test3");
 }
 
 //test get
 void test4(){
+    String ok1("ok1");
+    String ok2("ok2");
+    String ok3("ok3");
     Array* arr = new Array(10);
-    arr->append(&String("ok1"));
-    arr->append(&String("ok2"));
-    arr->append(&String("ok3"));
-    arr->append(&String("ok3"));
-    t_true(arr->get(2)->equals(&String("ok3")));
+    arr->append(&ok1);
+    arr->append(&ok2);
+    arr->append(&ok3);
+    arr->append(&ok3);
+    t_true(arr->get(2)->equals(&ok3));
+    delete arr;
     OK("test4");
 
 }
 
 // test insert & remove
 void test5(){
+    String ok1("ok1");
+    String ok2("ok2");
+    String ok3("ok3");
+    String ok4("ok4");
     Array* arr = new Array(10);
-    arr->append(&String("ok1"));
-    arr->append(&String("ok2"));
-    arr->append(&String("ok3"));
-    arr->append(&String("ok3"));
-    arr->insert(3,&String("ok4"));
+    arr->append(&ok1);
+    arr->append(&ok2);
+    arr->append(&ok3);
+    arr->append(&ok3);
+    arr->insert(3, &ok4);
     t_true(arr->size()== 5);
-    t_true(arr->get(4)->equals(&String("ok3")));
+    t_true(arr->get(4)->equals(&ok3));
     arr->remove(0);
     t_true(arr->size() == 4);
-    t_true(arr->get(0)->equals(&String("ok2")));
+    t_true(arr->get(0)->equals(&ok2));
+    delete arr;
     OK("test5");
 
 }
 
 // test extend
 void test6(){
+    String ok1("ok1");
+    String ok2("ok2");
+    String ok3("ok3");
     Array* arr = new Array(10);
-    arr->append(&String("ok1"));
-    arr->append(&String("ok2"));
-    arr->append(&String("ok3"));
-    arr->append(&String("ok3"));
+    arr->append(&ok1);
+    arr->append(&ok2);
+    arr->append(&ok3);
+    arr->append(&ok3);
     Array* arr1 = new Array(5);
-    arr1->append(&String("ok1"));
-    arr1->append(&String("ok2"));
-    arr1->append(&String("ok3"));
-    arr1->append(&String("ok3"));
-    arr->extend(4, arr1);
+    arr1->append(&ok1);
+    arr1->append(&ok2);
+    arr1->append(&ok3);
+    arr1->append(&ok3);
+    arr->extend(arr1);
     t_true(arr->size() == 8);
+    delete arr;
+    delete arr1;
     OK("test6");
 
 }
 
 //test index
 void test7(){
+    String ok1("ok1");
+    String ok2("ok2");
+    String ok3("ok3");
     Array* arr = new Array(10);
-    arr->append(&String("ok1"));
-    arr->append(&String("ok2"));
-    arr->append(&String("ok3"));
-    arr->append(&String("ok3"));
-    t_true(arr->index("ok3") == 2);
+    arr->append(&ok1);
+    arr->append(&ok2);
+    arr->append(&ok3);
+    arr->append(&ok3);
+    t_true(arr->index(&ok3) == 2);
+    delete arr;
     OK("test7");
 }
 
 //test pop
 void test8(){
+    String ok1("ok1");
+    String ok2("ok2");
+    String ok3("ok3");
     Array* arr = new Array(5);
-    arr->append(&String("ok1"));
-    arr->append(&String("ok2"));
-    arr->append(&String("ok3"));
-    arr->append(&String("ok3"));
-    t_true(arr->pop(1).equals(&String("ok2")));
+    arr->append(&ok1);
+    arr->append(&ok2);
+    arr->append(&ok3);
+    arr->append(&ok3);
+    t_true(arr->pop(1)->equals(&ok2));
     t_true(arr->size() == 3);
+    delete arr;
     OK("test8");
 }
 
 //test reverse
 void test9(){
+    String ok1("ok1");
+    String ok2("ok2");
+    String ok3("ok3");
     Array* arr = new Array(5);
-    arr->append(&String("ok1"));
-    arr->append(&String("ok2"));
-    arr->append(&String("ok3"));
-    t_true(arr->index(&String("ok1")) == 0);
+    arr->append(&ok1);
+    arr->append(&ok2);
+    arr->append(&ok3);
+    t_true(arr->index(&ok1) == 0);
     arr->reverse();
     t_true(arr->size() == 3);
-    t_true(arr->index(&String("ok1")) == 2);
+    t_true(arr->index(&ok1) == 2);
+    delete arr;
     OK("test9");
 }
 
 void test10(){
+    String ok1("ok1");
+    String ok2("ok2");
+    String ok3("ok3");
     Array* arr = new Array(5);
-    arr->append(&String("ok1"));
-    arr->append(&String("ok2"));
-    arr->append(&String("ok3"));
-    t_true(arr->index(&String("ok3")) == 2);
-    arr->set(1,"ok3");
-    t_true(arr->index(&String("ok3")) == 1);
+    arr->append(&ok1);
+    arr->append(&ok2);
+    arr->append(&ok3);
+    t_true(arr->index(&ok3) == 2);
+    arr->set(1,&ok3);
+    t_true(arr->index(&ok3) == 1);
+    delete arr;
+    OK("test10");
 }
 
 void test11(){
+    String ok1("ok1");
+    String ok2("ok2");
+    String ok3("ok3");
     Array* arr = new Array(5);
-    arr->append(&String("ok1"));
-    arr->append(&String("ok2"));
-    arr->append(&String("ok3"));
+    arr->append(&ok1);
+    arr->append(&ok2);
+    arr->append(&ok3);
     Array* arr1 = new Array(5);
-    arr1->append(&String("ok1"));
-    arr1->append(&String("ok2"));
-    arr1->append(&String("ok3"));
+    arr1->append(&ok1);
+    arr1->append(&ok2);
+    arr1->append(&ok3);
     t_true(arr->equals(arr1));
+    delete arr;
+    delete arr1;
+    Ok("test11");
 }
 
 int main(int argc, char** argv){
