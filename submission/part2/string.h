@@ -6,7 +6,7 @@
 /**
  * String : This class represents a list of characters.
  *
- * Auther: resnik.n@husky.neu.edu
+ * Auther: resnik.n@husky.neu.edu & wang.yifei3@husky.neu.edu
  */
 class String : public Object {
 public:
@@ -15,7 +15,7 @@ public:
      *
      * A copy of the char array is stored.
      */
-    String(const char *c) : _str(nullptr), _len(0) {
+  String(const char *c) : _str(nullptr), _len(0) {
         if(c){
             while(c[_len] != '\0') ++_len; // find length assuming null termination
             this->_str = new char[this->_len + 1];
@@ -24,7 +24,7 @@ public:
             }
             this->_str[this->_len] = '\0';
         }
-    };
+  };
 
     /** Copy Constructor - creates a new string object representing the same
      * char array as s
