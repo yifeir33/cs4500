@@ -1,12 +1,11 @@
-#ifndef STRING_H
-#define STRING_H
+#pragma once
 
 #include "object.h"
 
 /**
  * String : This class represents a list of characters.
  *
- * Auther: resnik.n@husky.neu.edu & wang.yifei3@husky.neu.edu
+ * Author: resnik.n@husky.neu.edu & wang.yifei3@husky.neu.edu
  */
 class String : public Object {
 public:
@@ -131,5 +130,3 @@ public:
     size_t _len;
 
 };
-
-#endif
