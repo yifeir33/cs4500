@@ -26,9 +26,7 @@ void test1(HashMap *hashmap) {
 
     std::cout<<hashmap->size()<<std::endl;
     t_true(hashmap->size() == 0);
-
-    t_true(hashmap->isEmpty());
-
+    
     OK("test1");
 }
 
