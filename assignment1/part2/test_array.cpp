@@ -93,7 +93,7 @@ void test5() {
   arr->insert(3, &ok4);
   assert(arr->size() == 5);
   assert(arr->get(4)->equals(&ok3));
-  arr->remove(0);
+  arr->remove(&ok1);
   assert(arr->size() == 4);
   assert(arr->get(0)->equals(&ok2));
   delete arr;
