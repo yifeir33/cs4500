@@ -28,14 +28,6 @@ void test1() {
   assert(arr->size() == 2);
   arr->insert(0, &ok3);
   assert(arr->get(0)->equals(&ok3_2));
-  bool exception_caught = false;
-  String ok11("ok11");
-  try {
-    arr->insert(100, &ok11);
-  } catch (exception &e) {
-    exception_caught = true;
-  }
-  assert(exception_caught);
   delete arr;
   OK("test1");
 }
