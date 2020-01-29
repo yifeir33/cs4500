@@ -115,7 +115,7 @@ void test6() {
   arr1->append(&ok2);
   arr1->append(&ok3);
   arr1->append(&ok3);
-  arr->extend(&arr1);
+  arr->extend(arr1);
   assert(arr->size() == 8);
   delete arr;
   delete arr1;
