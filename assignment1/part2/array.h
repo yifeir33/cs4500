@@ -36,7 +36,7 @@ public:
     virtual Object* remove(Object* val);
 
     // Add the elements of a array, to the end of the current list
-    virtual void extend(Array* arr1);
+    virtual void extend(Array** arr1);
 
     // Returns the index of the first element with the specified value
     virtual int index(Object* input);
