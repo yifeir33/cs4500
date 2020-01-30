@@ -2,7 +2,7 @@
 // Created by 王镱霏 on 1/28/20.
 //
 
-#include "HashMap.h"
+#include "map.h"
 #include "object.h"
 #include "string.h"
 
@@ -15,57 +15,57 @@ void t_true(bool p) { if (!p) FAIL(); }
 void t_false(bool p) { if (p) FAIL(); }
 
 //test
-void test1(HashMap *hashmap) {
+void test1(Map *map) {
     String* str = new String("hello");
     String* str2 = new String("hello");
     String* str1 = new String("world");
-    hashmap->put(str, str1);
+    map->put(str, str1);
 
-    t_true(hashmap->size() == 1);
+    t_true(map->size() == 1);
 
-    hashmap->remove(str2);
+    map->remove(str2);
 
-    std::cout<<hashmap->size()<<std::endl;
-    t_true(hashmap->size() == 0);
+    std::cout<<map->size()<<std::endl;
+    t_true(map->size() == 0);
 
     OK("test1");
 }
 
 
 //test storage
-void test2(HashMap *hashmap) {
+void test2(Map *map) {
     String* str = new String("hello");
     String* str1 = new String("world");
 //    std::cout<<"here"<<std::endl;
     for(int i =0; i< 100; i++){
 //        std::cout<<"current ith round:"<<i<<std::endl;
-        hashmap->put(str, str1);
+        map->put(str, str1);
     }
 //    std::cout<<"here1"<<std::endl;
-    t_true(hashmap->size() == 100);
+    t_true(map->size() == 100);
 //    std::cout<<"here"<<std::endl;
-    hashmap->remove(str);
-    t_true(hashmap->size() == 99);
+    map->remove(str);
+    t_true(map->size() == 99);
 //    std::cout<<"here"<<std::endl;
     OK("test2");
 }
-void test3(HashMap *hashmap){
+void test3(Map *map){
     String *str = new String("hello");
     String *str1 = new String("world");
     String *str2 = new String("hello1");
     String *str3 = new String("world1");
 
-    hashmap->put(str, str1);
-    hashmap->put(str2, str3);
+    map->put(str, str1);
+    map->put(str2, str3);
 
-    t_true(hashmap->get(str2) == str3);
-    t_true(hashmap->get(str) == str1);
+    t_true(map->get(str2) == str3);
+    t_true(map->get(str) == str1);
     OK("test3");
 }
 int main() {
-    HashMap HashMap;
+    Map map;
 
-    test1(&HashMap);
-    test2(&HashMap);
-    test3(&HashMap);
+    test1(&map);
+    test2(&map);
+    test3(&map);
 }
