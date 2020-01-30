@@ -344,7 +344,7 @@ public:
       if(arr_ptr){
           if(length_ == arr_ptr->length_){
               for(size_t i = 0; i < length_; ++i){
-                  if(data_[i] != arr_ptr->get(i)){
+                  if(abs(data_[i] - arr_ptr->get(i)) > 0.001){
                       return false;
                   }
               }
@@ -378,7 +378,7 @@ public:
     /** Returns the index of the given Object, -1 if Object is not found */
     size_t index_of(float to_find) {
         for(size_t i = 0; i < length_; ++i){
-            if(data_[i] == to_find) return i;
+            if(abs(data_[i] - to_find) < 0.001) return i;
         }
         return -1;
     }
