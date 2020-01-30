@@ -48,9 +48,6 @@ public:
     // Reverses the order of the list
     virtual void reverse();
 
-    // Sorts the list
-    virtual void sort();
-
     // set the position
     virtual Object* set(int index, Object* input);
 
@@ -91,7 +88,7 @@ public:
     virtual String* remove(String* val);
 
     // Add the elements of a array, to the end of the current list
-    virtual void extend(Array** arr1);
+    virtual void extend(StringArray** arr1);
 
     // Returns the index of the first element with the specified value
     virtual int index(String* input);
@@ -102,13 +99,10 @@ public:
     // Reverses the order of the list
     virtual void reverse();
 
-    // Sorts the list
-    virtual void sort();
-
     // set the position
     virtual String* set(int index, String* input);
 
-    virtual bool equals(String* o);
+    virtual bool equals(Object* o);
 
     virtual size_t hash();
 
@@ -156,13 +150,10 @@ public:
     // Reverses the order of the list
     virtual void reverse();
 
-    // Sorts the list
-    virtual void sort();
-
     // set the position
     virtual int set(int index, int input);
 
-    virtual bool equals(int o);
+    virtual bool equals(Object* o);
 
     virtual size_t hash();
 
@@ -185,24 +176,24 @@ public:
     virtual void clear();
 
     // Returns the number of elements with the specified value
-    virtual float count(float val);
+    virtual int count(float val);
 
     // gets the index element
-    virtual float get(float index);
+    virtual int get(float index);
 
-    virtual float size();
+    virtual int size();
 
     // Adds an element at the specified position
-    virtual void insert(float index, float input);
+    virtual void insert(int index, float input);
 
     // Removes the first item with the specified value
     virtual float remove(float val);
 
     // Add the elements of a array, to the end of the current list
-    virtual void extend(IntArray** arr1);
+    virtual void extend(FloatArray** arr1);
 
     // Returns the index of the first element with the specified value
-    virtual float index(float input);
+    virtual int index(float input);
     
     // 	Removes the element at the specified position
     virtual float pop(float index);
@@ -210,13 +201,10 @@ public:
     // Reverses the order of the list
     virtual void reverse();
 
-    // Sorts the list
-    virtual void sort();
-
     // set the position
-    virtual float set(float index, float input);
+    virtual float set(int index, float input);
 
-    virtual bool equals(float o);
+    virtual bool equals(Object *o);
 
     virtual size_t hash();
 
@@ -228,7 +216,7 @@ public:
 
     BoolArray();
 
-    BoolArray(bool size);
+    BoolArray(size_t size);
 
     virtual ~BoolArray();
 
@@ -239,38 +227,35 @@ public:
     virtual void clear();
 
     // Returns the number of elements with the specified value
-    virtual bool count(bool val);
+    virtual size_t count(bool val);
 
     // gets the index element
-    virtual bool get(bool index);
+    virtual size_t get(bool index);
 
-    virtual bool size();
+    virtual size_t size();
 
     // Adds an element at the specified position
-    virtual void insert(bool index, bool input);
+    virtual void insert(int index, bool input);
 
     // Removes the first item with the specified value
     virtual bool remove(bool val);
 
     // Add the elements of a array, to the end of the current list
-    virtual void extend(IntArray** arr1);
+    virtual void extend(BoolArray** arr1);
 
     // Returns the index of the first element with the specified value
-    virtual bool index(bool input);
+    virtual int index(bool input);
     
     // 	Removes the element at the specified position
-    virtual bool pop(bool index);
+    virtual bool pop(int index);
 
     // Reverses the order of the list
     virtual void reverse();
 
-    // Sorts the list
-    virtual void sort();
-
     // set the position
-    virtual bool set(bool index, bool input);
+    virtual bool set(int index, bool input);
 
-    virtual bool equals(bool o);
+    virtual bool equals(Object *o);
 
     virtual size_t hash();
 
