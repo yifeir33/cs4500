@@ -1,8 +1,10 @@
 #pragma once
 #include <iostream>
-#include <string.h>
+#include <cstring>
 
 #include "object.h"
+#include "string.h"
+#include "assert.h"
 
 /**
  * An Array class to which elements can be added to and removed from.
@@ -27,17 +29,17 @@ public:
   /** Creates an Array of desired size */
   Array(const size_t array_size) : capacity_(array_size), length_(0) {
       data_ = new Object*[capacity_];
-      memset(data_, nullptr, sizeof(Object*) * capacity_);
+      memset(data_, 0, sizeof(Object*) * capacity_);
   }
 
   /** Copies the contents of an already existing Array */
-  Array(Array* copy_array) {
-      this->ensure_size_(copy_array->length());
+  Array(Array* const copy_array) : capacity_(copy_array->capacity_), length_(copy_array->length_), data_(nullptr) {
+      data_= new Object*[capacity_];
       memcpy(data_, copy_array->data_, sizeof(Object*) * copy_array->length());
   }
 
   /** Clears Array from memory */
-  ~Array() {
+  virtual ~Array() {
       delete[] data_;
   }
 
@@ -55,38 +57,38 @@ public:
 
   /** Inherited from Object, checks equality between an Array and an Object */
   bool equals(Object* obj) {
-      // TODO
-      return true;
+      Array *arr_ptr = reinterpret_cast<Array *>(obj);
+      if(arr_ptr){
+          if(length_ == arr_ptr->length_){
+              for(int i = 0; i < length_; ++i){
+                  if(!data_[i]->equals(arr_ptr->get(i))){
+                      return false;
+                  }
+              }
+              return true;
+          }
+      }
+      return false;
   }
-
-  /** Inherited from Object, converts an Array to a string */
-  char* to_string() {
-      // TODO
-      return "";
-  }
-
-  /** Inhertied from Object, prints a string representation of an Array */
-  void print() {
-      std::cout <<this->to_string() <<std::endl;
-  }
-
 
   /** ARRAY METHODS **/
 
   /** Removes all elements from the Array */
   void clear() {
-      memset(data_, nullptr, sizeof(Object*) * capacity_);
+      memset(data_, 0, sizeof(Object*) * capacity_);
       length_ = 0;
   }
 
   /** Adds an Array to existing contents */
-  void concat(Array* toAdd) {}
+  void concat(Array* toAdd) {
+      ensure_size_(length_ + toAdd->length());
+      memcpy(data_ + length_, toAdd->data_, sizeof(Object*) * toAdd->length());
+      length_ += toAdd->length_;
+  }
 
   /** Gets an Object at the given index */
   Object* get(size_t index) {
-      if(index < 0 || index >= length_){
-          // TODO
-      }
+      assert(index >= 0 && index < length_);
       return data_[index];
   }
 
@@ -120,17 +122,16 @@ public:
 
   /** Removes an Object at the given index, returns removed Object */
   Object* remove(size_t index) {
+      assert(index >= 0 && index < length_);
       Object *output = data_[index];
-      memmove(data_[index], data_[index + 1], sizeof(Object*) * (length_ - 1)); // TODO: check this
+      memmove(data_ + index, data_ + index + 1, sizeof(Object*) * (length_ - index));
       length_--;
       return output;
   }
 
   /** Replaces an Object at the given index with the given Object, returns the replaced Object */
   Object* replace(size_t index, Object* new_value) {
-      if(index < 0 || index >= length_){
-          // TODO
-      }
+      assert(index >= 0 && index < length_);
       Object *old = data_[index];
       data_[index] = new_value;
       return old;
@@ -161,7 +162,6 @@ class BoolArray : public Object {
 public:
 
   /** VARIABLES */
-  
   size_t capacity_; // the capacity_ of the Array
   size_t length_; // length of the Array
   bool* data_; // contents of the Array
@@ -169,21 +169,15 @@ public:
   /** CONSTRUCTORS & DESTRUCTORS **/
 
   /** Creates an Array of desired size */
-  /* Array(size_t array_size) : capacity_(array_size), length_(0) { */
-  /*     data_ = new bool[capacity_]; */
-  /*     memset(data_, nullptr, sizeof(Object*) * capacity_); */
-  /* } */
-
-  /** Creates an Array of desired size */
-  BoolArray(const size_t array_size) : capacity_(array_size), length_(0) {
+  BoolArray(const size_t size) : capacity_(size), length_(0) {
       data_ = new bool[capacity_];
       memset(data_, false, sizeof(bool) * capacity_);
   }
 
   /** Copies the contents of an already existing Array */
-  BoolArray(BoolArray* copy_array) {
-      this->ensure_size_(copy_array->length());
-      memcpy(data_, copy_array->data_, sizeof(bool) * copy_array->length());
+  BoolArray(BoolArray* const arr) : capacity_(arr->capacity_), length_(arr->length_), data_(nullptr) {
+      data_ = new bool[capacity_];
+      memcpy(data_, arr->data_, sizeof(bool) * arr->length());
   }
 
   /** Clears Array from memory */
@@ -205,21 +199,19 @@ public:
 
   /** Inherited from Object, checks equality between an Array and an Object */
   bool equals(Object* obj) {
-      // TODO
-      return true;
+      BoolArray *arr_ptr = reinterpret_cast<BoolArray *>(obj);
+      if(arr_ptr){
+          if(length_ == arr_ptr->length_){
+              for(int i = 0; i < length_; ++i){
+                  if(data_[i] != arr_ptr->get(i)){
+                      return false;
+                  }
+              }
+              return true;
+          }
+      }
+      return false;
   }
-
-  /** Inherited from Object, converts an Array to a string */
-  char* to_string() {
-      // TODO
-      return "";
-  }
-
-  /** Inhertied from Object, prints a string representation of an Array */
-  void print() {
-      std::cout <<this->to_string() <<std::endl;
-  }
-
 
   /** ARRAY METHODS **/
 
@@ -230,13 +222,15 @@ public:
   }
 
   /** Adds an Array to existing contents */
-  void concat(Array* toAdd) {}
+  void concat(BoolArray* toAdd) {
+      ensure_size_(length_ + toAdd->length());
+      memcpy(data_ + length_, toAdd->data_, sizeof(bool) * toAdd->length());
+      length_ += toAdd->length_;
+  }
 
   /** Gets an Object at the given index */
   bool get(size_t index) {
-      if(index < 0 || index >= length_){
-          // TODO
-      }
+      assert(index >= 0 && index < this->length_);
       return data_[index];
   }
 
@@ -245,7 +239,7 @@ public:
       for(size_t i = 0; i < length_; ++i){
           if(data_[i] == to_find) return i;
       }
-      return -1;
+      return -1; // TODO
   }
 
   /** Returns the current length of the contents in an Array */
@@ -269,17 +263,16 @@ public:
 
   /** Removes an Object at the given index, returns removed Object */
   bool remove(size_t index) {
+      assert(index >= 0 && index < length_);
       bool output = data_[index];
-      memmove(data_[index], data_[index + 1], sizeof(bool) * (length_ - 1)); // TODO: check this
+      memmove(data_ + index, data_ + index + 1, sizeof(bool) * (length_ - index));
       length_--;
       return output;
   }
 
   /** Replaces an Object at the given index with the given Object, returns the replaced Object */
   bool replace(size_t index, bool new_value) {
-      if(index < 0 || index >= length_){
-          // TODO
-      }
+      assert(index >= 0 && index < this->length_);
       bool old = data_[index];
       data_[index] = new_value;
       return old;
@@ -310,18 +303,11 @@ class FloatArray : public Object {
 public:
 
   /** VARIABLES */
-  
   size_t capacity_; // the capacity_ of the Array
   size_t length_; // length of the Array
   float* data_; // contents of the Array
 
     /** CONSTRUCTORS & DESTRUCTORS **/
-
-    /** Creates an Array of desired size */
-    /* Array(size_t array_size) : capacity_(array_size), length_(0) { */
-    /*     data_ = new float[capacity_]; */
-    /*     memset(data_, nullptr, sizeof(Object*) * capacity_); */
-    /* } */
 
     /** Creates an Array of desired size */
     FloatArray(const size_t array_size) : capacity_(array_size), length_(0) {
@@ -330,8 +316,8 @@ public:
     }
 
     /** Copies the contents of an already existing Array */
-    FloatArray(BoolArray* copy_array) {
-        this->ensure_size_(copy_array->length());
+    FloatArray(FloatArray* const copy_array) : capacity_(copy_array->capacity_), length_(copy_array->length_), data_(nullptr) {
+        data_= new float[capacity_];
         memcpy(data_, copy_array->data_, sizeof(float) * copy_array->length());
     }
 
@@ -353,22 +339,20 @@ public:
     }
 
     /** Inherited from Object, checks equality between an Array and an Object */
-    float equals(Object* obj) {
-        // TODO
-        return true;
+    bool equals(Object* obj) {
+      FloatArray *arr_ptr = reinterpret_cast<FloatArray *>(obj);
+      if(arr_ptr){
+          if(length_ == arr_ptr->length_){
+              for(size_t i = 0; i < length_; ++i){
+                  if(data_[i] != arr_ptr->get(i)){
+                      return false;
+                  }
+              }
+              return true;
+          }
+      }
+      return false;
     }
-
-    /** Inherited from Object, converts an Array to a string */
-    char* to_string() {
-        // TODO
-        return "";
-    }
-
-    /** Inhertied from Object, prints a string representation of an Array */
-    void print() {
-        std::cout <<this->to_string() <<std::endl;
-    }
-
 
     /** ARRAY METHODS **/
 
@@ -379,13 +363,15 @@ public:
     }
 
     /** Adds an Array to existing contents */
-    void concat(Array* toAdd) {}
+    void concat(FloatArray* toAdd) {
+      ensure_size_(length_ + toAdd->length());
+      memcpy(data_ + length_, toAdd->data_, sizeof(float) * toAdd->length());
+      length_ += toAdd->length_;
+    }
 
     /** Gets an Object at the given index */
     float get(size_t index) {
-        if(index < 0 || index >= length_){
-            // TODO
-        }
+        assert(index >= 0 && index < length_);
         return data_[index];
     }
 
@@ -418,17 +404,16 @@ public:
 
     /** Removes an Object at the given index, returns removed Object */
     float remove(size_t index) {
+        assert(index >= 0 && index < length_);
         float output = data_[index];
-        memmove(data_[index], data_[index + 1], sizeof(float) * (length_ - 1)); // TODO: check this
+        memmove(data_ + index, data_ + index + 1, sizeof(float) * (length_ - index));
         length_--;
         return output;
     }
 
     /** Replaces an Object at the given index with the given Object, returns the replaced Object */
     float replace(size_t index, float new_value) {
-        if(index < 0 || index >= length_){
-            // TODO
-        }
+        assert(index >= 0 && index < length_);
         float old = data_[index];
         data_[index] = new_value;
         return old;
@@ -459,18 +444,11 @@ class IntArray : public Object {
 public:
 
   /** VARIABLES */
-  
   size_t capacity_; // the capacity_ of the Array
   size_t length_; // length of the Array
   int* data_; // contents of the Array
 
   /** CONSTRUCTORS & DESTRUCTORS **/
-
-  /** Creates an Array of desired size */
-  /* Array(size_t array_size) : capacity_(array_size), length_(0) { */
-  /*     data_ = new [size]int; */
-  /*     memset(data_, nullptr, sizeof(int) * capacity_); */
-  /* } */
 
   /** Creates an Array of desired size */
   IntArray(const size_t array_size) : capacity_(array_size), length_(0) {
@@ -479,8 +457,8 @@ public:
   }
 
   /** Copies the contents of an already existing Array */
-  IntArray(Array* copy_array) {
-      this->ensure_size_(copy_array->length());
+  IntArray(IntArray* const copy_array) : capacity_(copy_array->capacity_), length_(copy_array->length_), data_(nullptr) {
+      data_ = new int[capacity_];
       memcpy(data_, copy_array->data_, sizeof(int) * copy_array->length());
   }
 
@@ -502,20 +480,20 @@ public:
   }
 
   /** Inherited from int, checks equality between an Array and an int */
-  bool equals(int obj) {
-      // TODO
+  bool equals(Object *obj) {
+      IntArray *arr_ptr = reinterpret_cast<IntArray *>(obj);
+      if(arr_ptr){
+          if(length_ == arr_ptr->length_){
+              for(size_t i = 0; i < length_; ++i){
+                  if(data_[i] != arr_ptr->get(i)){
+                      return false;
+                  }
+              }
+              return true;
+          }
+      }
+      return false;
   }
-
-  /** Inherited from int, converts an Array to a string */
-  char* to_string() {
-      // TODO
-  }
-
-  /** Inhertied from int, prints a string representation of an Array */
-  void print() {
-      std::cout <<this->to_string() <<std::endl;
-  }
-
 
   /** ARRAY METHODS **/
 
@@ -526,13 +504,15 @@ public:
   }
 
   /** Adds an Array to existing contents */
-  void concat(Array* toAdd) {}
+  void concat(IntArray* toAdd) {
+      ensure_size_(length_ + toAdd->length());
+      memcpy(data_ + length_, toAdd->data_, sizeof(int) * toAdd->length());
+      length_ += toAdd->length_;
+  }
 
   /** Gets an int at the given index */
   int get(size_t index) {
-      if(index < 0 || index >= length_){
-          // TODO
-      }
+      assert(index >= 0 && index < length_);
       return data_[index];
   }
 
@@ -560,30 +540,29 @@ public:
   /** Adds an int to the end of the Array, returns the new length */
   size_t push(int to_add) {
       this->ensure_size_(length_ + 1);
-      data_[length_ - 1] = to_add;
+      data_[length_] = to_add;
       return ++length_;
   }
 
   /** Removes an int at the given index, returns removed int */
   int remove(size_t index) {
+      assert(index >= 0 && index < length_);
       int output = data_[index];
-      memmove(data_[index], data_[index + 1], sizeof(int) * (length_ - 1)); // TODO: check this
+      memmove(data_ + index, data_ + index + 1, sizeof(int) * (length_ - index));
       length_--;
       return output;
   }
 
   /** Replaces an int at the given index with the given int, returns the replaced int */
   int replace(size_t index, int new_value) {
-      if(index < 0 || index >= length_){
-          // TODO
-      }
+      assert(index >= 0 && index < length_);
       int old = data_[index];
       data_[index] = new_value;
       return old;
   }
 
   virtual void ensure_size_(size_t required){
-    if(required >= this->_capacity){
+    if(required >= this->capacity_){
       // grow
       size_t newCap = capacity_ * 2;
       while(required > newCap){
@@ -603,7 +582,7 @@ public:
 /**
  * An Array class to which elements can be added to and removed from.
  * author: chasebish */
-class StringArray : public String {
+class StringArray : public Object {
 public:
 
   /** VARIABLES */
@@ -615,20 +594,14 @@ public:
   /** CONSTRUCTORS & DESTRUCTORS **/
 
   /** Creates an Array of desired size */
-  /* Array(size_t array_size) : capacity_(array_size), length_(0) { */
-  /*     data_ = new String*[capacity_]; */
-  /*     memset(data_, nullptr, sizeof(String*) * capacity_); */
-  /* } */
-
-  /** Creates an Array of desired size */
-  StringArray(const size_t array_size) : capacity_(array_size), length_(0) {
+  StringArray(const size_t array_size) : capacity_(array_size), length_(0), data_(nullptr) {
       data_ = new String*[capacity_];
-      memset(data_, nullptr, sizeof(String*) * capacity_);
+      memset(data_, 0, sizeof(String*) * capacity_);
   }
 
   /** Copies the contents of an already existing Array */
-  StringArray(Array* copy_array) {
-      this->ensure_size_(copy_array->length());
+  StringArray(StringArray* const copy_array) : capacity_(copy_array->capacity_), length_(copy_array->length_), data_(nullptr) {
+      data_ = new String*[capacity_];
       memcpy(data_, copy_array->data_, sizeof(String*) * copy_array->length());
   }
 
@@ -649,40 +622,40 @@ public:
       return hash;
   }
 
-  /** Inherited from String, checks equality between an Array and an String */
-  bool equals(String* obj) {
-      // TODO
-      return true;
+  /** Inherited from Object, checks equality between an Array and an String */
+  bool equals(Object* obj) {
+      StringArray *arr_ptr = reinterpret_cast<StringArray *>(obj);
+      if(arr_ptr){
+          if(length_ == arr_ptr->length_){
+              for(size_t i = 0; i < length_; ++i){
+                  if(!data_[i]->equals(arr_ptr->get(i))){
+                      return false;
+                  }
+              }
+              return true;
+          }
+      }
+      return false;
   }
-
-  /** Inherited from String, converts an Array to a string */
-  char* to_string() {
-      // TODO
-      return "";
-  }
-
-  /** Inhertied from String, prints a string representation of an Array */
-  void print() {
-      std::cout <<this->to_string() <<std::endl;
-  }
-
 
   /** ARRAY METHODS **/
 
   /** Removes all elements from the Array */
   void clear() {
-      memset(data_, nullptr, sizeof(String*) * capacity_);
+      memset(data_, 0, sizeof(String*) * capacity_);
       length_ = 0;
   }
 
   /** Adds an Array to existing contents */
-  void concat(Array* toAdd) {}
+  void concat(StringArray* toAdd) {
+      ensure_size_(length_ + toAdd->length());
+      memcpy(data_ + length_, toAdd->data_, sizeof(String*) * toAdd->length());
+      length_ += toAdd->length_;
+  }
 
   /** Gets an String at the given index */
   String* get(size_t index) {
-      if(index < 0 || index >= length_){
-          // TODO
-      }
+      assert(index >= 0 && index < length_);
       return data_[index];
   }
 
@@ -716,17 +689,16 @@ public:
 
   /** Removes an String at the given index, returns removed String */
   String* remove(size_t index) {
+      assert(index >= 0 && index < length_);
       String *output = data_[index];
-      memmove(data_[index], data_[index + 1], sizeof(String*) * (length_ - 1)); // TODO: check this
+      memmove(data_ + index, data_ + index + 1, sizeof(String*) * (length_ - index));
       length_--;
       return output;
   }
 
   /** Replaces an String at the given index with the given String, returns the replaced String */
   String* replace(size_t index, String* new_value) {
-      if(index < 0 || index >= length_){
-          // TODO
-      }
+      assert(index >= 0 && index < length_);
       String *old = data_[index];
       data_[index] = new_value;
       return old;
