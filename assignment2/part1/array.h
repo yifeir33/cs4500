@@ -9,7 +9,7 @@
 /**
  * An Array class to which elements can be added to and removed from.
  * author: chasebish */
-class Array : public Object {
+class ObjectArray : public Object {
 public:
 
   /** VARIABLES */
@@ -27,19 +27,19 @@ public:
   /* } */
 
   /** Creates an Array of desired size */
-  Array(const size_t array_size) : capacity_(array_size), length_(0) {
+  ObjectArray(const size_t array_size) : capacity_(array_size), length_(0) {
       data_ = new Object*[capacity_];
       memset(data_, 0, sizeof(Object*) * capacity_);
   }
 
   /** Copies the contents of an already existing Array */
-  Array(Array* const copy_array) : capacity_(copy_array->capacity_), length_(copy_array->length_), data_(nullptr) {
+  ObjectArray(ObjectArray* const copy_array) : capacity_(copy_array->capacity_), length_(copy_array->length_), data_(nullptr) {
       data_= new Object*[capacity_];
       memcpy(data_, copy_array->data_, sizeof(Object*) * copy_array->length());
   }
 
   /** Clears Array from memory */
-  virtual ~Array() {
+  virtual ~ObjectArray() {
       delete[] data_;
   }
 
@@ -57,7 +57,7 @@ public:
 
   /** Inherited from Object, checks equality between an Array and an Object */
   bool equals(Object* obj) {
-      Array *arr_ptr = reinterpret_cast<Array *>(obj);
+      ObjectArray *arr_ptr = reinterpret_cast<ObjectArray *>(obj);
       if(arr_ptr){
           if(length_ == arr_ptr->length_){
               for(int i = 0; i < length_; ++i){
@@ -80,7 +80,7 @@ public:
   }
 
   /** Adds an Array to existing contents */
-  void concat(Array* toAdd) {
+  void concat(ObjectArray* toAdd) {
       ensure_size_(length_ + toAdd->length());
       memcpy(data_ + length_, toAdd->data_, sizeof(Object*) * toAdd->length());
       length_ += toAdd->length_;
