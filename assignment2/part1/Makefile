@@ -1,5 +1,5 @@
 COMPILER=g++
-CFLAGS=-Wall -std=c++11
+CFLAGS=-Wall -std=c++11 -g
 
 OBJECTS = object.h string.h
 
@@ -12,9 +12,9 @@ testQueue: queue.h $(OBJECTS) test-queue.cpp
 	./test-queue
 
 testMap: map.h $(OBJECTS) ./part2/test-map.cpp
-	# cp ./part2/test-map.cpp ./
-	# $(COMPILER) $(CFLAGS) test-map.cpp -o test-map
-	# ./test-map
+	cp ./part2/test-map.cpp ./
+	$(COMPILER) $(CFLAGS) test-map.cpp -o test-map
+	./test-map
 
 .PHONY: clean
 clean:

@@ -14,334 +14,192 @@ using namespace std;
 class HashPair {
 
 public:
+    Object *key_;
+    Object *value_;
+    HashPair *next_;
+
+    HashPair(Object *key, Object *value, HashPair *next) {
+        this->key_ = key;
+        this->value_ = value;
+        this->next_ = next;
+    }
+
     HashPair(Object *key, Object *value) {
         this->key_ = key;
         this->value_ = value;
+        this->next_ = nullptr;
     }
 
-    Object *key_;
-    Object *value_;
     HashPair(){
         this->key_ = nullptr;
         this->value_ = nullptr;
+        this->next_ = nullptr;
     }
 
-    ~HashPair() {
-        delete key_;
-        delete value_;
+    bool compareKey(Object *other){
+        return this->key_->equals(other);
     }
 
+    Object *getValue(){
+        return this->value_;
+    }
+
+    HashPair *getNext(){
+        return next_;
+    }
+
+    void setNext(HashPair *next){
+        this->next_ = next;
+    }
 };
 
 class Map : public Object {
-    int size_;
-    int capacity_;
-    HashPair ***map;
 public:
-    Map() : size_(0), capacity_(10), map() {
-        this->map = new HashPair **[capacity_];
-        initialize();
+    size_t size_;
+    size_t arr_len_;
+    HashPair **map_;
+
+    Map() : size_(0), arr_len_(10), map_(nullptr) {
+        map_ = new HashPair*[arr_len_];
+        for(size_t i = 0; i < arr_len_; ++i){
+            map_[i] = nullptr;
+        }
     }
 
     ~Map() {
         this->clear();
-        delete [] map;
-    }
-
-    void initialize() {
-        this->_ensure_size(this->size());
-        for (int i = 0; i < this->capacity_; ++i) {
-            HashPair** hp =  new HashPair*[this->capacity_];
-            map[i] = hp;
-            for (int j = 0; j < this->capacity_; ++j) {
-                map[i][j] = nullptr;
-            }
-        }
+        delete[] map_;
     }
 
     //Removes all the elements from the list
     void clear(){
-        for(int i =0; i< this->size_+1; i++ ){
-
-//            for(int j =0;j <this->size_+1; j++){
-//                HashPair* hp = this->map[i][j];
-//                delete hp;
-//            }
-            delete [] map[i];
-
+        for(size_t i = 0; i < arr_len_; ++i){
+            HashPair *hp = map_[i];
+            while(hp){
+                HashPair *next = hp->getNext();
+                delete hp;
+                hp = next;
+            }
+            map_[i] = nullptr;
         }
-        size_ =0;
+        size_ = 0;
     }
 
-    int hash_index(Object *key) {
+    size_t hash_index_(Object *key) {
         if (key) {
-            return key->hash() % (capacity_ - 1);
+            return key->hash() % arr_len_;
         }
         return -1;
 
     }
 
     void put(Object *key, Object *value) {
-        if (key == nullptr || value == nullptr) {
+        if (!key|| !value) {
             return;
         }
-        this->_ensure_size(size_ + 1);
-        //check capacity enough
-//        std::cout<<this->capacity_<<std::endl;
-//        std::cout<<this->map[0][0]->key_<<std::endl;
-        HashPair *pair = new HashPair(key, value);
-//        std::cout<<"newpair"<<std::endl;
-        int hash_val = hash_index(key);
-        HashPair **select_data = map[hash_val];
-//        std::cout<<"newpair1"<<std::endl;
-
-        for (int i = 0; i < this->capacity_; i++) {
-//            std::cout<<"newpair2"<<std::endl;
-            if (select_data[i] == nullptr) {
-//                std::cout<<"newpair3"<<std::endl;
-//                std::cout<<"current i:"<<i<<std::endl;
-                select_data[i] = pair;
-//                std::cout<<"current i:"<<i<<std::endl;
-                break;
-            }
+        HashPair *new_hp = new HashPair(key, value);
+        size_t index = hash_index_(key);
+        HashPair *hp = map_[index];
+        if(hp){
+            HashPair *prev = nullptr;
+            while(hp){
+                prev = hp;
+                hp = hp->getNext();
+            } 
+            prev->setNext(new_hp);
+        } else {
+            map_[index] = new_hp;
         }
         size_++;
-//        std::cout<<"finish??"<<std::endl;
-
     }
 
     Object *get(Object *key) {
-//        String* input_key = helper_cast(key);
-        int select_index = hash_index(key);
-        for (int i = 0; i < size_; i++) {
-            if(map[select_index][i] != nullptr){
-//                String* temp_str = helper_cast(map[select_index][i]->key_);
-//                if(temp_str != nullptr ){
-                    if (key->equals(map[select_index][i]->key_)) {
-                        return map[select_index][i]->value_;
-                    }
-//                }
-            }
-
+        if(!key){
+            return nullptr;
         }
-
-        std::cout << "Not able to find Object" << std::endl;
+        HashPair *hp = map_[hash_index_(key)];
+        while(hp){
+            if(hp->compareKey(key)){
+                return hp->getValue();
+            }
+        }
         return nullptr;
-
     }
 
     Object* remove(Object *key) {
-        Object* removed;
-        int h_index = hash_index(key);
-        HashPair **select_array = map[h_index];
-//        String *key1 = helper_cast(key);
-//        if (key1 == nullptr) {
-//            std::cout << "this string can not be nullptr!" << h_index << std::endl;
-//            exit(1);
-//        }
-        if (select_array == nullptr) {
-            std::cout << "this array can not be nullptr!" << h_index << std::endl;
-            exit(1);
-        }
-        int sofar = 0;
-        HashPair *selected = select_array[sofar];
-        while (selected != nullptr) {
-
-            Object *key_temp = selected->key_;
-
-            if (key_temp == nullptr) {
-                std::cout << "this object can not be nullptr!" << h_index << std::endl;
-                exit(1);
-            }
-
-//            String *key2 = helper_cast(key_temp);
-
-            if (key->equals(key_temp)) {
-                removed = select_array[sofar]->value_;
-                select_array[sofar] = nullptr;
+        if(!key) return nullptr;
+        Object *removedValue = nullptr;
+        size_t index = hash_index_(key);
+        HashPair *hp = map_[index];
+        HashPair *prev = nullptr;
+        bool found = false;
+        while(hp){
+            found = hp->compareKey(key);
+            if(found){
                 break;
             }
-
-
-            sofar++;
-            selected = select_array[sofar];
+            prev = hp;
+            hp = hp->getNext();
         }
-        size_ = size_ - 1;
-        return removed;
+
+        if(!hp || !found){
+            return nullptr;
+        }
+
+        removedValue = hp->getValue();
+        if(prev){
+            prev->setNext(hp->getNext());
+        } else {
+            map_[index] = hp->getNext();
+        }
+        delete hp;
+        size_--;
+        return removedValue;
     }
 
     size_t size() {
         return this->size_;
     }
 
-    Object **getKeys() {
-        Object **keys;
-        int sofar = 0;
-        keys = new Object *[this->size_+1];
-        for (int i = 0; i < capacity_; i++) {
-            if (map[i] != nullptr) {
-
-                for (int j = 0; j < capacity_; j++) {
-
-                    if (sofar < size_) {
-
-                        HashPair* cur = map[i][j];
-                        if(cur != nullptr){
-                            keys[sofar] = cur->key_;
-                        }
-
-
-                    }
-                    sofar++;
-                }
-            } else {
-                std::cout << "map[i] cant be nullptr" << std::endl;
-            }
-        }
-        return keys;
-    }
-
-    Object **getValues() {
-        Object **values;
-        int sofar = 0;
-        values = new Object *[this->size_+1];
-        for (int i = 0; i < capacity_; i++) {
-            if (map[i] != nullptr) {
-                for (int j = 0; j < capacity_; j++) {
-                    if (sofar < size_) {
-
-                        HashPair* cur = map[i][j];
-                        if(cur != nullptr){
-                            values[sofar] = cur->value_;
-                        }
-
-
-                    }
-                    sofar++;
-                }
-            } else {
-                std::cout << "map[i] cant be nullptr" << std::endl;
-            }
-        }
-        return values;
-
-    }
-
-
-    virtual void _ensure_size(int required) {
-
-        if (required >= this->capacity_) {
-
-            int newCap = this->capacity_ * 2;
-            while (required > newCap) {
-                newCap *= 2;
-            }
-
-            //build new
-            HashPair*** new_map = new HashPair** [newCap];
-
-            for (int i = 0; i < newCap; ++i) {
-                HashPair** hp =  new HashPair*[newCap];
-                new_map[i] = hp;
-                for (int j = 0; j < newCap; ++j) {
-                    new_map[i][j] = nullptr;
-                }
-            }
-            //copy from past
-            for (int i = 0; i < capacity_; i++) {
-                for (int j = 0; j < capacity_; j++) {
-
-//                    std::cout<<"current i:"<<i<<std::endl;
-//                    std::cout<<"current j:"<<j<<std::endl;
-
-                    if (map[i][j] != nullptr) {
-
-                        int index_i = map[i][j]->key_->hash() % (newCap - 1);
-//                        std::cout<<"index_i:"<< index_i<<std::endl;
-//                          HashPair** subarray2 = new_map[index_i];
-                        for (int k = 0; k < capacity_; k++) {
-                            if (new_map[index_i][k] == nullptr) {
-                                new_map[index_i][k] = map[i][j];
-                            }
-                        }
-
-                    }
-                }
-            }
-
-
-
-// delete old map
-            for (int k = 0; k < capacity_; k++) {
-
-//                for(int l =0; l < capacity_; l++){
-//                    delete map[k][l];
-//                    map[k][l] = nullptr;
-//                }
-                delete[] map[k];
-            }
-            delete [] map;
-
-
-            this->capacity_ = newCap;
-            this->map = new_map;
-            this->size_ = size();
-
-//            for (int k = 0; k < capacity_; k++) {
-//
-//                for(int l =0; l < capacity_; l++){
-//
-//                    new_map[k][l] = nullptr;
-//                }
-//                delete[] new_map[k];
-//            }
-//            delete [] new_map;
-
-
-        }
-    }
-
-    String *helper_cast(Object *o) {
-        return dynamic_cast<String *>(o);
-    }
-
     bool has_key(Object* key) {
-        int h_index = hash_index(key);
-        HashPair **select_array = map[h_index];
-//        String *key1 = helper_cast(key);
-        if (key == nullptr) {
-            std::cout << "this key can not be nullptr!" << h_index << std::endl;
-            exit(1);
-        }
-        if (select_array == nullptr) {
-            std::cout << "this array can not be nullptr!" << h_index << std::endl;
-            exit(1);
-        }
-        int sofar = 0;
-        HashPair *selected = select_array[sofar];
-        while (selected != nullptr) {
-
-            Object *key_temp = selected->key_;
-
-            if (key_temp == nullptr) {
-                std::cout << "this object can not be nullptr!" << h_index << std::endl;
-                exit(1);
-            }
-
-//            String *key2 = helper_cast(key_temp);
-
-            if (key->equals(key_temp)) {
-
+        if(!key) return false;
+        HashPair *hp = map_[hash_index_(key)];
+        while(hp){
+            if(hp->compareKey(key)){
                 return true;
             }
-
-            sofar++;
-            selected = select_array[sofar];
         }
         return false;
     }
+};
 
+class StringMap : public Object {
+public:
+    Map internal_map_;
 
+    StringMap() : internal_map_() {}
+
+    virtual ~StringMap(){}
+
+    bool has_key(String *key){
+        return internal_map_.has_key(key);
+    }
+
+    String *get(String *key){
+        return static_cast<String*>(internal_map_.get(key));
+    }
+
+    void put(String *key, String *value){
+        internal_map_.put(key, value);
+    }
+
+    String *remove(String *key){
+        return static_cast<String*>(internal_map_.remove(key));
+    }
+
+    size_t size(){
+        return internal_map_.size();
+    }
 };
 
 #endif //A2_HASHMAP_H
