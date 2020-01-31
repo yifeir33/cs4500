@@ -1,5 +1,5 @@
 COMPILER=g++
-CFLAGS=-Wall -std=c++11 -g
+CFLAGS=-Wall -std=c++11
 
 OBJECTS = object.h string.h
 
