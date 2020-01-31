@@ -75,7 +75,7 @@ int main(int argc, char** argv){
                 std::cout << "there is no argument after -len" << std::endl;
                 exit(1);
             }
-        } else if (strcmp(argv[i], "-print_ColType") == 0){
+        } else if (strcmp(argv[i], "-print_col_type") == 0){
             o = operation::COL_TYPE;
             if(i + 1< argc) {
                 col = atoi(argv[i + 1]);
@@ -120,6 +120,7 @@ int main(int argc, char** argv){
 
     switch(o){
         case operation::COL_TYPE:{
+            /* std::cout<<"COl Type" <<std::endl; */
             std::cout <<col_type_to_str(sorer.column_type(col)) <<std::endl;
             break;
         }
@@ -139,6 +140,7 @@ int main(int argc, char** argv){
             break;
         }
         default:
+            std::cout <<"No operation provided!" <<std::endl;
             return 1;
     }
 

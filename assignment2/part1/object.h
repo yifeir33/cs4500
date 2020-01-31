@@ -9,6 +9,8 @@
  */
 class Object {
 public:
+    Object(){};
+
     virtual ~Object(){};
     /** Returns true if this is the same object, false otherwise.
      *

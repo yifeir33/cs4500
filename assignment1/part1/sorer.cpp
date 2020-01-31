@@ -62,7 +62,7 @@ Sorer::Sorer(char *filename, size_t start, size_t end) : _fd(-1), _start(start),
         perror("Error mapping file: ");
         throw "Failed to map the file to memory";
     }
-    this->_init_start_end();
+    this->_init_start_end(_start > 0 || offset > 0, offset > 0 || _end != _fsize);
     this->_init_columns();
     this->_init_col_types();
     this->_init_row_indices();
@@ -154,9 +154,9 @@ bool Sorer::exists(size_t col, size_t row){
  * after the last newline before end is dropped. This readjusts the _start and _end values to 
  * reflect that.
  */
-void Sorer::_init_start_end(){
+void Sorer::_init_start_end(bool init_start, bool init_end){
     /* std::cout <<"_init_start_end" <<std::endl; */
-    if(_end < _fsize){
+    if(init_end){
         size_t index = _end;
         while(index > _start){
             if(_mfile[index] == '\n' && index > _start){
@@ -167,13 +167,15 @@ void Sorer::_init_start_end(){
         }
     }
 
-    size_t index = _start;
-    while(index > _start){
-        if(_mfile[index] == '\n' && index > _start){
-            _end = index + 1;
-            break;
+    if(init_start){
+        size_t index = _start;
+        while(index > _start){
+            if(_mfile[index] == '\n' && index > _start){
+                _end = index + 1;
+                break;
+            }
+            index++;
         }
-        index++;
     }
 }
 
@@ -211,6 +213,9 @@ void Sorer::_init_columns() {
     _col_cnt = max_cols;
     /* std::cout <<"Col Count: " << _col_cnt << std::endl; */
     _ColTypes = new Sorer::ColType[_col_cnt];
+    for(size_t i = 0; i < _col_cnt; ++i){
+        _ColTypes[i] = Sorer::ColType::INVALID;
+    }
 }
 
 /**
@@ -231,7 +236,14 @@ void Sorer::_init_col_types() {
             start = index;
             in_col = true;
         } else if(in_col && _mfile[index] == '>'){
-            _ColTypes[col_index++] = this->_parse_type(start, index);
+            Sorer::ColType type = this->_parse_type(start, index);
+            if((type != Sorer::ColType::INVALID && _ColTypes[col_index] == Sorer::ColType::BOOL)
+                    || (type == Sorer::ColType::FLOAT && 
+                        (_ColTypes[col_index] == Sorer::ColType::INTEGER || _ColTypes[col_index == Sorer::ColType::BOOL]))
+                    || _ColTypes[col_index] == Sorer::ColType::INVALID){
+                _ColTypes[col_index] = type;
+            }
+            col_index++;
             in_col = false;
         } else if(_mfile[index] == '\n') {
             rows_checked++;
