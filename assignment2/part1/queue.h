@@ -14,7 +14,8 @@
  *
  * mutable
  *
- * authors: dermer.s@husky.neu.edu && Sarialli.n@northeastern.edu
+ * api designers: dermer.s@husky.neu.edu && Sarialli.n@northeastern.edu
+ * Authors: Neil Resnik (resnik.n@husky.neu.edu) & Yifei Wang (wang3.yi@husky.neu.edu)
  */
 class Queue : public Object {
 public:
@@ -126,7 +127,7 @@ public:
  *
  * mutable
  *
- * authors: dermer.s@husky.neu.edu && Sarialli.n@northeastern.edu
+ * api designers: dermer.s@husky.neu.edu && Sarialli.n@northeastern.edu
  */
 class StrQueue : public Object {
 public:

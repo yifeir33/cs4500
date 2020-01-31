@@ -131,6 +131,7 @@ public:
       return old;
   }
 
+  /** This is a helper method ensures the size with capacity by double it everytime*/
   virtual void ensure_size_(size_t required){
     if(required >= this->capacity_){
       // grow
