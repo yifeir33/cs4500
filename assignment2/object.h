@@ -1,24 +1,29 @@
-#ifndef OBJECT_H
-#define OBJECT_H
+// lang:CwC
+/*
+* Authors: Ryan Heminway (heminway.r@husky.neu.edu), David Tandetnik 
+* CS4500 A1 Part 2 (Object definition)
+*/
+#pragma once
 
-#include "stddef.h"
-
-/**
- * StrList : This class a base object.
- *
- * Auther: resnik.n@husky.neu.edu
- */
+/*
+* Base class for all objects in CwC. This object has no fields and 
+* is therefore immutable. 
+*/
 class Object {
-public:
-    virtual ~Object(){};
-    /** Returns true if this is the same object, false otherwise.
-     *
-     * @arg o - The object to compare.
-     */
-    virtual bool equals(Object* o){ return this == o; };
+   public:
+    Object() {}
 
-    /** Returns a unique identifier for each object */;
-    virtual size_t hash(){ return reinterpret_cast<size_t>(this); };
+    virtual ~Object() {}
+
+    // Compute and return the hash value of this object. Hash values
+    // of equal objects should be the same.
+    unsigned int hash() {}
+
+    // Return a bool representing whether this Object is equivalent
+    // to the given Object.
+    virtual bool equals(Object* other) {}
+
+    // Return a character array describing this object. Expected to be
+    // re-implemented by subclasses.
+    virtual char* to_string() {}
 };
-
-#endif
