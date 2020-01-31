@@ -21,13 +21,7 @@ public:
   /** CONSTRUCTORS & DESTRUCTORS **/
 
   /** Creates an Array of desired size */
-  /* Array(size_t array_size) : capacity_(array_size), length_(0) { */
-  /*     data_ = new Object*[capacity_]; */
-  /*     memset(data_, nullptr, sizeof(Object*) * capacity_); */
-  /* } */
-
-  /** Creates an Array of desired size */
-  ObjectArray(const size_t array_size) : capacity_(array_size), length_(0) {
+  ObjectArray(const size_t array_size) : capacity_(array_size), length_(0), data_(nullptr) {
       data_ = new Object*[capacity_];
       memset(data_, 0, sizeof(Object*) * capacity_);
   }
@@ -60,7 +54,7 @@ public:
       ObjectArray *arr_ptr = reinterpret_cast<ObjectArray *>(obj);
       if(arr_ptr){
           if(length_ == arr_ptr->length_){
-              for(int i = 0; i < length_; ++i){
+              for(size_t i = 0; i < length_; ++i){
                   if(!data_[i]->equals(arr_ptr->get(i))){
                       return false;
                   }

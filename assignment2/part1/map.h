@@ -1,5 +1,5 @@
 //
-// Created by 王镱霏 on 1/27/20.
+// Authors: Neil Resnik (resnik.n@husky.neu.edu) & Yifei Wang (wang3.yi@husky.neu.edu)
 //
 
 #ifndef A2_HASHMAP_H
@@ -11,30 +11,32 @@
 
 using namespace std;
 
+/**
+ * HashPair represents a Key - Value pair in the hashmap
+ *
+ * Authors: Neil Resnik (resnik.n@husky.neu.edu) & Yifei Wang (wang3.yi@husky.neu.edu)
+ */
 class HashPair {
 
 public:
-    Object *key_;
-    Object *value_;
-    HashPair *next_;
+    Object *key_; // Pointer to the key object
+    Object *value_; // Pointer to the value object
+    HashPair *next_; // Point to the next HashPair in the singly-linked list
 
-    HashPair(Object *key, Object *value, HashPair *next) {
-        this->key_ = key;
-        this->value_ = value;
-        this->next_ = next;
-    }
+    /**
+     * Constructs a hashpair
+     *
+     * With the given key, value, and next.
+     */
+    HashPair(Object *key, Object *value, HashPair *next) : key_(key), value_(value), next_(next) {}
 
-    HashPair(Object *key, Object *value) {
-        this->key_ = key;
-        this->value_ = value;
-        this->next_ = nullptr;
-    }
+    /**
+     * Constructs a hashpair
+     * With the given key, value, and next
+     */
+    HashPair(Object *key, Object *value) : key_(key), value_(value), next_(nullptr) {}
 
-    HashPair(){
-        this->key_ = nullptr;
-        this->value_ = nullptr;
-        this->next_ = nullptr;
-    }
+    HashPair() : key_(nullptr), value_(nullptr), next_(nullptr) {}
 
     bool compareKey(Object *other){
         if(!key_) return key_ == other;
@@ -118,8 +120,7 @@ public:
         if (key) {
             return key->hash() % arr_len_;
         }
-        return -1;
-
+        return 0;
     }
 
     void put(Object *key, Object *value) {
@@ -131,8 +132,7 @@ public:
         }
         HashPair *new_hp = new HashPair(key, value);
         size_t index = hash_index_(key);
-        HashPair *hp = map_[index];
-        new_hp->setNext(hp);
+        new_hp->setNext(map_[index]);
         map_[index] = new_hp;
         size_++;
     }
