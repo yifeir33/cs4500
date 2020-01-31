@@ -37,7 +37,12 @@ public:
     }
 
     bool compareKey(Object *other){
+        if(!key_) return key_ == other;
         return this->key_->equals(other);
+    }
+
+    Object *getKey(){
+        return this->key_;
     }
 
     Object *getValue(){
@@ -71,6 +76,30 @@ public:
         delete[] map_;
     }
 
+    void rehash_(){
+        size_t new_len = arr_len_ * 2;
+        HashPair **new_map = new HashPair*[new_len];
+        for(size_t i = 0; i < new_len; ++i){
+            new_map[i] = nullptr;
+        }
+
+        for(size_t i = 0; i < arr_len_; ++i){
+            HashPair *hp = map_[i];
+            while(hp){
+                HashPair *next = hp->getNext();
+                size_t new_index = hp->getKey()->hash() % new_len;
+                hp->setNext(new_map[new_index]);
+                new_map[new_index] = hp;
+                hp = next;
+            }
+            map_[i] = nullptr;
+        }
+
+        delete[] map_;
+        map_ = new_map;
+        arr_len_ = new_len;
+    }
+
     //Removes all the elements from the list
     void clear(){
         for(size_t i = 0; i < arr_len_; ++i){
@@ -97,19 +126,14 @@ public:
         if (!key|| !value) {
             return;
         }
+        if(size_ + 1 > 2 * arr_len_){
+            rehash_();
+        }
         HashPair *new_hp = new HashPair(key, value);
         size_t index = hash_index_(key);
         HashPair *hp = map_[index];
-        if(hp){
-            HashPair *prev = nullptr;
-            while(hp){
-                prev = hp;
-                hp = hp->getNext();
-            } 
-            prev->setNext(new_hp);
-        } else {
-            map_[index] = new_hp;
-        }
+        new_hp->setNext(hp);
+        map_[index] = new_hp;
         size_++;
     }
 
@@ -122,6 +146,7 @@ public:
             if(hp->compareKey(key)){
                 return hp->getValue();
             }
+            hp = hp->getNext();
         }
         return nullptr;
     }
@@ -168,6 +193,7 @@ public:
             if(hp->compareKey(key)){
                 return true;
             }
+            hp = hp->getNext();
         }
         return false;
     }
