@@ -1,15 +1,16 @@
-#ifndef OBJECT_H
-#define OBJECT_H
+#pragma once
 
-#include "stddef.h"
+#include <stdlib.h>
 
 /**
- * StrList : This class a base object.
+ * Object : This class a base object.
  *
- * Auther: resnik.n@husky.neu.edu
+ * Author: resnik.n@husky.neu.edu & wang.yifei3@husky.neu.edu
  */
 class Object {
 public:
+    Object(){};
+
     virtual ~Object(){};
     /** Returns true if this is the same object, false otherwise.
      *
@@ -20,5 +21,3 @@ public:
     /** Returns a unique identifier for each object */;
     virtual size_t hash(){ return reinterpret_cast<size_t>(this); };
 };
-
-#endif

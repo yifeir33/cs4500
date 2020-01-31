@@ -1,13 +1,11 @@
-#ifndef STRING_H
-#define STRING_H
+#pragma once
 
-#include "helper.h"
 #include "object.h"
 
 /**
  * String : This class represents a list of characters.
  *
- * Auther: resnik.n@husky.neu.edu
+ * Author: resnik.n@husky.neu.edu & wang.yifei3@husky.neu.edu
  */
 class String : public Object {
 public:
@@ -16,7 +14,7 @@ public:
      *
      * A copy of the char array is stored.
      */
-    String(const char *c) : _str(nullptr), _len(0) {
+  String(const char *c) : _str(nullptr), _len(0) {
         if(c){
             while(c[_len] != '\0') ++_len; // find length assuming null termination
             this->_str = new char[this->_len + 1];
@@ -25,14 +23,14 @@ public:
             }
             this->_str[this->_len] = '\0';
         }
-    };
+  };
 
     /** Copy Constructor - creates a new string object representing the same
      * char array as s
      *
      * @arg s - The string to construct a seperate object copy of.
      */
-    String(String *s): _str(nullptr), _len(s->_len){
+    String(String * const s): _str(nullptr), _len(s->_len){
         if(s->_str){
             _str = new char[_len + 1];
             for(size_t i = 0; i < _len; ++i){
@@ -65,11 +63,11 @@ public:
      *
      * @returns True is o is also a string object representing the same character array, false otherwise.
      */
-    bool equals(Object *o){
+    bool equals(Object* const o){
         if(!o) return false;
         String *oStr = dynamic_cast<String *>(o);
         if(oStr != nullptr){
-            return this->compare(oStr) == 0;
+            return this->cmp(oStr) == 0;
         }
         return false;
     }
@@ -81,7 +79,7 @@ public:
      * @returns - A negative value if this string has a lower alphanumerical value. 0 if they are the same.
      * A positive number if this string has a higher alphanumerical value.
      */
-    int compare(String *s){
+    int cmp(String* const s){
         if(!s) return -1;
         if(this->_str == s->_str) return 0;
 
@@ -104,7 +102,7 @@ public:
      * @returns A pointer to a new string object containing the the character array
      * of the concatenated strings.
      */
-    String *concat(String *s){
+    String *concat(String* const s){
         if(!s){
             return this; 
         } else if(!s->_str){
@@ -128,9 +126,17 @@ public:
     }
 
 
+    /**
+     * Returns the size of the string.
+     *
+     * @returns - The length of the string
+     */
+    size_t size() {
+        return _len;
+    }
+
+
     char *_str;
     size_t _len;
 
 };
-
-#endif
