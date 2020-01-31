@@ -6,8 +6,8 @@
 #define A2_HASHMAP_H
 
 #include <iostream>
-#include "object.h"
-#include "string.h"
+#include "Object.h"
+#include "String.h"
 
 using namespace std;
 
@@ -111,24 +111,47 @@ public:
     }
 
     Object *get(Object *key) {
-//        String* input_key = helper_cast(key);
-        int select_index = hash_index(key);
-        for (int i = 0; i < size_; i++) {
-            if(map[select_index][i] != nullptr){
-//                String* temp_str = helper_cast(map[select_index][i]->key_);
-//                if(temp_str != nullptr ){
-                    if (key->equals(map[select_index][i]->key_)) {
-                        return map[select_index][i]->value_;
-                    }
-//                }
-            }
-
+        int h_index = hash_index(key);
+//        std::cout << h_index<< std::endl;
+        HashPair **select_array = map[h_index];
+//        String *key1 = helper_cast(key);
+        if (key == nullptr) {
+            std::cout << "this key can not be nullptr!" << h_index << std::endl;
+            exit(1);
+        }
+        if (select_array == nullptr) {
+            std::cout << "this array can not be nullptr!" << h_index << std::endl;
+            exit(1);
         }
 
-        std::cout << "Not able to find Object" << std::endl;
-        return nullptr;
 
+
+
+
+        for (int i= 0; i <this->size(); i++) {
+//            std::cout << "here" << std::endl;
+            HashPair *selected = select_array[i];
+            Object *key_temp = selected->key_;
+
+            if (key_temp == nullptr) {
+                std::cout << "this object can not be nullptr!" << h_index << std::endl;
+                exit(1);
+            }
+
+//            String *key2 = helper_cast(key_temp);
+
+            if (key_temp->equals(key)) {
+
+                return selected->value_;
+            }
+
+
+        }
+//        std::cout << "here1" << std::endl;
+        return nullptr;
     }
+
+
 
     Object* remove(Object *key) {
         Object* removed;
