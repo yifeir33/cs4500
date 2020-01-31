@@ -43,8 +43,16 @@ public:
     virtual void push(Object* o) {
       if(_size + 1 >= _capacity){
           Object **_new_buf = new Object*[_capacity * 2];
-          memcpy(_new_buf, _buffer, sizeof(Object *) * _capacity);
+          size_t new_index = 0;
+          size_t old_index = _front_index;
+          while(new_index < _size){
+              _new_buf[new_index] = _buffer[old_index];
+              old_index = (old_index + 1) % _capacity;
+              new_index++;
+          }
           _capacity *= 2;
+          _front_index = 0;
+          _back_index = _size;
           delete[] _buffer;
           _buffer = _new_buf;
       }
@@ -147,8 +155,16 @@ public:
     virtual void push(Object* o) {
       if(_size + 1 >= _capacity){
           Object **_new_buf = new Object*[_capacity * 2];
-          memcpy(_new_buf, _buffer, sizeof(Object *) * _capacity);
+          size_t new_index = 0;
+          size_t old_index = _front_index;
+          while(new_index < _size){
+              _new_buf[new_index] = _buffer[old_index];
+              old_index = (old_index + 1) % _capacity;
+              new_index++;
+          }
           _capacity *= 2;
+          _front_index = 0;
+          _back_index = _size;
           delete[] _buffer;
           _buffer = _new_buf;
       }
