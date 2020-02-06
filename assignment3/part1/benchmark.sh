@@ -3,7 +3,13 @@
 TESTFILE="benchmark.sor"
 TESTFILESIZE=200000000
 
-PROJECTS=("a1p1" "A3_a1_p1" "CS4500A1P1" "CS4500_Assn1_Part1" "sorer" "swd_assignment_3")
+PROJECTS=()
+for d in */ ; do
+    d=${d%?}
+    PROJECTS+=( ${d} )
+done
+
+# PROJECTS=("a1p1" "A3_a1_p1" "CS4500A1P1" "CS4500_Assn1_Part1" "sorer" "swd_assignment_3")
 COMMANDS=("-from 0 -len 10000 -print_col_type 10"
           "-from 100000000 -len 10000 -print_col_type 15"
           "-from 0 -len ${TESTFILESIZE} -print_col_type 9"
