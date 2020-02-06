@@ -6,7 +6,7 @@ import glob
 
 path = os.getcwd()
 
-fig = plt.figure(figsize=(10,50), dpi= 100)
+fig = plt.figure(figsize=(10,55), dpi= 100)
 # allFiles = glob.glob(path + "/*.csv")
 # frame = pd.DataFrame()
 # list_ = []
@@ -45,14 +45,8 @@ for i in range(len(data)):
     ax.set_title(command_name[i])
 
     ax.legend(loc = 'best')
-
+plt.tight_layout()
 plt.savefig('performance_compare.png')
-
-
-
-
-
-
 plt.show()
 
 
