@@ -45,8 +45,8 @@ for i in {1..10}; do
     for cmd in "${COMMANDS[@]}"; do
         LINE="${cmd}, "
         for proj in ${PROJECTS[@]}; do
-            time="$(TIMEFORMAT="%R"; time (./${proj}/sorer -f ${TESTFILE} ${cmd}) 3>&2 2>&1 1>&3)"
             echo "./${proj}/sorer -f ${TESTFILE} ${cmd}"
+            time="$(TIMEFORMAT="%R"; time (./${proj}/sorer -f ${TESTFILE} ${cmd}) 3>&2 2>&1 1>&3)"
             echo "Time: ${time}"
             LINE=${LINE}${time}
             if [[ ${proj} != ${PROJECTS[-1]} ]]; then
