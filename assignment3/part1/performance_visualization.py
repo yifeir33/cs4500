@@ -16,19 +16,20 @@ fig = plt.figure(figsize=(10,55), dpi= 100)
 # data = pd.concat(list_)
 
 data = pd.read_csv(path + "/data1.csv", header =0)
-print(data)
+
 
 
 header_name = data.columns.values.tolist()
 header_name = header_name[1:]
+# print(header_name)
 row_name = data.index
 command_name = data['Command']
-print(header_name)
 
-ypos = np.arange(len(header_name))
+ypos = np.arange(0,len(header_name))
 for i in range(len(data)):
     ax = plt.subplot(len(data),1, i+1)
     select_row_data = data.loc[i,header_name]
+
     new_array = np.zeros(len(header_name), np.float)
     for i in range(len(select_row_data)):
         try:
@@ -37,8 +38,9 @@ for i in range(len(data)):
             new_array[i] = np.nan
         else:
             new_array[i] = k
-    print(new_array)
-    ax.bar(ypos,new_array, label = "seconds")
+
+    ax.bar(ypos,new_array, align ='center', label = "seconds")
+    ax.set_xticks(ypos)
     ax.set_xticklabels(header_name)
     ax.set_xlabel("Group Name" )
     ax.set_ylabel("Performance Speed")
