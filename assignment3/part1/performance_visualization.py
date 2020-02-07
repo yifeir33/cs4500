@@ -6,13 +6,13 @@ import glob
 
 path = os.getcwd()
 
-fig = plt.figure(figsize=(10,55), dpi= 100)
+fig = plt.figure(figsize=(10,5), dpi= 100)
 allFiles = glob.glob(path + "/*.csv")
 frame = pd.DataFrame()
 list_ = []
 for file_ in allFiles:
     df = pd.read_csv(file_, header =0, index_col= None)
-    df[' CS4500_Assn1_Part1'] =pd.to_numeric(df[' CS4500_Assn1_Part1'], errors='coerce')
+    # df[' CS4500_Assn1_Part1'] =pd.to_numeric(df[' CS4500_Assn1_Part1'], errors='coerce')
     list_.append(df[[' a1p1', ' A3_a1_p1', ' CS4500A1P1', ' CS4500_Assn1_Part1',
        ' sorer', ' swd_assignment_3']])
     # print(df[' CS4500_Assn1_Part1'])
@@ -41,14 +41,14 @@ data1 = pd.read_csv(path + "/data1.csv", header =0)
 
 
 header_name = data.columns.values.tolist()
-# header_name = header_name[1:]
-# print(header_name)
+# header_name = header_name.remove(' CS4500_Assn1_Part1')
+print(header_name)
 row_name = data1.index
 command_name = data1['Command']
 
 ypos = np.arange(0,len(header_name))
 for i in range(len(data)):
-    ax = plt.subplot(len(data),1, i+1)
+    # ax = plt.subplot(len(data),1, i+1)
     select_row_data = data.loc[i,header_name]
 
     new_array = np.zeros(len(header_name), np.float)
@@ -60,31 +60,32 @@ for i in range(len(data)):
         else:
             new_array[j] = k
 
-    if np.isnan(new_array).any():
-        place =  np.argwhere(np.isnan(new_array))
-        # print('here')
-        # print(place[0,0])
-        del header_name[place[0,0]]
-        new_array = np.delete(new_array, place[0,0])
-        ypos = np.arange(0,len(header_name))
+    # if np.isnan(new_array).any():
+    #     place =  np.argwhere(np.isnan(new_array))
+    #     # print('here')
+    #     # print(place[0,0])
+    #     del header_name[place[0,0]]
+    #     new_array = np.delete(new_array, place[0,0])
+    #     ypos = np.arange(0,len(header_name))
 
     # print("ypos",len(ypos))
     # print(len(new_array))
-    ax.bar(ypos,new_array, align ='center', label = "seconds")
-    ax.set_xticks(ypos)
-    ax.set_xticklabels(header_name)
-    ax.set_xlabel("Group Name" )
-    ax.set_ylabel("Performance Speed")
-    ax.set_title(command_name[i])
+    plt.bar(ypos,new_array, align ='center', label = "seconds")
+    plt.xticks(ypos,header_name)
+    plt.xlabel("Group Name" )
+    plt.ylabel("Performance Speed")
+    plt.title(command_name[i])
 
-    ax.legend(loc = 'best')
+    plt.legend(loc = 'best')
     header_name = data.columns.values.tolist()
 
     ypos = np.arange(0, len(header_name))
+    plt.savefig('performance_compare'+ str(i) + '.png')
+    plt.clf()
 
-plt.tight_layout()
-plt.savefig('performance_compare.png')
-plt.show()
+# plt.tight_layout()
+
+# plt.show()
 
 
 
