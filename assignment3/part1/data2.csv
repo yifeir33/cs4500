@@ -1,0 +1,19 @@
+Command, a1p1, A3_a1_p1, CS4500A1P1, CS4500_Assn1_Part1, sorer, swd_assignment_3
+-from 0 -len 10000 -print_col_type 10, 0.040, 0.035, 0.003, 0.073, 0.003, 0.002
+-from 100000000 -len 10000 -print_col_type 15, 0.038, 0.035, 0.003, 0.001, 0.002, 0.002
+-from 0 -len 200000000 -print_col_type 9, 0.063, 12.606, 0.004, 16.027, 0.746, 5.106
+-from 0 -len 10000 -print_col_idx 0 0, 0.044, 0.035, 0.003, 0.073, 0.003, 0.002
+-from 0 -len 200000000 -print_col_idx 0 0, 60.619, 12.613, 4.307, 16.000, 0.755, 5.132
+-from 0 -len 200000000 -print_col_idx 10 5000, 59.935, 12.708, 4.320, 15.977, 0.764, 5.144
+-from 0 -len 200000000 -print_col_idx 10 10000, 66.120, 12.895, 4.305, 16.033, 0.798, 5.066
+-from 0 -len 200000000 -print_col_idx 16 100000, 60.416, 12.734, 4.310, 16.065, 0.811, 5.089
+-from 0 -len 200000000 -print_col_idx 16 500000, 59.771, 12.587, 4.328, 15.920, 0.728, 5.104
+-from 0 -len 200000000 -print_col_idx 16 700000, 61.373, 12.763, 4.324, 16.083, 0.764, 5.111
+-from 0 -len 200000000 -print_col_idx 16 999999, 60.210, 12.662, 4.357, 16.304, 0.764, 5.124
+-from 100000000 -len 10000 -print_col_idx 7 10, 0.050, 0.035, 0.003, ./benchmark.sh: line 42: 37087 Segmentation fault (core dumped) ./${proj}/sorer -f ${TESTFILE} ${cmd} 0.232, 0.002, 0.002
+-from 0 -len 10000 -is_missing_idx 14 15, 0.044, 0.035, 0.003, 0.073, 0.003, 0.002
+-from 0 -len 200000000 -is_missing_idx 14 15, 60.138, 12.688, 4.363, 16.502, 0.728, 5.189
+-from 0 -len 200000000 -is_missing_idx 4 250000, 59.814, 12.711, 4.433, 17.487, 0.831, 5.047
+-from 0 -len 200000000 -is_missing_idx 4 750020, 60.460, 12.696, 4.355, 16.069, 0.743, 5.097
+-from 0 -len 200000000 -is_missing_idx 19 999999, 60.035, 12.605, 4.338, 16.058, 0.752, 5.086
+-from 500000 -len 50000 -is_missing_idx 9 100, 0.068, 0.036, 0.004, ./benchmark.sh: line 42: 38463 Segmentation fault (core dumped) ./${proj}/sorer -f ${TESTFILE} ${cmd} 0.239, 0.003, 0.004

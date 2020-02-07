@@ -1,0 +1,3241 @@
+STRING
+./a1p1/sorer -f benchmark.sor -from 0 -len 10000 -print_col_type 10
+Time: 0.045
+STRING
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 10000 -print_col_type 10
+Time: 0.037
+STRING
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 10000 -print_col_type 10
+Time: 0.003
+STRING
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 10000 -print_col_type 10
+Time: 0.073
+STRING
+./sorer/sorer -f benchmark.sor -from 0 -len 10000 -print_col_type 10
+Time: 0.003
+STRING
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 10000 -print_col_type 10
+Time: 0.002
+BOOL
+./a1p1/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_type 15
+Time: 0.039
+BOOL
+./A3_a1_p1/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_type 15
+Time: 0.035
+BOOL
+./CS4500A1P1/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_type 15
+Time: 0.003
+BOOL
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_type 15
+Time: 0.001
+BOOL
+./sorer/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_type 15
+Time: 0.002
+BOOL
+./swd_assignment_3/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_type 15
+Time: 0.002
+INT
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_type 9
+Time: 0.063
+INT
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_type 9
+Time: 12.621
+INT
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_type 9
+Time: 0.003
+BOOL
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_type 9
+Time: 16.135
+INT
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_type 9
+Time: 0.751
+INTEGER
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_type 9
+Time: 5.091
+1982619119
+./a1p1/sorer -f benchmark.sor -from 0 -len 10000 -print_col_idx 0 0
+Time: 0.043
+1982619119
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 10000 -print_col_idx 0 0
+Time: 0.035
+1982619119
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 10000 -print_col_idx 0 0
+Time: 0.003
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 10000 -print_col_idx 0 0
+Time: 0.073
+1982619119
+./sorer/sorer -f benchmark.sor -from 0 -len 10000 -print_col_idx 0 0
+Time: 0.002
+1982619119
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 10000 -print_col_idx 0 0
+Time: 0.002
+1982619119
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 0 0
+Time: 60.522
+1982619119
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 0 0
+Time: 12.605
+1982619119
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 0 0
+Time: 4.320
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 0 0
+Time: 16.173
+1982619119
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 0 0
+Time: 0.768
+1982619119
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 0 0
+Time: 5.085
+"WUCrKgbISPTIYalZk"
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 5000
+Time: 60.291
+"WUCrKgbISPTIYalZk"
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 5000
+Time: 12.577
+"WUCrKgbISPTIYalZk"
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 5000
+Time: 4.364
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 5000
+Time: 16.246
+"WUCrKgbISPTIYalZk"
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 5000
+Time: 0.746
+WUCrKgbISPTIYalZk
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 5000
+Time: 5.073
+"Znkix"
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 10000
+Time: 61.308
+"Znkix"
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 10000
+Time: 12.617
+"Znkix"
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 10000
+Time: 4.343
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 10000
+Time: 16.099
+"Znkix"
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 10000
+Time: 0.731
+Znkix
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 10000
+Time: 5.103
+0
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 100000
+Time: 60.657
+0
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 100000
+Time: 12.796
+0
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 100000
+Time: 4.339
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 100000
+Time: 15.908
+0
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 100000
+Time: 0.751
+0
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 100000
+Time: 5.081
+1
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 500000
+Time: 60.283
+1
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 500000
+Time: 12.577
+1
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 500000
+Time: 4.308
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 500000
+Time: 16.072
+1
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 500000
+Time: 0.738
+1
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 500000
+Time: 5.066
+0
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 700000
+Time: 60.426
+0
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 700000
+Time: 12.685
+0
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 700000
+Time: 4.603
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 700000
+Time: 16.182
+0
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 700000
+Time: 0.755
+0
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 700000
+Time: 5.078
+0
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 999999
+Time: 60.856
+0
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 999999
+Time: 12.569
+0
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 999999
+Time: 4.332
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 999999
+Time: 16.137
+0
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 999999
+Time: 0.727
+
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 999999
+Time: 5.089
+"aPNPoidKPOMIzF"
+./a1p1/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_idx 7 10
+Time: 0.044
+"aPNPoidKPOMIzF"
+./A3_a1_p1/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_idx 7 10
+Time: 0.035
+"aPNPoidKPOMIzF"
+./CS4500A1P1/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_idx 7 10
+Time: 0.003
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_idx 7 10
+Time: ./benchmark.sh: line 42: 32341 Segmentation fault      (core dumped) ./${proj}/sorer -f ${TESTFILE} ${cmd}
+0.237
+"aPNPoidKPOMIzF"
+./sorer/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_idx 7 10
+Time: 0.003
+aPNPoidKPOMIzF
+./swd_assignment_3/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_idx 7 10
+Time: 0.002
+0
+./a1p1/sorer -f benchmark.sor -from 0 -len 10000 -is_missing_idx 14 15
+Time: 0.044
+0
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 10000 -is_missing_idx 14 15
+Time: 0.035
+0
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 10000 -is_missing_idx 14 15
+Time: 0.003
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 10000 -is_missing_idx 14 15
+Time: 0.074
+0
+./sorer/sorer -f benchmark.sor -from 0 -len 10000 -is_missing_idx 14 15
+Time: 0.003
+0
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 10000 -is_missing_idx 14 15
+Time: 0.002
+0
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 14 15
+Time: 60.748
+0
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 14 15
+Time: 12.589
+0
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 14 15
+Time: 4.317
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 14 15
+Time: 16.125
+0
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 14 15
+Time: 0.750
+0
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 14 15
+Time: 5.040
+0
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 250000
+Time: 60.591
+0
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 250000
+Time: 13.097
+0
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 250000
+Time: 4.429
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 250000
+Time: 16.301
+0
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 250000
+Time: 0.769
+0
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 250000
+Time: 5.079
+0
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 750020
+Time: 60.158
+0
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 750020
+Time: 12.673
+0
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 750020
+Time: 4.347
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 750020
+Time: 16.055
+0
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 750020
+Time: 0.790
+0
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 750020
+Time: 5.123
+0
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 19 999999
+Time: 60.238
+1
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 19 999999
+Time: 12.644
+1
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 19 999999
+Time: 4.309
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 19 999999
+Time: 16.409
+1
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 19 999999
+Time: 0.778
+
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 19 999999
+Time: 5.123
+0
+./a1p1/sorer -f benchmark.sor -from 500000 -len 50000 -is_missing_idx 9 100
+Time: 0.068
+0
+./A3_a1_p1/sorer -f benchmark.sor -from 500000 -len 50000 -is_missing_idx 9 100
+Time: 0.037
+0
+./CS4500A1P1/sorer -f benchmark.sor -from 500000 -len 50000 -is_missing_idx 9 100
+Time: 0.004
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 500000 -len 50000 -is_missing_idx 9 100
+Time: ./benchmark.sh: line 42: 33779 Segmentation fault      (core dumped) ./${proj}/sorer -f ${TESTFILE} ${cmd}
+0.229
+0
+./sorer/sorer -f benchmark.sor -from 500000 -len 50000 -is_missing_idx 9 100
+Time: 0.003
+0
+./swd_assignment_3/sorer -f benchmark.sor -from 500000 -len 50000 -is_missing_idx 9 100
+Time: 0.005
+STRING
+./a1p1/sorer -f benchmark.sor -from 0 -len 10000 -print_col_type 10
+Time: 0.040
+STRING
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 10000 -print_col_type 10
+Time: 0.035
+STRING
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 10000 -print_col_type 10
+Time: 0.003
+STRING
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 10000 -print_col_type 10
+Time: 0.073
+STRING
+./sorer/sorer -f benchmark.sor -from 0 -len 10000 -print_col_type 10
+Time: 0.003
+STRING
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 10000 -print_col_type 10
+Time: 0.002
+BOOL
+./a1p1/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_type 15
+Time: 0.038
+BOOL
+./A3_a1_p1/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_type 15
+Time: 0.035
+BOOL
+./CS4500A1P1/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_type 15
+Time: 0.003
+BOOL
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_type 15
+Time: 0.001
+BOOL
+./sorer/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_type 15
+Time: 0.002
+BOOL
+./swd_assignment_3/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_type 15
+Time: 0.002
+INT
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_type 9
+Time: 0.063
+INT
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_type 9
+Time: 12.606
+INT
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_type 9
+Time: 0.004
+BOOL
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_type 9
+Time: 16.027
+INT
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_type 9
+Time: 0.746
+INTEGER
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_type 9
+Time: 5.106
+1982619119
+./a1p1/sorer -f benchmark.sor -from 0 -len 10000 -print_col_idx 0 0
+Time: 0.044
+1982619119
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 10000 -print_col_idx 0 0
+Time: 0.035
+1982619119
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 10000 -print_col_idx 0 0
+Time: 0.003
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 10000 -print_col_idx 0 0
+Time: 0.073
+1982619119
+./sorer/sorer -f benchmark.sor -from 0 -len 10000 -print_col_idx 0 0
+Time: 0.003
+1982619119
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 10000 -print_col_idx 0 0
+Time: 0.002
+1982619119
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 0 0
+Time: 60.619
+1982619119
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 0 0
+Time: 12.613
+1982619119
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 0 0
+Time: 4.307
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 0 0
+Time: 16.000
+1982619119
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 0 0
+Time: 0.755
+1982619119
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 0 0
+Time: 5.132
+"WUCrKgbISPTIYalZk"
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 5000
+Time: 59.935
+"WUCrKgbISPTIYalZk"
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 5000
+Time: 12.708
+"WUCrKgbISPTIYalZk"
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 5000
+Time: 4.320
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 5000
+Time: 15.977
+"WUCrKgbISPTIYalZk"
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 5000
+Time: 0.764
+WUCrKgbISPTIYalZk
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 5000
+Time: 5.144
+"Znkix"
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 10000
+Time: 66.120
+"Znkix"
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 10000
+Time: 12.895
+"Znkix"
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 10000
+Time: 4.305
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 10000
+Time: 16.033
+"Znkix"
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 10000
+Time: 0.798
+Znkix
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 10000
+Time: 5.066
+0
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 100000
+Time: 60.416
+0
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 100000
+Time: 12.734
+0
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 100000
+Time: 4.310
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 100000
+Time: 16.065
+0
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 100000
+Time: 0.811
+0
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 100000
+Time: 5.089
+1
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 500000
+Time: 59.771
+1
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 500000
+Time: 12.587
+1
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 500000
+Time: 4.328
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 500000
+Time: 15.920
+1
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 500000
+Time: 0.728
+1
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 500000
+Time: 5.104
+0
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 700000
+Time: 61.373
+0
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 700000
+Time: 12.763
+0
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 700000
+Time: 4.324
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 700000
+Time: 16.083
+0
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 700000
+Time: 0.764
+0
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 700000
+Time: 5.111
+0
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 999999
+Time: 60.210
+0
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 999999
+Time: 12.662
+0
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 999999
+Time: 4.357
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 999999
+Time: 16.304
+0
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 999999
+Time: 0.764
+
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 999999
+Time: 5.124
+"aPNPoidKPOMIzF"
+./a1p1/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_idx 7 10
+Time: 0.050
+"aPNPoidKPOMIzF"
+./A3_a1_p1/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_idx 7 10
+Time: 0.035
+"aPNPoidKPOMIzF"
+./CS4500A1P1/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_idx 7 10
+Time: 0.003
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_idx 7 10
+Time: ./benchmark.sh: line 42: 37087 Segmentation fault      (core dumped) ./${proj}/sorer -f ${TESTFILE} ${cmd}
+0.232
+"aPNPoidKPOMIzF"
+./sorer/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_idx 7 10
+Time: 0.002
+aPNPoidKPOMIzF
+./swd_assignment_3/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_idx 7 10
+Time: 0.002
+0
+./a1p1/sorer -f benchmark.sor -from 0 -len 10000 -is_missing_idx 14 15
+Time: 0.044
+0
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 10000 -is_missing_idx 14 15
+Time: 0.035
+0
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 10000 -is_missing_idx 14 15
+Time: 0.003
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 10000 -is_missing_idx 14 15
+Time: 0.073
+0
+./sorer/sorer -f benchmark.sor -from 0 -len 10000 -is_missing_idx 14 15
+Time: 0.003
+0
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 10000 -is_missing_idx 14 15
+Time: 0.002
+0
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 14 15
+Time: 60.138
+0
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 14 15
+Time: 12.688
+0
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 14 15
+Time: 4.363
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 14 15
+Time: 16.502
+0
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 14 15
+Time: 0.728
+0
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 14 15
+Time: 5.189
+0
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 250000
+Time: 59.814
+0
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 250000
+Time: 12.711
+0
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 250000
+Time: 4.433
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 250000
+Time: 17.487
+0
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 250000
+Time: 0.831
+0
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 250000
+Time: 5.047
+0
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 750020
+Time: 60.460
+0
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 750020
+Time: 12.696
+0
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 750020
+Time: 4.355
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 750020
+Time: 16.069
+0
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 750020
+Time: 0.743
+0
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 750020
+Time: 5.097
+0
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 19 999999
+Time: 60.035
+1
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 19 999999
+Time: 12.605
+1
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 19 999999
+Time: 4.338
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 19 999999
+Time: 16.058
+1
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 19 999999
+Time: 0.752
+
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 19 999999
+Time: 5.086
+0
+./a1p1/sorer -f benchmark.sor -from 500000 -len 50000 -is_missing_idx 9 100
+Time: 0.068
+0
+./A3_a1_p1/sorer -f benchmark.sor -from 500000 -len 50000 -is_missing_idx 9 100
+Time: 0.036
+0
+./CS4500A1P1/sorer -f benchmark.sor -from 500000 -len 50000 -is_missing_idx 9 100
+Time: 0.004
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 500000 -len 50000 -is_missing_idx 9 100
+Time: ./benchmark.sh: line 42: 38463 Segmentation fault      (core dumped) ./${proj}/sorer -f ${TESTFILE} ${cmd}
+0.239
+0
+./sorer/sorer -f benchmark.sor -from 500000 -len 50000 -is_missing_idx 9 100
+Time: 0.003
+0
+./swd_assignment_3/sorer -f benchmark.sor -from 500000 -len 50000 -is_missing_idx 9 100
+Time: 0.004
+STRING
+./a1p1/sorer -f benchmark.sor -from 0 -len 10000 -print_col_type 10
+Time: 0.042
+STRING
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 10000 -print_col_type 10
+Time: 0.035
+STRING
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 10000 -print_col_type 10
+Time: 0.003
+STRING
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 10000 -print_col_type 10
+Time: 0.073
+STRING
+./sorer/sorer -f benchmark.sor -from 0 -len 10000 -print_col_type 10
+Time: 0.002
+STRING
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 10000 -print_col_type 10
+Time: 0.002
+BOOL
+./a1p1/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_type 15
+Time: 0.038
+BOOL
+./A3_a1_p1/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_type 15
+Time: 0.036
+BOOL
+./CS4500A1P1/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_type 15
+Time: 0.003
+BOOL
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_type 15
+Time: 0.002
+BOOL
+./sorer/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_type 15
+Time: 0.003
+BOOL
+./swd_assignment_3/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_type 15
+Time: 0.002
+INT
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_type 9
+Time: 0.092
+INT
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_type 9
+Time: 12.640
+INT
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_type 9
+Time: 0.003
+BOOL
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_type 9
+Time: 16.367
+INT
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_type 9
+Time: 0.794
+INTEGER
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_type 9
+Time: 5.348
+1982619119
+./a1p1/sorer -f benchmark.sor -from 0 -len 10000 -print_col_idx 0 0
+Time: 0.044
+1982619119
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 10000 -print_col_idx 0 0
+Time: 0.035
+1982619119
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 10000 -print_col_idx 0 0
+Time: 0.003
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 10000 -print_col_idx 0 0
+Time: 0.073
+1982619119
+./sorer/sorer -f benchmark.sor -from 0 -len 10000 -print_col_idx 0 0
+Time: 0.003
+1982619119
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 10000 -print_col_idx 0 0
+Time: 0.002
+1982619119
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 0 0
+Time: 60.572
+1982619119
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 0 0
+Time: 12.713
+1982619119
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 0 0
+Time: 4.338
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 0 0
+Time: 15.979
+1982619119
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 0 0
+Time: 0.754
+1982619119
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 0 0
+Time: 5.235
+"WUCrKgbISPTIYalZk"
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 5000
+Time: 61.278
+"WUCrKgbISPTIYalZk"
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 5000
+Time: 12.781
+"WUCrKgbISPTIYalZk"
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 5000
+Time: 4.331
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 5000
+Time: 16.037
+"WUCrKgbISPTIYalZk"
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 5000
+Time: 0.782
+WUCrKgbISPTIYalZk
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 5000
+Time: 5.077
+"Znkix"
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 10000
+Time: 60.302
+"Znkix"
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 10000
+Time: 12.658
+"Znkix"
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 10000
+Time: 4.314
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 10000
+Time: 16.152
+"Znkix"
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 10000
+Time: 0.726
+Znkix
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 10000
+Time: 5.176
+0
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 100000
+Time: 61.399
+0
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 100000
+Time: 12.645
+0
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 100000
+Time: 4.360
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 100000
+Time: 16.091
+0
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 100000
+Time: 0.747
+0
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 100000
+Time: 5.112
+1
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 500000
+Time: 60.473
+1
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 500000
+Time: 12.624
+1
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 500000
+Time: 4.297
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 500000
+Time: 16.276
+1
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 500000
+Time: 0.725
+1
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 500000
+Time: 5.131
+0
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 700000
+Time: 60.594
+0
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 700000
+Time: 12.793
+0
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 700000
+Time: 4.386
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 700000
+Time: 16.049
+0
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 700000
+Time: 0.764
+0
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 700000
+Time: 5.123
+0
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 999999
+Time: 60.278
+0
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 999999
+Time: 12.577
+0
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 999999
+Time: 4.432
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 999999
+Time: 16.361
+0
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 999999
+Time: 0.802
+
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 999999
+Time: 5.069
+"aPNPoidKPOMIzF"
+./a1p1/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_idx 7 10
+Time: 0.044
+"aPNPoidKPOMIzF"
+./A3_a1_p1/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_idx 7 10
+Time: 0.035
+"aPNPoidKPOMIzF"
+./CS4500A1P1/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_idx 7 10
+Time: 0.003
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_idx 7 10
+Time: ./benchmark.sh: line 42: 41161 Segmentation fault      (core dumped) ./${proj}/sorer -f ${TESTFILE} ${cmd}
+0.231
+"aPNPoidKPOMIzF"
+./sorer/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_idx 7 10
+Time: 0.002
+aPNPoidKPOMIzF
+./swd_assignment_3/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_idx 7 10
+Time: 0.002
+0
+./a1p1/sorer -f benchmark.sor -from 0 -len 10000 -is_missing_idx 14 15
+Time: 0.044
+0
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 10000 -is_missing_idx 14 15
+Time: 0.035
+0
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 10000 -is_missing_idx 14 15
+Time: 0.003
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 10000 -is_missing_idx 14 15
+Time: 0.073
+0
+./sorer/sorer -f benchmark.sor -from 0 -len 10000 -is_missing_idx 14 15
+Time: 0.003
+0
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 10000 -is_missing_idx 14 15
+Time: 0.002
+0
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 14 15
+Time: 60.091
+0
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 14 15
+Time: 12.586
+0
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 14 15
+Time: 4.332
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 14 15
+Time: 16.279
+0
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 14 15
+Time: 0.786
+0
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 14 15
+Time: 5.118
+0
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 250000
+Time: 60.583
+0
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 250000
+Time: 12.552
+0
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 250000
+Time: 4.372
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 250000
+Time: 16.180
+0
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 250000
+Time: 0.765
+0
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 250000
+Time: 5.063
+0
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 750020
+Time: 60.436
+0
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 750020
+Time: 12.575
+0
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 750020
+Time: 4.314
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 750020
+Time: 16.271
+0
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 750020
+Time: 0.721
+0
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 750020
+Time: 5.011
+0
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 19 999999
+Time: 59.803
+1
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 19 999999
+Time: 12.677
+1
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 19 999999
+Time: 4.328
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 19 999999
+Time: 16.056
+1
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 19 999999
+Time: 0.739
+
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 19 999999
+Time: 5.014
+0
+./a1p1/sorer -f benchmark.sor -from 500000 -len 50000 -is_missing_idx 9 100
+Time: 0.068
+0
+./A3_a1_p1/sorer -f benchmark.sor -from 500000 -len 50000 -is_missing_idx 9 100
+Time: 0.036
+0
+./CS4500A1P1/sorer -f benchmark.sor -from 500000 -len 50000 -is_missing_idx 9 100
+Time: 0.004
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 500000 -len 50000 -is_missing_idx 9 100
+Time: ./benchmark.sh: line 42: 42607 Segmentation fault      (core dumped) ./${proj}/sorer -f ${TESTFILE} ${cmd}
+0.234
+0
+./sorer/sorer -f benchmark.sor -from 500000 -len 50000 -is_missing_idx 9 100
+Time: 0.003
+0
+./swd_assignment_3/sorer -f benchmark.sor -from 500000 -len 50000 -is_missing_idx 9 100
+Time: 0.004
+STRING
+./a1p1/sorer -f benchmark.sor -from 0 -len 10000 -print_col_type 10
+Time: 0.040
+STRING
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 10000 -print_col_type 10
+Time: 0.035
+STRING
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 10000 -print_col_type 10
+Time: 0.003
+STRING
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 10000 -print_col_type 10
+Time: 0.073
+STRING
+./sorer/sorer -f benchmark.sor -from 0 -len 10000 -print_col_type 10
+Time: 0.003
+STRING
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 10000 -print_col_type 10
+Time: 0.002
+BOOL
+./a1p1/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_type 15
+Time: 0.039
+BOOL
+./A3_a1_p1/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_type 15
+Time: 0.035
+BOOL
+./CS4500A1P1/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_type 15
+Time: 0.003
+BOOL
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_type 15
+Time: 0.001
+BOOL
+./sorer/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_type 15
+Time: 0.002
+BOOL
+./swd_assignment_3/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_type 15
+Time: 0.002
+INT
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_type 9
+Time: 0.063
+INT
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_type 9
+Time: 12.596
+INT
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_type 9
+Time: 0.003
+BOOL
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_type 9
+Time: 16.364
+INT
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_type 9
+Time: 0.747
+INTEGER
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_type 9
+Time: 5.127
+1982619119
+./a1p1/sorer -f benchmark.sor -from 0 -len 10000 -print_col_idx 0 0
+Time: 0.044
+1982619119
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 10000 -print_col_idx 0 0
+Time: 0.035
+1982619119
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 10000 -print_col_idx 0 0
+Time: 0.003
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 10000 -print_col_idx 0 0
+Time: 0.073
+1982619119
+./sorer/sorer -f benchmark.sor -from 0 -len 10000 -print_col_idx 0 0
+Time: 0.003
+1982619119
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 10000 -print_col_idx 0 0
+Time: 0.002
+1982619119
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 0 0
+Time: 59.899
+1982619119
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 0 0
+Time: 12.657
+1982619119
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 0 0
+Time: 4.321
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 0 0
+Time: 15.951
+1982619119
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 0 0
+Time: 0.745
+1982619119
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 0 0
+Time: 5.025
+"WUCrKgbISPTIYalZk"
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 5000
+Time: 61.051
+"WUCrKgbISPTIYalZk"
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 5000
+Time: 12.664
+"WUCrKgbISPTIYalZk"
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 5000
+Time: 4.357
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 5000
+Time: 16.123
+"WUCrKgbISPTIYalZk"
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 5000
+Time: 0.728
+WUCrKgbISPTIYalZk
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 5000
+Time: 5.031
+"Znkix"
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 10000
+Time: 60.368
+"Znkix"
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 10000
+Time: 12.617
+"Znkix"
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 10000
+Time: 4.303
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 10000
+Time: 16.415
+"Znkix"
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 10000
+Time: 0.736
+Znkix
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 10000
+Time: 5.040
+0
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 100000
+Time: 59.907
+0
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 100000
+Time: 12.545
+0
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 100000
+Time: 4.326
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 100000
+Time: 16.145
+0
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 100000
+Time: 0.742
+0
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 100000
+Time: 5.113
+1
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 500000
+Time: 60.107
+1
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 500000
+Time: 12.572
+1
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 500000
+Time: 4.312
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 500000
+Time: 16.051
+1
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 500000
+Time: 0.787
+1
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 500000
+Time: 5.037
+0
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 700000
+Time: 60.184
+0
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 700000
+Time: 12.567
+0
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 700000
+Time: 4.331
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 700000
+Time: 16.158
+0
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 700000
+Time: 0.749
+0
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 700000
+Time: 5.048
+0
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 999999
+Time: 59.591
+0
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 999999
+Time: 12.660
+0
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 999999
+Time: 4.346
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 999999
+Time: 16.060
+0
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 999999
+Time: 0.745
+
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 999999
+Time: 5.069
+"aPNPoidKPOMIzF"
+./a1p1/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_idx 7 10
+Time: 0.046
+"aPNPoidKPOMIzF"
+./A3_a1_p1/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_idx 7 10
+Time: 0.037
+"aPNPoidKPOMIzF"
+./CS4500A1P1/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_idx 7 10
+Time: 0.003
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_idx 7 10
+Time: ./benchmark.sh: line 42: 45255 Segmentation fault      (core dumped) ./${proj}/sorer -f ${TESTFILE} ${cmd}
+0.234
+"aPNPoidKPOMIzF"
+./sorer/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_idx 7 10
+Time: 0.002
+aPNPoidKPOMIzF
+./swd_assignment_3/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_idx 7 10
+Time: 0.002
+0
+./a1p1/sorer -f benchmark.sor -from 0 -len 10000 -is_missing_idx 14 15
+Time: 0.043
+0
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 10000 -is_missing_idx 14 15
+Time: 0.035
+0
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 10000 -is_missing_idx 14 15
+Time: 0.003
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 10000 -is_missing_idx 14 15
+Time: 0.074
+0
+./sorer/sorer -f benchmark.sor -from 0 -len 10000 -is_missing_idx 14 15
+Time: 0.003
+0
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 10000 -is_missing_idx 14 15
+Time: 0.002
+0
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 14 15
+Time: 61.155
+0
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 14 15
+Time: 12.622
+0
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 14 15
+Time: 4.323
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 14 15
+Time: 15.968
+0
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 14 15
+Time: 0.723
+0
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 14 15
+Time: 5.071
+0
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 250000
+Time: 61.368
+0
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 250000
+Time: 12.667
+0
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 250000
+Time: 4.319
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 250000
+Time: 16.337
+0
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 250000
+Time: 0.768
+0
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 250000
+Time: 5.055
+0
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 750020
+Time: 60.280
+0
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 750020
+Time: 12.608
+0
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 750020
+Time: 4.314
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 750020
+Time: 16.079
+0
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 750020
+Time: 0.738
+0
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 750020
+Time: 5.059
+0
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 19 999999
+Time: 60.287
+1
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 19 999999
+Time: 12.587
+1
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 19 999999
+Time: 4.340
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 19 999999
+Time: 16.049
+1
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 19 999999
+Time: 0.803
+
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 19 999999
+Time: 5.053
+0
+./a1p1/sorer -f benchmark.sor -from 500000 -len 50000 -is_missing_idx 9 100
+Time: 0.068
+0
+./A3_a1_p1/sorer -f benchmark.sor -from 500000 -len 50000 -is_missing_idx 9 100
+Time: 0.036
+0
+./CS4500A1P1/sorer -f benchmark.sor -from 500000 -len 50000 -is_missing_idx 9 100
+Time: 0.004
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 500000 -len 50000 -is_missing_idx 9 100
+Time: ./benchmark.sh: line 42: 46663 Segmentation fault      (core dumped) ./${proj}/sorer -f ${TESTFILE} ${cmd}
+0.231
+0
+./sorer/sorer -f benchmark.sor -from 500000 -len 50000 -is_missing_idx 9 100
+Time: 0.003
+0
+./swd_assignment_3/sorer -f benchmark.sor -from 500000 -len 50000 -is_missing_idx 9 100
+Time: 0.005
+STRING
+./a1p1/sorer -f benchmark.sor -from 0 -len 10000 -print_col_type 10
+Time: 0.040
+STRING
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 10000 -print_col_type 10
+Time: 0.035
+STRING
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 10000 -print_col_type 10
+Time: 0.003
+STRING
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 10000 -print_col_type 10
+Time: 0.073
+STRING
+./sorer/sorer -f benchmark.sor -from 0 -len 10000 -print_col_type 10
+Time: 0.002
+STRING
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 10000 -print_col_type 10
+Time: 0.002
+BOOL
+./a1p1/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_type 15
+Time: 0.038
+BOOL
+./A3_a1_p1/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_type 15
+Time: 0.034
+BOOL
+./CS4500A1P1/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_type 15
+Time: 0.003
+BOOL
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_type 15
+Time: 0.001
+BOOL
+./sorer/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_type 15
+Time: 0.002
+BOOL
+./swd_assignment_3/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_type 15
+Time: 0.002
+INT
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_type 9
+Time: 0.063
+INT
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_type 9
+Time: 12.657
+INT
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_type 9
+Time: 0.003
+BOOL
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_type 9
+Time: 16.174
+INT
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_type 9
+Time: 0.760
+INTEGER
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_type 9
+Time: 4.989
+1982619119
+./a1p1/sorer -f benchmark.sor -from 0 -len 10000 -print_col_idx 0 0
+Time: 0.044
+1982619119
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 10000 -print_col_idx 0 0
+Time: 0.035
+1982619119
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 10000 -print_col_idx 0 0
+Time: 0.003
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 10000 -print_col_idx 0 0
+Time: 0.075
+1982619119
+./sorer/sorer -f benchmark.sor -from 0 -len 10000 -print_col_idx 0 0
+Time: 0.003
+1982619119
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 10000 -print_col_idx 0 0
+Time: 0.002
+1982619119
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 0 0
+Time: 60.547
+1982619119
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 0 0
+Time: 12.665
+1982619119
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 0 0
+Time: 4.352
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 0 0
+Time: 15.902
+1982619119
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 0 0
+Time: 0.761
+1982619119
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 0 0
+Time: 5.038
+"WUCrKgbISPTIYalZk"
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 5000
+Time: 60.369
+"WUCrKgbISPTIYalZk"
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 5000
+Time: 12.680
+"WUCrKgbISPTIYalZk"
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 5000
+Time: 4.340
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 5000
+Time: 16.229
+"WUCrKgbISPTIYalZk"
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 5000
+Time: 0.760
+WUCrKgbISPTIYalZk
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 5000
+Time: 5.088
+"Znkix"
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 10000
+Time: 61.492
+"Znkix"
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 10000
+Time: 12.627
+"Znkix"
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 10000
+Time: 4.298
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 10000
+Time: 16.470
+"Znkix"
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 10000
+Time: 0.736
+Znkix
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 10000
+Time: 5.066
+0
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 100000
+Time: 60.874
+0
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 100000
+Time: 12.551
+0
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 100000
+Time: 4.318
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 100000
+Time: 16.113
+0
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 100000
+Time: 0.752
+0
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 100000
+Time: 5.048
+1
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 500000
+Time: 60.198
+1
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 500000
+Time: 12.586
+1
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 500000
+Time: 4.308
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 500000
+Time: 16.180
+1
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 500000
+Time: 0.749
+1
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 500000
+Time: 5.087
+0
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 700000
+Time: 60.424
+0
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 700000
+Time: 12.656
+0
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 700000
+Time: 4.324
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 700000
+Time: 16.363
+0
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 700000
+Time: 0.750
+0
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 700000
+Time: 5.101
+0
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 999999
+Time: 59.756
+0
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 999999
+Time: 12.613
+0
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 999999
+Time: 4.317
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 999999
+Time: 16.153
+0
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 999999
+Time: 0.734
+
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 999999
+Time: 5.076
+"aPNPoidKPOMIzF"
+./a1p1/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_idx 7 10
+Time: 0.043
+"aPNPoidKPOMIzF"
+./A3_a1_p1/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_idx 7 10
+Time: 0.036
+"aPNPoidKPOMIzF"
+./CS4500A1P1/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_idx 7 10
+Time: 0.004
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_idx 7 10
+Time: ./benchmark.sh: line 42: 49310 Segmentation fault      (core dumped) ./${proj}/sorer -f ${TESTFILE} ${cmd}
+0.234
+"aPNPoidKPOMIzF"
+./sorer/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_idx 7 10
+Time: 0.002
+aPNPoidKPOMIzF
+./swd_assignment_3/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_idx 7 10
+Time: 0.002
+0
+./a1p1/sorer -f benchmark.sor -from 0 -len 10000 -is_missing_idx 14 15
+Time: 0.044
+0
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 10000 -is_missing_idx 14 15
+Time: 0.035
+0
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 10000 -is_missing_idx 14 15
+Time: 0.003
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 10000 -is_missing_idx 14 15
+Time: 0.073
+0
+./sorer/sorer -f benchmark.sor -from 0 -len 10000 -is_missing_idx 14 15
+Time: 0.002
+0
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 10000 -is_missing_idx 14 15
+Time: 0.002
+0
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 14 15
+Time: 59.774
+0
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 14 15
+Time: 12.606
+0
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 14 15
+Time: 4.315
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 14 15
+Time: 16.258
+0
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 14 15
+Time: 0.745
+0
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 14 15
+Time: 5.053
+0
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 250000
+Time: 60.591
+0
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 250000
+Time: 12.838
+0
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 250000
+Time: 4.322
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 250000
+Time: 16.124
+0
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 250000
+Time: 0.800
+0
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 250000
+Time: 5.290
+0
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 750020
+Time: 60.360
+0
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 750020
+Time: 12.609
+0
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 750020
+Time: 4.347
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 750020
+Time: 16.221
+0
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 750020
+Time: 0.739
+0
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 750020
+Time: 5.099
+0
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 19 999999
+Time: 60.759
+1
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 19 999999
+Time: 12.633
+1
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 19 999999
+Time: 4.339
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 19 999999
+Time: 16.301
+1
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 19 999999
+Time: 0.758
+
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 19 999999
+Time: 5.135
+0
+./a1p1/sorer -f benchmark.sor -from 500000 -len 50000 -is_missing_idx 9 100
+Time: 0.068
+0
+./A3_a1_p1/sorer -f benchmark.sor -from 500000 -len 50000 -is_missing_idx 9 100
+Time: 0.036
+0
+./CS4500A1P1/sorer -f benchmark.sor -from 500000 -len 50000 -is_missing_idx 9 100
+Time: 0.004
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 500000 -len 50000 -is_missing_idx 9 100
+Time: ./benchmark.sh: line 42: 50732 Segmentation fault      (core dumped) ./${proj}/sorer -f ${TESTFILE} ${cmd}
+0.228
+0
+./sorer/sorer -f benchmark.sor -from 500000 -len 50000 -is_missing_idx 9 100
+Time: 0.003
+0
+./swd_assignment_3/sorer -f benchmark.sor -from 500000 -len 50000 -is_missing_idx 9 100
+Time: 0.004
+STRING
+./a1p1/sorer -f benchmark.sor -from 0 -len 10000 -print_col_type 10
+Time: 0.041
+STRING
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 10000 -print_col_type 10
+Time: 0.034
+STRING
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 10000 -print_col_type 10
+Time: 0.003
+STRING
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 10000 -print_col_type 10
+Time: 0.073
+STRING
+./sorer/sorer -f benchmark.sor -from 0 -len 10000 -print_col_type 10
+Time: 0.003
+STRING
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 10000 -print_col_type 10
+Time: 0.002
+BOOL
+./a1p1/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_type 15
+Time: 0.038
+BOOL
+./A3_a1_p1/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_type 15
+Time: 0.034
+BOOL
+./CS4500A1P1/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_type 15
+Time: 0.003
+BOOL
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_type 15
+Time: 0.001
+BOOL
+./sorer/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_type 15
+Time: 0.002
+BOOL
+./swd_assignment_3/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_type 15
+Time: 0.002
+INT
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_type 9
+Time: 0.063
+INT
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_type 9
+Time: 12.896
+INT
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_type 9
+Time: 0.003
+BOOL
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_type 9
+Time: 16.115
+INT
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_type 9
+Time: 0.760
+INTEGER
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_type 9
+Time: 5.093
+1982619119
+./a1p1/sorer -f benchmark.sor -from 0 -len 10000 -print_col_idx 0 0
+Time: 0.044
+1982619119
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 10000 -print_col_idx 0 0
+Time: 0.035
+1982619119
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 10000 -print_col_idx 0 0
+Time: 0.003
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 10000 -print_col_idx 0 0
+Time: 0.074
+1982619119
+./sorer/sorer -f benchmark.sor -from 0 -len 10000 -print_col_idx 0 0
+Time: 0.003
+1982619119
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 10000 -print_col_idx 0 0
+Time: 0.002
+1982619119
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 0 0
+Time: 60.174
+1982619119
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 0 0
+Time: 12.734
+1982619119
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 0 0
+Time: 4.330
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 0 0
+Time: 16.061
+1982619119
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 0 0
+Time: 0.747
+1982619119
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 0 0
+Time: 5.139
+"WUCrKgbISPTIYalZk"
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 5000
+Time: 60.601
+"WUCrKgbISPTIYalZk"
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 5000
+Time: 12.631
+"WUCrKgbISPTIYalZk"
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 5000
+Time: 4.315
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 5000
+Time: 16.129
+"WUCrKgbISPTIYalZk"
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 5000
+Time: 0.740
+WUCrKgbISPTIYalZk
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 5000
+Time: 5.051
+"Znkix"
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 10000
+Time: 60.111
+"Znkix"
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 10000
+Time: 12.627
+"Znkix"
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 10000
+Time: 4.319
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 10000
+Time: 16.026
+"Znkix"
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 10000
+Time: 0.738
+Znkix
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 10000
+Time: 5.130
+0
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 100000
+Time: 60.066
+0
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 100000
+Time: 12.632
+0
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 100000
+Time: 4.579
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 100000
+Time: 16.076
+0
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 100000
+Time: 0.759
+0
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 100000
+Time: 5.083
+1
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 500000
+Time: 59.984
+1
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 500000
+Time: 12.649
+1
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 500000
+Time: 4.312
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 500000
+Time: 16.024
+1
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 500000
+Time: 0.765
+1
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 500000
+Time: 5.050
+0
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 700000
+Time: 60.473
+0
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 700000
+Time: 12.660
+0
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 700000
+Time: 4.325
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 700000
+Time: 16.459
+0
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 700000
+Time: 0.763
+0
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 700000
+Time: 5.069
+0
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 999999
+Time: 60.886
+0
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 999999
+Time: 12.597
+0
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 999999
+Time: 4.310
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 999999
+Time: 16.149
+0
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 999999
+Time: 0.758
+
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 999999
+Time: 5.062
+"aPNPoidKPOMIzF"
+./a1p1/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_idx 7 10
+Time: 0.044
+"aPNPoidKPOMIzF"
+./A3_a1_p1/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_idx 7 10
+Time: 0.035
+"aPNPoidKPOMIzF"
+./CS4500A1P1/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_idx 7 10
+Time: 0.003
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_idx 7 10
+Time: ./benchmark.sh: line 42: 53425 Segmentation fault      (core dumped) ./${proj}/sorer -f ${TESTFILE} ${cmd}
+0.233
+"aPNPoidKPOMIzF"
+./sorer/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_idx 7 10
+Time: 0.002
+aPNPoidKPOMIzF
+./swd_assignment_3/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_idx 7 10
+Time: 0.002
+0
+./a1p1/sorer -f benchmark.sor -from 0 -len 10000 -is_missing_idx 14 15
+Time: 0.045
+0
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 10000 -is_missing_idx 14 15
+Time: 0.035
+0
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 10000 -is_missing_idx 14 15
+Time: 0.003
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 10000 -is_missing_idx 14 15
+Time: 0.073
+0
+./sorer/sorer -f benchmark.sor -from 0 -len 10000 -is_missing_idx 14 15
+Time: 0.003
+0
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 10000 -is_missing_idx 14 15
+Time: 0.002
+0
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 14 15
+Time: 60.607
+0
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 14 15
+Time: 12.623
+0
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 14 15
+Time: 4.320
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 14 15
+Time: 16.214
+0
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 14 15
+Time: 0.729
+0
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 14 15
+Time: 5.066
+0
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 250000
+Time: 60.278
+0
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 250000
+Time: 12.751
+0
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 250000
+Time: 4.304
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 250000
+Time: 16.056
+0
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 250000
+Time: 0.777
+0
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 250000
+Time: 5.074
+0
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 750020
+Time: 59.881
+0
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 750020
+Time: 12.772
+0
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 750020
+Time: 4.351
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 750020
+Time: 16.170
+0
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 750020
+Time: 0.744
+0
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 750020
+Time: 5.060
+0
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 19 999999
+Time: 61.178
+1
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 19 999999
+Time: 12.642
+1
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 19 999999
+Time: 4.360
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 19 999999
+Time: 15.954
+1
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 19 999999
+Time: 0.733
+
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 19 999999
+Time: 5.075
+0
+./a1p1/sorer -f benchmark.sor -from 500000 -len 50000 -is_missing_idx 9 100
+Time: 0.068
+0
+./A3_a1_p1/sorer -f benchmark.sor -from 500000 -len 50000 -is_missing_idx 9 100
+Time: 0.036
+0
+./CS4500A1P1/sorer -f benchmark.sor -from 500000 -len 50000 -is_missing_idx 9 100
+Time: 0.004
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 500000 -len 50000 -is_missing_idx 9 100
+Time: ./benchmark.sh: line 42: 54843 Segmentation fault      (core dumped) ./${proj}/sorer -f ${TESTFILE} ${cmd}
+0.232
+0
+./sorer/sorer -f benchmark.sor -from 500000 -len 50000 -is_missing_idx 9 100
+Time: 0.003
+0
+./swd_assignment_3/sorer -f benchmark.sor -from 500000 -len 50000 -is_missing_idx 9 100
+Time: 0.004
+STRING
+./a1p1/sorer -f benchmark.sor -from 0 -len 10000 -print_col_type 10
+Time: 0.041
+STRING
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 10000 -print_col_type 10
+Time: 0.035
+STRING
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 10000 -print_col_type 10
+Time: 0.003
+STRING
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 10000 -print_col_type 10
+Time: 0.077
+STRING
+./sorer/sorer -f benchmark.sor -from 0 -len 10000 -print_col_type 10
+Time: 0.002
+STRING
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 10000 -print_col_type 10
+Time: 0.002
+BOOL
+./a1p1/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_type 15
+Time: 0.038
+BOOL
+./A3_a1_p1/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_type 15
+Time: 0.035
+BOOL
+./CS4500A1P1/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_type 15
+Time: 0.003
+BOOL
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_type 15
+Time: 0.001
+BOOL
+./sorer/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_type 15
+Time: 0.002
+BOOL
+./swd_assignment_3/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_type 15
+Time: 0.002
+INT
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_type 9
+Time: 0.063
+INT
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_type 9
+Time: 12.578
+INT
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_type 9
+Time: 0.003
+BOOL
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_type 9
+Time: 16.173
+INT
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_type 9
+Time: 0.748
+INTEGER
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_type 9
+Time: 5.051
+1982619119
+./a1p1/sorer -f benchmark.sor -from 0 -len 10000 -print_col_idx 0 0
+Time: 0.044
+1982619119
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 10000 -print_col_idx 0 0
+Time: 0.034
+1982619119
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 10000 -print_col_idx 0 0
+Time: 0.003
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 10000 -print_col_idx 0 0
+Time: 0.073
+1982619119
+./sorer/sorer -f benchmark.sor -from 0 -len 10000 -print_col_idx 0 0
+Time: 0.003
+1982619119
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 10000 -print_col_idx 0 0
+Time: 0.002
+1982619119
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 0 0
+Time: 60.264
+1982619119
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 0 0
+Time: 12.661
+1982619119
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 0 0
+Time: 4.321
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 0 0
+Time: 16.150
+1982619119
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 0 0
+Time: 0.734
+1982619119
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 0 0
+Time: 5.113
+"WUCrKgbISPTIYalZk"
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 5000
+Time: 60.601
+"WUCrKgbISPTIYalZk"
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 5000
+Time: 12.580
+"WUCrKgbISPTIYalZk"
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 5000
+Time: 4.338
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 5000
+Time: 16.192
+"WUCrKgbISPTIYalZk"
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 5000
+Time: 0.744
+WUCrKgbISPTIYalZk
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 5000
+Time: 5.033
+"Znkix"
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 10000
+Time: 60.332
+"Znkix"
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 10000
+Time: 12.620
+"Znkix"
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 10000
+Time: 4.321
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 10000
+Time: 16.031
+"Znkix"
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 10000
+Time: 0.718
+Znkix
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 10000
+Time: 5.082
+0
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 100000
+Time: 60.273
+0
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 100000
+Time: 12.710
+0
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 100000
+Time: 4.330
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 100000
+Time: 16.120
+0
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 100000
+Time: 0.763
+0
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 100000
+Time: 5.048
+1
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 500000
+Time: 59.983
+1
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 500000
+Time: 12.766
+1
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 500000
+Time: 4.349
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 500000
+Time: 16.152
+1
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 500000
+Time: 0.779
+1
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 500000
+Time: 5.034
+0
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 700000
+Time: 60.613
+0
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 700000
+Time: 12.635
+0
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 700000
+Time: 4.297
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 700000
+Time: 16.182
+0
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 700000
+Time: 0.754
+0
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 700000
+Time: 5.070
+0
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 999999
+Time: 60.310
+0
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 999999
+Time: 12.636
+0
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 999999
+Time: 4.297
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 999999
+Time: 16.080
+0
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 999999
+Time: 0.760
+
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 999999
+Time: 5.053
+"aPNPoidKPOMIzF"
+./a1p1/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_idx 7 10
+Time: 0.043
+"aPNPoidKPOMIzF"
+./A3_a1_p1/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_idx 7 10
+Time: 0.034
+"aPNPoidKPOMIzF"
+./CS4500A1P1/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_idx 7 10
+Time: 0.003
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_idx 7 10
+Time: ./benchmark.sh: line 42: 57476 Segmentation fault      (core dumped) ./${proj}/sorer -f ${TESTFILE} ${cmd}
+0.229
+"aPNPoidKPOMIzF"
+./sorer/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_idx 7 10
+Time: 0.003
+aPNPoidKPOMIzF
+./swd_assignment_3/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_idx 7 10
+Time: 0.002
+0
+./a1p1/sorer -f benchmark.sor -from 0 -len 10000 -is_missing_idx 14 15
+Time: 0.044
+0
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 10000 -is_missing_idx 14 15
+Time: 0.034
+0
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 10000 -is_missing_idx 14 15
+Time: 0.003
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 10000 -is_missing_idx 14 15
+Time: 0.077
+0
+./sorer/sorer -f benchmark.sor -from 0 -len 10000 -is_missing_idx 14 15
+Time: 0.003
+0
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 10000 -is_missing_idx 14 15
+Time: 0.002
+0
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 14 15
+Time: 60.778
+0
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 14 15
+Time: 12.735
+0
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 14 15
+Time: 4.319
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 14 15
+Time: 16.201
+0
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 14 15
+Time: 0.762
+0
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 14 15
+Time: 5.049
+0
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 250000
+Time: 60.179
+0
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 250000
+Time: 12.634
+0
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 250000
+Time: 4.325
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 250000
+Time: 16.005
+0
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 250000
+Time: 0.728
+0
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 250000
+Time: 5.022
+0
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 750020
+Time: 60.184
+0
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 750020
+Time: 12.591
+0
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 750020
+Time: 4.357
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 750020
+Time: 16.029
+0
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 750020
+Time: 0.750
+0
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 750020
+Time: 5.053
+0
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 19 999999
+Time: 60.509
+1
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 19 999999
+Time: 12.620
+1
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 19 999999
+Time: 4.391
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 19 999999
+Time: 16.199
+1
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 19 999999
+Time: 0.761
+
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 19 999999
+Time: 5.050
+0
+./a1p1/sorer -f benchmark.sor -from 500000 -len 50000 -is_missing_idx 9 100
+Time: 0.068
+0
+./A3_a1_p1/sorer -f benchmark.sor -from 500000 -len 50000 -is_missing_idx 9 100
+Time: 0.036
+0
+./CS4500A1P1/sorer -f benchmark.sor -from 500000 -len 50000 -is_missing_idx 9 100
+Time: 0.004
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 500000 -len 50000 -is_missing_idx 9 100
+Time: ./benchmark.sh: line 42: 58852 Segmentation fault      (core dumped) ./${proj}/sorer -f ${TESTFILE} ${cmd}
+0.236
+0
+./sorer/sorer -f benchmark.sor -from 500000 -len 50000 -is_missing_idx 9 100
+Time: 0.003
+0
+./swd_assignment_3/sorer -f benchmark.sor -from 500000 -len 50000 -is_missing_idx 9 100
+Time: 0.005
+STRING
+./a1p1/sorer -f benchmark.sor -from 0 -len 10000 -print_col_type 10
+Time: 0.040
+STRING
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 10000 -print_col_type 10
+Time: 0.035
+STRING
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 10000 -print_col_type 10
+Time: 0.003
+STRING
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 10000 -print_col_type 10
+Time: 0.073
+STRING
+./sorer/sorer -f benchmark.sor -from 0 -len 10000 -print_col_type 10
+Time: 0.003
+STRING
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 10000 -print_col_type 10
+Time: 0.002
+BOOL
+./a1p1/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_type 15
+Time: 0.039
+BOOL
+./A3_a1_p1/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_type 15
+Time: 0.035
+BOOL
+./CS4500A1P1/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_type 15
+Time: 0.003
+BOOL
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_type 15
+Time: 0.001
+BOOL
+./sorer/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_type 15
+Time: 0.002
+BOOL
+./swd_assignment_3/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_type 15
+Time: 0.002
+INT
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_type 9
+Time: 0.064
+INT
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_type 9
+Time: 12.635
+INT
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_type 9
+Time: 0.003
+BOOL
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_type 9
+Time: 16.281
+INT
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_type 9
+Time: 0.747
+INTEGER
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_type 9
+Time: 5.064
+1982619119
+./a1p1/sorer -f benchmark.sor -from 0 -len 10000 -print_col_idx 0 0
+Time: 0.044
+1982619119
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 10000 -print_col_idx 0 0
+Time: 0.035
+1982619119
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 10000 -print_col_idx 0 0
+Time: 0.003
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 10000 -print_col_idx 0 0
+Time: 0.073
+1982619119
+./sorer/sorer -f benchmark.sor -from 0 -len 10000 -print_col_idx 0 0
+Time: 0.003
+1982619119
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 10000 -print_col_idx 0 0
+Time: 0.002
+1982619119
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 0 0
+Time: 60.824
+1982619119
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 0 0
+Time: 12.717
+1982619119
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 0 0
+Time: 4.334
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 0 0
+Time: 16.395
+1982619119
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 0 0
+Time: 0.727
+1982619119
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 0 0
+Time: 5.065
+"WUCrKgbISPTIYalZk"
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 5000
+Time: 60.384
+"WUCrKgbISPTIYalZk"
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 5000
+Time: 12.566
+"WUCrKgbISPTIYalZk"
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 5000
+Time: 4.326
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 5000
+Time: 16.121
+"WUCrKgbISPTIYalZk"
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 5000
+Time: 0.779
+WUCrKgbISPTIYalZk
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 5000
+Time: 5.036
+"Znkix"
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 10000
+Time: 60.041
+"Znkix"
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 10000
+Time: 12.620
+"Znkix"
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 10000
+Time: 4.328
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 10000
+Time: 15.938
+"Znkix"
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 10000
+Time: 0.756
+Znkix
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 10000
+Time: 5.056
+0
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 100000
+Time: 60.435
+0
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 100000
+Time: 12.597
+0
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 100000
+Time: 4.344
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 100000
+Time: 16.179
+0
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 100000
+Time: 0.754
+0
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 100000
+Time: 5.026
+1
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 500000
+Time: 60.715
+1
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 500000
+Time: 12.560
+1
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 500000
+Time: 4.320
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 500000
+Time: 16.190
+1
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 500000
+Time: 0.764
+1
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 500000
+Time: 5.108
+0
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 700000
+Time: 60.492
+0
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 700000
+Time: 12.611
+0
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 700000
+Time: 4.310
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 700000
+Time: 16.369
+0
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 700000
+Time: 0.736
+0
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 700000
+Time: 5.091
+0
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 999999
+Time: 60.585
+0
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 999999
+Time: 12.617
+0
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 999999
+Time: 4.314
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 999999
+Time: 16.097
+0
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 999999
+Time: 0.751
+
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 999999
+Time: 5.060
+"aPNPoidKPOMIzF"
+./a1p1/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_idx 7 10
+Time: 0.044
+"aPNPoidKPOMIzF"
+./A3_a1_p1/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_idx 7 10
+Time: 0.035
+"aPNPoidKPOMIzF"
+./CS4500A1P1/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_idx 7 10
+Time: 0.003
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_idx 7 10
+Time: ./benchmark.sh: line 42: 61459 Segmentation fault      (core dumped) ./${proj}/sorer -f ${TESTFILE} ${cmd}
+0.238
+"aPNPoidKPOMIzF"
+./sorer/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_idx 7 10
+Time: 0.003
+aPNPoidKPOMIzF
+./swd_assignment_3/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_idx 7 10
+Time: 0.002
+0
+./a1p1/sorer -f benchmark.sor -from 0 -len 10000 -is_missing_idx 14 15
+Time: 0.044
+0
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 10000 -is_missing_idx 14 15
+Time: 0.034
+0
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 10000 -is_missing_idx 14 15
+Time: 0.003
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 10000 -is_missing_idx 14 15
+Time: 0.073
+0
+./sorer/sorer -f benchmark.sor -from 0 -len 10000 -is_missing_idx 14 15
+Time: 0.002
+0
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 10000 -is_missing_idx 14 15
+Time: 0.002
+0
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 14 15
+Time: 60.813
+0
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 14 15
+Time: 12.605
+0
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 14 15
+Time: 4.308
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 14 15
+Time: 16.116
+0
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 14 15
+Time: 0.739
+0
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 14 15
+Time: 5.082
+0
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 250000
+Time: 60.362
+0
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 250000
+Time: 12.632
+0
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 250000
+Time: 4.296
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 250000
+Time: 16.000
+0
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 250000
+Time: 0.743
+0
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 250000
+Time: 5.102
+0
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 750020
+Time: 60.395
+0
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 750020
+Time: 12.617
+0
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 750020
+Time: 4.315
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 750020
+Time: 16.430
+0
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 750020
+Time: 0.748
+0
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 750020
+Time: 5.112
+0
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 19 999999
+Time: 60.441
+1
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 19 999999
+Time: 12.722
+1
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 19 999999
+Time: 4.317
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 19 999999
+Time: 16.119
+1
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 19 999999
+Time: 0.739
+
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 19 999999
+Time: 5.046
+0
+./a1p1/sorer -f benchmark.sor -from 500000 -len 50000 -is_missing_idx 9 100
+Time: 0.068
+0
+./A3_a1_p1/sorer -f benchmark.sor -from 500000 -len 50000 -is_missing_idx 9 100
+Time: 0.036
+0
+./CS4500A1P1/sorer -f benchmark.sor -from 500000 -len 50000 -is_missing_idx 9 100
+Time: 0.004
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 500000 -len 50000 -is_missing_idx 9 100
+Time: ./benchmark.sh: line 42: 62876 Segmentation fault      (core dumped) ./${proj}/sorer -f ${TESTFILE} ${cmd}
+0.234
+0
+./sorer/sorer -f benchmark.sor -from 500000 -len 50000 -is_missing_idx 9 100
+Time: 0.003
+0
+./swd_assignment_3/sorer -f benchmark.sor -from 500000 -len 50000 -is_missing_idx 9 100
+Time: 0.005
+STRING
+./a1p1/sorer -f benchmark.sor -from 0 -len 10000 -print_col_type 10
+Time: 0.040
+STRING
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 10000 -print_col_type 10
+Time: 0.035
+STRING
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 10000 -print_col_type 10
+Time: 0.003
+STRING
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 10000 -print_col_type 10
+Time: 0.073
+STRING
+./sorer/sorer -f benchmark.sor -from 0 -len 10000 -print_col_type 10
+Time: 0.003
+STRING
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 10000 -print_col_type 10
+Time: 0.002
+BOOL
+./a1p1/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_type 15
+Time: 0.040
+BOOL
+./A3_a1_p1/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_type 15
+Time: 0.034
+BOOL
+./CS4500A1P1/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_type 15
+Time: 0.003
+BOOL
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_type 15
+Time: 0.001
+BOOL
+./sorer/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_type 15
+Time: 0.002
+BOOL
+./swd_assignment_3/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_type 15
+Time: 0.002
+INT
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_type 9
+Time: 0.063
+INT
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_type 9
+Time: 12.693
+INT
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_type 9
+Time: 0.003
+BOOL
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_type 9
+Time: 15.948
+INT
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_type 9
+Time: 0.742
+INTEGER
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_type 9
+Time: 5.106
+1982619119
+./a1p1/sorer -f benchmark.sor -from 0 -len 10000 -print_col_idx 0 0
+Time: 0.043
+1982619119
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 10000 -print_col_idx 0 0
+Time: 0.035
+1982619119
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 10000 -print_col_idx 0 0
+Time: 0.003
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 10000 -print_col_idx 0 0
+Time: 0.072
+1982619119
+./sorer/sorer -f benchmark.sor -from 0 -len 10000 -print_col_idx 0 0
+Time: 0.002
+1982619119
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 10000 -print_col_idx 0 0
+Time: 0.002
+1982619119
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 0 0
+Time: 60.629
+1982619119
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 0 0
+Time: 12.636
+1982619119
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 0 0
+Time: 4.513
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 0 0
+Time: 16.018
+1982619119
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 0 0
+Time: 0.736
+1982619119
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 0 0
+Time: 5.118
+"WUCrKgbISPTIYalZk"
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 5000
+Time: 60.523
+"WUCrKgbISPTIYalZk"
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 5000
+Time: 12.584
+"WUCrKgbISPTIYalZk"
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 5000
+Time: 4.310
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 5000
+Time: 16.083
+"WUCrKgbISPTIYalZk"
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 5000
+Time: 0.727
+WUCrKgbISPTIYalZk
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 5000
+Time: 5.111
+"Znkix"
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 10000
+Time: 59.805
+"Znkix"
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 10000
+Time: 12.610
+"Znkix"
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 10000
+Time: 4.347
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 10000
+Time: 16.002
+"Znkix"
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 10000
+Time: 0.729
+Znkix
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 10000
+Time: 5.093
+0
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 100000
+Time: 59.971
+0
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 100000
+Time: 12.606
+0
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 100000
+Time: 4.314
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 100000
+Time: 16.181
+0
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 100000
+Time: 0.737
+0
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 100000
+Time: 5.046
+1
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 500000
+Time: 60.405
+1
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 500000
+Time: 12.632
+1
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 500000
+Time: 4.317
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 500000
+Time: 16.026
+1
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 500000
+Time: 0.734
+1
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 500000
+Time: 5.112
+0
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 700000
+Time: 60.710
+0
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 700000
+Time: 12.597
+0
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 700000
+Time: 4.351
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 700000
+Time: 16.283
+0
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 700000
+Time: 0.749
+0
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 700000
+Time: 5.038
+0
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 999999
+Time: 59.615
+0
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 999999
+Time: 12.609
+0
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 999999
+Time: 4.371
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 999999
+Time: 16.098
+0
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 999999
+Time: 0.748
+
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 999999
+Time: 5.054
+"aPNPoidKPOMIzF"
+./a1p1/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_idx 7 10
+Time: 0.044
+"aPNPoidKPOMIzF"
+./A3_a1_p1/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_idx 7 10
+Time: 0.035
+"aPNPoidKPOMIzF"
+./CS4500A1P1/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_idx 7 10
+Time: 0.003
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_idx 7 10
+Time: ./benchmark.sh: line 42: 65536 Segmentation fault      (core dumped) ./${proj}/sorer -f ${TESTFILE} ${cmd}
+0.230
+"aPNPoidKPOMIzF"
+./sorer/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_idx 7 10
+Time: 0.002
+aPNPoidKPOMIzF
+./swd_assignment_3/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_idx 7 10
+Time: 0.002
+0
+./a1p1/sorer -f benchmark.sor -from 0 -len 10000 -is_missing_idx 14 15
+Time: 0.045
+0
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 10000 -is_missing_idx 14 15
+Time: 0.035
+0
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 10000 -is_missing_idx 14 15
+Time: 0.003
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 10000 -is_missing_idx 14 15
+Time: 0.074
+0
+./sorer/sorer -f benchmark.sor -from 0 -len 10000 -is_missing_idx 14 15
+Time: 0.003
+0
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 10000 -is_missing_idx 14 15
+Time: 0.002
+0
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 14 15
+Time: 60.809
+0
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 14 15
+Time: 12.764
+0
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 14 15
+Time: 4.325
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 14 15
+Time: 16.131
+0
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 14 15
+Time: 0.763
+0
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 14 15
+Time: 5.080
+0
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 250000
+Time: 60.107
+0
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 250000
+Time: 12.598
+0
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 250000
+Time: 4.312
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 250000
+Time: 16.075
+0
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 250000
+Time: 0.736
+0
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 250000
+Time: 5.124
+0
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 750020
+Time: 60.817
+0
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 750020
+Time: 12.521
+0
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 750020
+Time: 4.334
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 750020
+Time: 16.141
+0
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 750020
+Time: 0.743
+0
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 750020
+Time: 5.064
+0
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 19 999999
+Time: 59.999
+1
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 19 999999
+Time: 12.704
+1
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 19 999999
+Time: 4.333
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 19 999999
+Time: 16.376
+1
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 19 999999
+Time: 0.723
+
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 19 999999
+Time: 5.058
+0
+./a1p1/sorer -f benchmark.sor -from 500000 -len 50000 -is_missing_idx 9 100
+Time: 0.068
+0
+./A3_a1_p1/sorer -f benchmark.sor -from 500000 -len 50000 -is_missing_idx 9 100
+Time: 0.036
+0
+./CS4500A1P1/sorer -f benchmark.sor -from 500000 -len 50000 -is_missing_idx 9 100
+Time: 0.004
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 500000 -len 50000 -is_missing_idx 9 100
+Time: ./benchmark.sh: line 42: 66926 Segmentation fault      (core dumped) ./${proj}/sorer -f ${TESTFILE} ${cmd}
+0.231
+0
+./sorer/sorer -f benchmark.sor -from 500000 -len 50000 -is_missing_idx 9 100
+Time: 0.003
+0
+./swd_assignment_3/sorer -f benchmark.sor -from 500000 -len 50000 -is_missing_idx 9 100
+Time: 0.004
+STRING
+./a1p1/sorer -f benchmark.sor -from 0 -len 10000 -print_col_type 10
+Time: 0.040
+STRING
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 10000 -print_col_type 10
+Time: 0.035
+STRING
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 10000 -print_col_type 10
+Time: 0.003
+STRING
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 10000 -print_col_type 10
+Time: 0.073
+STRING
+./sorer/sorer -f benchmark.sor -from 0 -len 10000 -print_col_type 10
+Time: 0.002
+STRING
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 10000 -print_col_type 10
+Time: 0.002
+BOOL
+./a1p1/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_type 15
+Time: 0.039
+BOOL
+./A3_a1_p1/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_type 15
+Time: 0.034
+BOOL
+./CS4500A1P1/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_type 15
+Time: 0.003
+BOOL
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_type 15
+Time: 0.001
+BOOL
+./sorer/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_type 15
+Time: 0.002
+BOOL
+./swd_assignment_3/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_type 15
+Time: 0.002
+INT
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_type 9
+Time: 0.062
+INT
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_type 9
+Time: 12.579
+INT
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_type 9
+Time: 0.003
+BOOL
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_type 9
+Time: 16.057
+INT
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_type 9
+Time: 0.740
+INTEGER
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_type 9
+Time: 5.049
+1982619119
+./a1p1/sorer -f benchmark.sor -from 0 -len 10000 -print_col_idx 0 0
+Time: 0.044
+1982619119
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 10000 -print_col_idx 0 0
+Time: 0.034
+1982619119
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 10000 -print_col_idx 0 0
+Time: 0.003
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 10000 -print_col_idx 0 0
+Time: 0.072
+1982619119
+./sorer/sorer -f benchmark.sor -from 0 -len 10000 -print_col_idx 0 0
+Time: 0.003
+1982619119
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 10000 -print_col_idx 0 0
+Time: 0.002
+1982619119
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 0 0
+Time: 60.472
+1982619119
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 0 0
+Time: 12.574
+1982619119
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 0 0
+Time: 4.322
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 0 0
+Time: 16.113
+1982619119
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 0 0
+Time: 0.750
+1982619119
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 0 0
+Time: 5.048
+"WUCrKgbISPTIYalZk"
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 5000
+Time: 60.588
+"WUCrKgbISPTIYalZk"
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 5000
+Time: 12.619
+"WUCrKgbISPTIYalZk"
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 5000
+Time: 4.311
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 5000
+Time: 16.091
+"WUCrKgbISPTIYalZk"
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 5000
+Time: 0.756
+WUCrKgbISPTIYalZk
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 5000
+Time: 5.096
+"Znkix"
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 10000
+Time: 7221.198
+"Znkix"
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 10000
+Time: 12.770
+"Znkix"
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 10000
+Time: 4.413
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 10000
+Time: 15.993
+"Znkix"
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 10000
+Time: 0.757
+Znkix
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 10 10000
+Time: 5.173
+0
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 100000
+Time: 61.460
+0
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 100000
+Time: 12.608
+0
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 100000
+Time: 4.441
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 100000
+Time: 16.146
+0
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 100000
+Time: 0.784
+0
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 100000
+Time: 5.145
+1
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 500000
+Time: 60.850
+1
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 500000
+Time: 12.776
+1
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 500000
+Time: 4.309
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 500000
+Time: 16.220
+1
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 500000
+Time: 0.750
+1
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 500000
+Time: 5.186
+0
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 700000
+Time: 62.477
+0
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 700000
+Time: 12.840
+0
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 700000
+Time: 4.416
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 700000
+Time: 16.328
+0
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 700000
+Time: 0.736
+0
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 700000
+Time: 5.333
+0
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 999999
+Time: 60.266
+0
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 999999
+Time: 12.601
+0
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 999999
+Time: 4.332
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 999999
+Time: 16.032
+0
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 999999
+Time: 0.758
+
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -print_col_idx 16 999999
+Time: 5.085
+"aPNPoidKPOMIzF"
+./a1p1/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_idx 7 10
+Time: 0.044
+"aPNPoidKPOMIzF"
+./A3_a1_p1/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_idx 7 10
+Time: 0.035
+"aPNPoidKPOMIzF"
+./CS4500A1P1/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_idx 7 10
+Time: 0.003
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_idx 7 10
+Time: ./benchmark.sh: line 42: 71804 Segmentation fault      (core dumped) ./${proj}/sorer -f ${TESTFILE} ${cmd}
+0.234
+"aPNPoidKPOMIzF"
+./sorer/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_idx 7 10
+Time: 0.002
+aPNPoidKPOMIzF
+./swd_assignment_3/sorer -f benchmark.sor -from 100000000 -len 10000 -print_col_idx 7 10
+Time: 0.002
+0
+./a1p1/sorer -f benchmark.sor -from 0 -len 10000 -is_missing_idx 14 15
+Time: 0.044
+0
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 10000 -is_missing_idx 14 15
+Time: 0.038
+0
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 10000 -is_missing_idx 14 15
+Time: 0.003
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 10000 -is_missing_idx 14 15
+Time: 0.075
+0
+./sorer/sorer -f benchmark.sor -from 0 -len 10000 -is_missing_idx 14 15
+Time: 0.002
+0
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 10000 -is_missing_idx 14 15
+Time: 0.002
+0
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 14 15
+Time: 60.145
+0
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 14 15
+Time: 12.676
+0
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 14 15
+Time: 4.327
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 14 15
+Time: 15.970
+0
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 14 15
+Time: 0.774
+0
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 14 15
+Time: 5.120
+0
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 250000
+Time: 60.753
+0
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 250000
+Time: 12.611
+0
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 250000
+Time: 4.417
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 250000
+Time: 16.060
+0
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 250000
+Time: 0.764
+0
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 250000
+Time: 5.051
+0
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 750020
+Time: 61.183
+0
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 750020
+Time: 12.645
+0
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 750020
+Time: 4.316
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 750020
+Time: 16.046
+0
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 750020
+Time: 0.765
+0
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 4 750020
+Time: 5.397
+0
+./a1p1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 19 999999
+Time: 60.638
+1
+./A3_a1_p1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 19 999999
+Time: 12.599
+1
+./CS4500A1P1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 19 999999
+Time: 4.333
+0
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 19 999999
+Time: 16.098
+1
+./sorer/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 19 999999
+Time: 0.784
+
+./swd_assignment_3/sorer -f benchmark.sor -from 0 -len 200000000 -is_missing_idx 19 999999
+Time: 5.149
+0
+./a1p1/sorer -f benchmark.sor -from 500000 -len 50000 -is_missing_idx 9 100
+Time: 0.068
+0
+./A3_a1_p1/sorer -f benchmark.sor -from 500000 -len 50000 -is_missing_idx 9 100
+Time: 0.036
+0
+./CS4500A1P1/sorer -f benchmark.sor -from 500000 -len 50000 -is_missing_idx 9 100
+Time: 0.004
+./CS4500_Assn1_Part1/sorer -f benchmark.sor -from 500000 -len 50000 -is_missing_idx 9 100
+Time: ./benchmark.sh: line 42: 73269 Segmentation fault      (core dumped) ./${proj}/sorer -f ${TESTFILE} ${cmd}
+0.230
+0
+./sorer/sorer -f benchmark.sor -from 500000 -len 50000 -is_missing_idx 9 100
+Time: 0.003
+0
+./swd_assignment_3/sorer -f benchmark.sor -from 500000 -len 50000 -is_missing_idx 9 100
+Time: 0.005
+DONE
