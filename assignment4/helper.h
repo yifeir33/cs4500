@@ -31,28 +31,28 @@ public:
 
     // Copying strings
     char* duplicate(const char* s) {
-    char* res = new char[strlen(s) + 1];
-    strcpy(res, s);
-    return res;
+        char* res = new char[strlen(s) + 1];
+        strcpy(res, s);
+        return res;
     }
     char* duplicate(char* s) {
-    char* res = new char[strlen(s) + 1];
-    strcpy(res, s);
-    return res;
+        char* res = new char[strlen(s) + 1];
+        strcpy(res, s);
+        return res;
     }
 
     // Function to terminate execution with a message
     void exit_if_not(bool b, char* c) {
-    if (b) return;
-    p("Exit message: ").pln(c);
-    exit(-1);
+        if (b) return;
+        p("Exit message: ").pln(c);
+        exit(-1);
     }
 
     // Definitely fail
     //  void FAIL() {
     void myfail(){
-    pln("Failing");
-    exit(1);
+        pln("Failing");
+        exit(1);
     }
 
     // Some utilities for lightweight testing
