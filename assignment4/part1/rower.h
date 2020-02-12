@@ -1,8 +1,10 @@
 #pragma once
 
+#include "../helper.h"
 #include "../object.h"
 #include "../string.h"
 #include "row.h"
+#include "fielder.h"
 
 /*******************************************************************************
  *  Rower::
@@ -23,4 +25,15 @@ public:
       original object will be the last to be called join on. The join method
       is reponsible for cleaning up memory. */
     void join_delete(Rower* other);
+};
+
+
+class PrintRower : public Rower {
+public:
+
+    virtual bool accept(Row& r){
+        PrintFielder pf;
+        r.visit(r.get_index(), pf);
+        return true;
+    }
 };
