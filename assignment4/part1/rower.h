@@ -28,12 +28,3 @@ public:
 };
 
 
-class PrintRower : public Rower {
-public:
-
-    virtual bool accept(Row& r){
-        PrintFielder pf;
-        r.visit(r.get_index(), pf);
-        return true;
-    }
-};

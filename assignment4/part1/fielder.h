@@ -34,6 +34,7 @@ public:
     virtual void accept(bool b){
         _sys.p('<').p(b).p('>');
     }
+
     virtual void accept(float f){
         _sys.p('<').p(f).p('>');
     }
@@ -41,10 +42,13 @@ public:
     virtual void accept(int i){
         _sys.p('<').p(i).p('>');
     }
+
     virtual void accept(String* s){
         _sys.p('<').p(s).p('>');
     }
 
     /** Called when all fields have been seen. */
-    virtual void done(){}
+    virtual void done(){
+        _sys.p('\n');
+    }
 };
