@@ -57,7 +57,13 @@ public:
       if(arr_ptr){
           if(length_ == arr_ptr->length_){
               for(size_t i = 0; i < length_; ++i){
-                  if(!data_[i]->equals(arr_ptr->get(i))){
+                  Object* other_obj = arr_ptr->get(i);
+                  if(!data_[i]){
+                      // this allows for nullptrs in the array
+                      if(data_[i] != other_obj) {
+                          return false;
+                      }
+                  } else if(!data_[i]->equals(other_obj)){
                       return false;
                   }
               }
@@ -91,7 +97,11 @@ public:
   /** Returns the index of the given Object, -1 if Object is not found */
   int index_of(Object* to_find) {
       for(size_t i = 0; i < length_; ++i){
-          if(data_[i]->equals(to_find)) return i;
+          if(!data_[i]) {
+              if(data_[i] == to_find) return i; // allows for nullptr
+          } else if(data_[i]->equals(to_find)){
+              return i;
+          }
       }
       return -1;
   }
@@ -583,138 +593,78 @@ class StringArray : public Object {
 public:
 
   /** VARIABLES */
+  ObjectArray _array;
   
-  size_t capacity_; // the capacity_ of the Array
-  size_t length_; // length of the Array
-  String** data_; // contents of the Array
 
   /** CONSTRUCTORS & DESTRUCTORS **/
 
   /** Creates an Array of desired size */
-  StringArray(const size_t array_size) : capacity_(array_size), length_(0), data_(nullptr) {
-      data_ = new String*[capacity_];
-      memset(data_, 0, sizeof(String*) * capacity_);
-  }
+  StringArray(const size_t array_size) : _array(array_size) {}
 
   /** Copies the contents of an already existing Array */
-  StringArray(StringArray* const copy_array) : capacity_(copy_array->capacity_), length_(copy_array->length_), data_(nullptr) {
-      data_ = new String*[capacity_];
-      memcpy(data_, copy_array->data_, sizeof(String*) * copy_array->length());
-  }
+  StringArray(StringArray* const copy_array) : _array(copy_array->_array) {}
 
   /** Clears Array from memory */
-  ~StringArray() {
-      delete[] data_;
-  }
+  ~StringArray();
 
 
   /** INHERITED METHODS **/
 
   /** Inherited from String, generates a hash for an Array */
   size_t hash() {
-      size_t hash = length_;
-      for(size_t i = 0; i < length_; ++i){
-          hash += data_[i]->hash();
-      }
-      return hash;
+      return _array.hash();
   }
 
   /** Inherited from Object, checks equality between an Array and an String */
   bool equals(Object* obj) {
-      StringArray *arr_ptr = reinterpret_cast<StringArray *>(obj);
-      if(arr_ptr){
-          if(length_ == arr_ptr->length_){
-              for(size_t i = 0; i < length_; ++i){
-                  if(!data_[i]->equals(arr_ptr->get(i))){
-                      return false;
-                  }
-              }
-              return true;
-          }
-      }
-      return false;
+      return _array.equals(obj);
   }
 
   /** ARRAY METHODS **/
 
   /** Removes all elements from the Array */
   void clear() {
-      memset(data_, 0, sizeof(String*) * capacity_);
-      length_ = 0;
+      _array.clear();
   }
 
   /** Adds an Array to existing contents */
   void concat(StringArray* toAdd) {
-      ensure_size_(length_ + toAdd->length());
-      memcpy(data_ + length_, toAdd->data_, sizeof(String*) * toAdd->length());
-      length_ += toAdd->length_;
+      _array.concat(&toAdd->_array);
   }
 
   /** Gets an String at the given index */
   String* get(size_t index) {
-      assert(index >= 0 && index < length_);
-      return data_[index];
+      return static_cast<String*>(_array.get(index));
   }
 
   /** Returns the index of the given String, -1 if String is not found */
   int index_of(String* to_find) {
-      for(size_t i = 0; i < length_; ++i){
-          if(data_[i]->equals(to_find)) return i;
-      }
-      return -1;
+      return _array.index_of(to_find);
   }
 
   /** Returns the current length of the contents in an Array */
   size_t length() {
-      return length_;
+      return _array.length();
   }
 
   /** Removes the last String of the Array, returns the removed String */
   String* pop() {
-      String *out = data_[length_ - 1];
-      data_[length_ - 1] = nullptr;
-      length_--;
-      return out;
+      return static_cast<String*>(_array.pop());
   }
 
   /** Adds an String to the end of the Array, returns the new length */
   size_t push(String* to_add) {
-      this->ensure_size_(length_ + 1);
-      data_[length_] = to_add;
-      return ++length_;
+      return _array.push(to_add);
   }
 
   /** Removes an String at the given index, returns removed String */
   String* remove(size_t index) {
-      assert(index >= 0 && index < length_);
-      String *output = data_[index];
-      memmove(data_ + index, data_ + index + 1, sizeof(String*) * (length_ - index));
-      length_--;
-      return output;
+      return static_cast<String*>(_array.remove(index));
   }
 
   /** Replaces an String at the given index with the given String, returns the replaced String */
   String* replace(size_t index, String* new_value) {
-      assert(index >= 0 && index < length_);
-      String *old = data_[index];
-      data_[index] = new_value;
-      return old;
+      return static_cast<String*>(_array.replace(index, new_value));
   }
 
-  virtual void ensure_size_(size_t required){
-    if(required >= this->capacity_){
-      // grow
-      size_t newCap = capacity_ * 2;
-      while(required > newCap){
-        newCap *= 2;
-      }
-
-      String **new_array = new String*[newCap];
-      memcpy(new_array, data_, sizeof(String*) * length_);
-
-      delete[] data_;
-      data_ = new_array;
-      capacity_ = newCap;
-    }
-  }
 };
