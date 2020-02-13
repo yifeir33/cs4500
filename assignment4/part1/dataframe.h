@@ -239,6 +239,7 @@ public:
                     assert(false); // unreachable
             }
         }
+        _schema.add_row(nullptr);
     }
 
     /** The number of rows in the dataframe. */
