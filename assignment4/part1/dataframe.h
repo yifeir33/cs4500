@@ -239,17 +239,16 @@ public:
                     assert(false); // unreachable
             }
         }
-        _schema.add_row(nullptr);
     }
 
     /** The number of rows in the dataframe. */
     size_t nrows() {
-        return _schema.length();
+        return static_cast<Column*>(_columns.get(0))->size();
     }
 
     /** The number of columns in the dataframe.*/
     size_t ncols() {
-        return _schema.width();
+        return _columns.length();
     }
 
     /** Visit rows in order */

@@ -30,6 +30,7 @@ public:
     char *_types;
     Schema_Value *_values;
     size_t _index;
+    String *_name;
 
 
     /** Build a row following a schema. */

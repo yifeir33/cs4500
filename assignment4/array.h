@@ -46,7 +46,7 @@ public:
   size_t hash() {
       size_t hash = length_;
       for(size_t i = 0; i < length_; ++i){
-          hash += data_[i]->hash();
+          hash += data_[i]->hash() * i;
       }
       return hash;
   }
@@ -199,7 +199,7 @@ public:
   size_t hash() {
       size_t hash = length_;
       for(size_t i = 0; i < length_; ++i){
-          hash += data_[i];
+          hash += data_[i] * i;
       }
       return hash;
   }
@@ -340,7 +340,7 @@ public:
     size_t hash() {
         size_t hash = length_;
         for(size_t i = 0; i < length_; ++i){
-            hash += data_[i];
+            hash += data_[i] * i;
         }
         return hash;
     }
@@ -481,7 +481,7 @@ public:
   size_t hash() {
       size_t hash = length_;
       for(size_t i = 0; i < length_; ++i){
-          hash += data_[i];
+          hash += data_[i] * i;
       }
       return hash;
   }
@@ -612,7 +612,7 @@ public:
 
   /** Inherited from String, generates a hash for an Array */
   size_t hash() {
-      return _array.hash();
+      return _array.hash() + 5000;
   }
 
   /** Inherited from Object, checks equality between an Array and an String */
