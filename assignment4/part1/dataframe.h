@@ -16,6 +16,47 @@
  */
 class DataFrame : public Object {
 public:
+
+    /* Helper Rower to print the dataframe */
+    class PrintRower : public Rower {
+    public:
+        /* Helper Fielder to print the dataframe */
+        class PrintFielder : public Fielder {
+        public:
+            Sys _sys;
+
+            virtual void start(size_t r){}
+            /** Called for fields of the argument's type with the value of the field. */
+            virtual void accept(bool b){
+                _sys.p('<').p(b).p('>');
+            }
+
+            virtual void accept(float f){
+                _sys.p('<').p(f).p('>');
+            }
+
+            virtual void accept(int i){
+                _sys.p('<').p(i).p('>');
+            }
+
+            virtual void accept(String* s){
+                _sys.p('<').p(s).p('>');
+            }
+
+            /** Called when all fields have been seen. */
+            virtual void done(){
+                _sys.p('\n');
+            }
+        };
+
+        virtual bool accept(Row& r){
+            PrintFielder pf;
+            r.visit(r.get_index(), pf);
+            return true;
+        }
+    };
+
+
     Schema& _schema;
     ObjectArray _columns;
 
@@ -217,6 +258,7 @@ public:
         }
         return df;
     }
+
 
     /** Print the dataframe in SoR format to standard output. */
     void print() {
