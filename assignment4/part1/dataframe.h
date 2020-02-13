@@ -47,12 +47,28 @@ public:
             virtual void done(){
                 _sys.p('\n');
             }
+
+            virtual size_t hash_me() {
+                return Fielder::hash() + 100;
+            }
+
+            virtual bool equals(Object *other) {
+                return dynamic_cast<PrintFielder*>(other);
+            }
         };
 
         virtual bool accept(Row& r){
             PrintFielder pf;
             r.visit(r.get_index(), pf);
             return true;
+        }
+
+        virtual size_t hash_me() {
+            return Rower::hash() + 100;
+        }
+
+        virtual bool equals(Object *other) {
+            return dynamic_cast<PrintRower*>(other);
         }
     };
 
@@ -205,7 +221,7 @@ public:
     void add_row(Row& row) {
         for(size_t c = 0; c < _columns.length(); ++c){
             Column *col = static_cast<Column*>(_columns.get(c));
-            assert(c);
+            assert(col);
             switch(col->get_type()){
                 case 'I':
                     col->push_back(row.get_int(c));
@@ -265,4 +281,19 @@ public:
         PrintRower pr;
         this->map(pr);
     }
+
+    virtual bool equals(Object* other) {
+        DataFrame *df_other = dynamic_cast<DataFrame*>(other);
+        if(!df_other) return false;
+        return _columns.equals(&df_other->_columns) && _schema.equals(&df_other->_schema);
+    }
+
+    virtual Object* clone() {
+        return new DataFrame(*this);
+    }
+
+    virtual size_t hash_me() {
+        return _columns.hash() + _schema.hash();
+    }
+
 };

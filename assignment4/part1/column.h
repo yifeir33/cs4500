@@ -1,5 +1,6 @@
 #pragma once
 
+#include <stdarg.h>
 #include <assert.h>
 
 #include "../object.h"
@@ -20,26 +21,30 @@ class StringColumn;
  * equality. */
 class Column : public Object {
 public:
- 
-  /** Type converters: Return same column under its actual type, or
-   *  nullptr if of the wrong type.  */
-  virtual IntColumn* as_int() { return nullptr; }
-  virtual BoolColumn*  as_bool() { return nullptr; }
-  virtual FloatColumn* as_float() { return nullptr; }
-  virtual StringColumn* as_string() { return nullptr; }
- 
-  /** Type appropriate push_back methods. Calling the wrong method is
+
+    /** Type converters: Return same column under its actual type, or
+    *  nullptr if of the wrong type.  */
+    virtual IntColumn* as_int() { return nullptr; }
+    virtual BoolColumn*  as_bool() { return nullptr; }
+    virtual FloatColumn* as_float() { return nullptr; }
+    virtual StringColumn* as_string() { return nullptr; }
+
+    /** Type appropriate push_back methods. Calling the wrong method is
     * undefined behavior. **/
-  virtual void push_back(int val){};
-  virtual void push_back(bool val){};
-  virtual void push_back(float val){};
-  virtual void push_back(String* val){};
- 
- /** Returns the number of elements in the column. */
-  virtual size_t size();
- 
-  /** Return the type of this column as a char: 'S', 'B', 'I' and 'F'. */
-  virtual char get_type();
+    virtual void push_back(int val){};
+    virtual void push_back(bool val){};
+    virtual void push_back(float val){};
+    virtual void push_back(String* val){};
+
+    /** Returns the number of elements in the column. */
+    virtual size_t size() { return 0; }
+
+    /** Return the type of this column as a char: 'S', 'B', 'I' and 'F'. */
+    virtual char get_type() { return ' '; }
+
+    virtual size_t hash_me() {
+        return 500;
+    }
 };
  
 /*************************************************************************
@@ -50,9 +55,16 @@ class IntColumn : public Column {
 public:
     IntArray _data;
 
-    IntColumn();
+    IntColumn() : _data(10) {}
 
-    IntColumn(int n, ...);
+    IntColumn(int n, ...) : _data(n) {
+        va_list args;
+        va_start(args, n);
+
+        for(int i = 0; i < n; ++i) {
+            _data.push(va_arg(args, int));
+        }
+    }
 
     virtual void push_back(int val) {
       _data.push(val);
@@ -78,6 +90,18 @@ public:
     virtual char get_type() {
       return 'I';
     }
+
+    virtual bool equals(Object *other) {
+        IntColumn *oic = dynamic_cast<IntColumn*>(other);
+        if(oic){
+            return _data.equals(&oic->_data);
+        }
+        return false;
+    }
+
+    virtual size_t hash_me() {
+        return Column::hash() + 5 + _data.hash();
+    }
 };
  
 /*************************************************************************
@@ -88,9 +112,16 @@ class FloatColumn : public Column {
 public:
     FloatArray _data;
 
-    FloatColumn();
+    FloatColumn() : _data(10) {}
 
-    FloatColumn(int n, ...);
+    FloatColumn(int n, ...) : _data(n) {
+        va_list args;
+        va_start(args, n);
+
+        for(int i = 0; i < n; ++i) {
+            _data.push(va_arg(args, double));
+        }
+    }
 
     virtual void push_back(float val) {
       _data.push(val);
@@ -116,6 +147,18 @@ public:
     virtual char get_type() {
       return 'F';
     }
+
+    virtual bool equals(Object *other) {
+        FloatColumn *oic = dynamic_cast<FloatColumn*>(other);
+        if(oic){
+            return _data.equals(&oic->_data);
+        }
+        return false;
+    }
+
+    virtual size_t hash_me() {
+        return Column::hash() + 10 + _data.hash();
+    }
 };
 
 /*************************************************************************
@@ -126,9 +169,16 @@ class BoolColumn : public Column {
 public:
     BoolArray _data;
 
-    BoolColumn();
+    BoolColumn() : _data(10) {}
 
-    BoolColumn(int n, ...);
+    BoolColumn(int n, ...) : _data(n) {
+        va_list args;
+        va_start(args, n);
+
+        for(int i = 0; i < n; ++i) {
+            _data.push(va_arg(args, int));
+        }
+    }
 
     virtual void push_back(bool val) {
       _data.push(val);
@@ -154,6 +204,18 @@ public:
     virtual char get_type() {
       return 'B';
     }
+
+    virtual bool equals(Object *other) {
+        BoolColumn *oic = dynamic_cast<BoolColumn*>(other);
+        if(oic){
+            return _data.equals(&oic->_data);
+        }
+        return false;
+    }
+
+    virtual size_t hash_me() {
+        return Column::hash() + 15 + _data.hash();
+    }
 };
  
 /*************************************************************************
@@ -165,9 +227,16 @@ class StringColumn : public Column {
 public:
     StringArray _data;
 
-    StringColumn();
+    StringColumn() : _data(10) {}
 
-    StringColumn(int n, ...);
+    StringColumn(int n, ...) : _data(n) {
+        va_list args;
+        va_start(args, n);
+
+        for(int i = 0; i < n; ++i) {
+            _data.push(va_arg(args, String*));
+        }
+    }
 
     StringColumn* as_string() {
       return this;
@@ -193,5 +262,17 @@ public:
 
     virtual char get_type() {
       return 'S';
+    }
+
+    virtual bool equals(Object *other) {
+        StringColumn *oic = dynamic_cast<StringColumn*>(other);
+        if(oic){
+            return _data.equals(&oic->_data);
+        }
+        return false;
+    }
+
+    virtual size_t hash_me() {
+        return Column::hash() + 20 + _data.hash();
     }
 };

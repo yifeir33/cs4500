@@ -1,5 +1,7 @@
 #pragma once
 
+#include <string.h>
+
 #include "../object.h"
 #include "../string.h"
 #include "schema.h"
@@ -140,5 +142,64 @@ public:
             }
         }
         f.done();
+    }
+
+    virtual bool equals(Object *other) {
+        Row *other_row = dynamic_cast<Row*>(other);
+        if(other_row) {
+            if(_index == other_row->_index && _width == other_row->_width){
+                for(size_t i = 0; i < _width; ++i){
+                    if(_types[i] != other_row->_types[i])
+                        return false;
+
+                    switch(_types[i]){
+                        case 'I':
+                            if(this->get_int(i) != other_row->get_int(i))
+                                return false;
+
+                            break;
+                        case 'F':
+                            if(this->get_float(i) != other_row->get_float(i))
+                                return false;
+
+                            break;
+                        case 'B':
+                            if(this->get_bool(i) != other_row->get_bool(i))
+                                return false;
+
+                            break;
+                        case 'S':
+                            if(!this->get_string(i)->equals(other_row->get_string(i)))
+                                return false;
+
+                            break;
+                    }
+                }
+                return true;
+            }
+        }
+        return false;
+    }
+
+    virtual size_t hash_me() {
+        size_t hash = _width + _index;
+        for(size_t i = 0; i < _width; ++i) {
+            hash += _types[i] * i;
+            switch(_types[i]){
+                case 'I':
+                    hash += this->get_int(i) * i;
+                    break;
+                case 'F':
+                    hash += this->get_float(i) * i;
+                    break;
+                case 'B':
+                    hash += this->get_bool(i) * i;
+                    break;
+                case 'S':
+                    hash += this->get_string(i)->hash() * i;
+                    break;
+            }
+        }
+        return hash;
     }
 };

@@ -605,7 +605,7 @@ public:
   StringArray(StringArray* const copy_array) : _array(copy_array->_array) {}
 
   /** Clears Array from memory */
-  ~StringArray();
+  /* ~StringArray() {} */
 
 
   /** INHERITED METHODS **/
