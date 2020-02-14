@@ -90,7 +90,7 @@ public:
             row_start = row_end;
         }
 
-        // clean-up threads
+        // wait on threads
         for(size_t i = 0; i < thread_cnt; ++i){
             threads[i]->join();
         }
@@ -100,6 +100,7 @@ public:
             rowers[0]->join_delete(rowers[i]);
         }
 
+        // clean-up memory
         for(size_t i = 0; i < thread_cnt; ++i){
             delete threads[i];
         }

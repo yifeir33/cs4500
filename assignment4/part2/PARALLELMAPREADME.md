@@ -36,7 +36,11 @@ number of them is equal. This is another useful operation that can see a large s
 by multi-threading. Our benchmarks store the number of times that the multi-threaded performs 
 better and vice-versa, and then display the final amount at the end. As you will see,
 on average, and espicially as the database grows, the multi-threaded does outperform the
-single threaded performance.
+single threaded performance. In this case it appears the delete strings consistently
+sees a large speed-up from multi-threading, while summing does not. This is likely due to the efficieny
+inherent in summing values on a modern CPU, but in even larger database sizes we did see
+multi-threading becoming more efficient. In the string delete however, even on the smaller sized
+dataframes we saw large increases in speed from multi-threaded mapping.
 
 # Issues we Encountered
 We did not encounter any major issues implementing pmap, as I have written and debugged multi-threaded
