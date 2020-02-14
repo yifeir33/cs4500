@@ -11,12 +11,9 @@
 
 #define LOOPS 100
 
-#define SIZE_ONE    100000
-#define SIZE_TWO    1000000
-#define SIZE_THREE  10000000
-
-
-
+#define SIZE_ONE    10000
+#define SIZE_TWO    100000
+#define SIZE_THREE  1000000
 
 void benchmark1() {
     Schema s("IIIII");
@@ -63,9 +60,10 @@ void benchmark1() {
             }
             delete mdf;
         }
+        std::cout <<"Benchmark 1" <<std::endl;
         std::cout <<"Dataframe Size: " <<ROWS <<std::endl;
         std::cout <<"Times Multi-Threaded was faster: " <<multi_thread_faster <<"/" <<LOOPS <<std::endl;
-        std::cout <<"Average Speedup: " <<(avg_speedup / LOOPS) <<std::endl;
+        std::cout <<"Average Speedup: " <<(avg_speedup / multi_thread_faster) <<std::endl;
     }
 }
 
@@ -108,14 +106,14 @@ void benchmark2() {
 
             if(multi_thread_time >= single_thread_time) {
                 ++multi_thread_faster;
-            } else {
-                ++single_thread_time;
+                avg_speedup += (multi_thread_time / single_thread_time);
             }
             delete mdf;
         }
+        std::cout <<"Benchmark 2" <<std::endl;
         std::cout <<"Dataframe Size: " <<ROWS <<std::endl;
         std::cout <<"Times Multi-Threaded was faster: " <<multi_thread_faster <<"/" <<LOOPS <<std::endl;
-        std::cout <<"Average Speedup: " <<avg_speedup <<std::endl;
+        std::cout <<"Average Speedup: " <<(avg_speedup / multi_thread_faster) <<std::endl;
     }
 }
 

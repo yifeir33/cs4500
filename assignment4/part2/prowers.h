@@ -7,6 +7,9 @@
 #include "../part1/rower.h"
 #include "../part1/fielder.h"
 
+/**
+ * Sums all integers in the dataframe.
+ */
 class IntSumRower : public Rower {
 public:
     class IntSumFielder : public Fielder {
@@ -58,6 +61,13 @@ public:
     }
 };
 
+/**
+ * Tursn all floats and integers into their absolute
+ * values and modifies the dataframe in place.
+ *
+ * Constructing it with a reference to a DataFrame
+ * that it is not mapped on is undefined behavior.
+ */
 class AbsoluteValueRower : public Rower {
 public:
     DataFrame& _df;
@@ -85,6 +95,10 @@ public:
     }
 };
 
+/**
+ * Checks that all floats and integers 
+ * in the dataframe are non-negative
+ */
 class NonNegativeRower : public Rower {
 public:
     bool _sucess;
@@ -124,6 +138,10 @@ public:
     }
 };
 
+/**
+ * Deletes all strings in the dataframe and
+ * replaces it with a nullptr. Modifies in place.
+ */
 class StringCleanupRower : public Rower {
 public:
     DataFrame& _df;
