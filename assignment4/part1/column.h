@@ -55,7 +55,7 @@ class IntColumn : public Column {
 public:
     IntArray _data;
 
-    IntColumn() : _data(10) {}
+    IntColumn() : _data(100000) {}
 
     IntColumn(int n, ...) : _data(n) {
         va_list args;
@@ -112,7 +112,7 @@ class FloatColumn : public Column {
 public:
     FloatArray _data;
 
-    FloatColumn() : _data(10) {}
+    FloatColumn() : _data(100000) {}
 
     FloatColumn(int n, ...) : _data(n) {
         va_list args;
@@ -169,7 +169,7 @@ class BoolColumn : public Column {
 public:
     BoolArray _data;
 
-    BoolColumn() : _data(10) {}
+    BoolColumn() : _data(100000) {}
 
     BoolColumn(int n, ...) : _data(n) {
         va_list args;
@@ -227,7 +227,7 @@ class StringColumn : public Column {
 public:
     StringArray _data;
 
-    StringColumn() : _data(10) {}
+    StringColumn() : _data(100000) {}
 
     StringColumn(int n, ...) : _data(n) {
         va_list args;
