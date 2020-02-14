@@ -26,7 +26,10 @@ public:
       split off will be joined.  There will be one join per split. The
       original object will be the last to be called join on. The join method
       is reponsible for cleaning up memory. */
-    void join_delete(Rower* other){}
+    virtual void join_delete(Rower* other){
+        if(!other || other == this) return;
+        delete other;
+    }
 
     virtual size_t hash_me() {
         return 2000;

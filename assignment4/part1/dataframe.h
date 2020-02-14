@@ -89,6 +89,12 @@ public:
         }
     }
 
+    virtual ~DataFrame() {
+        while(_columns.length() > 0) {
+            delete _columns.pop();
+        }
+    }
+
     Column* _get_col_from_type(char type) {
         switch(type) {
             case 'I':
@@ -124,6 +130,7 @@ public:
     *  columns out of bounds, or request the wrong type is undefined.*/
     int get_int(size_t col, size_t row){
         Column *generic_column = static_cast<Column*>(_columns.get(col));
+        assert(generic_column);
         IntColumn *int_column = generic_column->as_int();
         assert(int_column);
         return int_column->get(row);
@@ -131,6 +138,7 @@ public:
 
     bool get_bool(size_t col, size_t row) {
         Column *generic_column = static_cast<Column*>(_columns.get(col));
+        assert(generic_column);
         BoolColumn *bool_column = generic_column->as_bool();
         assert(bool_column);
         return bool_column->get(row);
@@ -138,6 +146,7 @@ public:
 
     float get_float(size_t col, size_t row) {
         Column *generic_column = static_cast<Column*>(_columns.get(col));
+        assert(generic_column);
         FloatColumn *float_column = generic_column->as_float();
         assert(float_column);
         return float_column->get(row);
@@ -145,6 +154,7 @@ public:
 
     String*  get_string(size_t col, size_t row) {
         Column *generic_column = static_cast<Column*>(_columns.get(col));
+        assert(generic_column);
         StringColumn *str_column = generic_column->as_string();
         assert(str_column);
         return str_column->get(row);
@@ -165,6 +175,7 @@ public:
     * bound, the result is undefined. */
     void set(size_t col, size_t row, int val) {
         Column *generic_column = static_cast<Column*>(_columns.get(col));
+        assert(generic_column);
         IntColumn *int_column = generic_column->as_int();
         assert(int_column);
         int_column->set(row, val);
@@ -172,6 +183,7 @@ public:
 
     void set(size_t col, size_t row, bool val) {
         Column *generic_column = static_cast<Column*>(_columns.get(col));
+        assert(generic_column);
         BoolColumn *bool_column = generic_column->as_bool();
         assert(bool_column);
         bool_column->set(row, val);
@@ -179,6 +191,7 @@ public:
 
     void set(size_t col, size_t row, float val) {
         Column *generic_column = static_cast<Column*>(_columns.get(col));
+        assert(generic_column);
         FloatColumn *float_column = generic_column->as_float();
         assert(float_column);
         float_column->set(row, val);
@@ -186,6 +199,7 @@ public:
 
     void set(size_t col, size_t row, String* val) {
         Column *generic_column = static_cast<Column*>(_columns.get(col));
+        assert(generic_column);
         StringColumn *str_column = generic_column->as_string();
         assert(str_column);
         str_column->set(row, val);
@@ -196,6 +210,7 @@ public:
     * dataframe, results are undefined.
     */
     void fill_row(size_t idx, Row& row){
+        row.set_index(idx);
         for(size_t c = 0; c < _columns.length(); ++c){
             switch(_schema.col_type(c)){
                 case 'I':
@@ -253,7 +268,7 @@ public:
 
     /** Visit rows in order */
     void map(Rower& r) {
-        for(size_t i = 0; i < _schema.length(); ++i) {
+        for(size_t i = 0; i < this->nrows(); ++i) {
             Row row(_schema);
             this->fill_row(i, row);
             r.accept(row);
