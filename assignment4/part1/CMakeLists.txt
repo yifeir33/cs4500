@@ -62,5 +62,5 @@ target_link_libraries(submitted_test_5 gtest)
 add_executable(submitted_test_6 submitted_test_6.cpp)
 target_link_libraries(submitted_test_6 gtest)
 
-#add_executable(submitted_test_7 submitted_test_7.cpp)
-#target_link_libraries(submitted_test_7 gtest)
+add_executable(submitted_test_7 submitted_test_7.cpp)
+target_link_libraries(submitted_test_7 gtest)

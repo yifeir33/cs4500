@@ -7,8 +7,7 @@
 #define ASSERT_EXIT_ZERO(a)  \
   ASSERT_EXIT(a(), ::testing::ExitedWithCode(0), ".*")
 
-
-//test Rower by creating a new GPA calculator
+//test filter
 void test7() {
     //set up:
     //create a dataframe storage name(String), age(int), height(float), isMale(Bool)
@@ -21,7 +20,7 @@ void test7() {
     Schema  s1("SIFB") ;
     DataFrame df(s1);
     Row annie(df.get_schema());
-    annie.set(0,annie1);
+    annie.set(0, annie1);
     annie.set(1,9);
     annie.set(2,(float)160.1);
     annie.set(3,0);
@@ -49,15 +48,23 @@ void test7() {
     df.add_row(bo);
     df.add_row(lily);
 
-    //need to add print fielder
+    class Height_Filter_Rower: public Rower{
+    public:
+        DataFrame* df_;
+        Height_Filter_Rower(DataFrame* df):df_(df){}
+        bool accept(Row& r){
+            return r.get_int(2) >= 170;
+        }
+    };
+    Height_Filter_Rower hfr(&df);
+    df.filter(hfr);
+    GT_EQUALS(df.nrows(), 2);
+    GT_EQUALS(df.ncols(),4);
+    GT_EQUALS(df.get_float(2,0),(float)180.2);
+    GT_EQUALS(df.get_float(2,1),(float)175.6);
 
-    delete annie1, lily1, bo1, jack1,peter1;
-
-
-
-
-
-
+    //print fielder is checked in first test
+    delete annie1, lily1, bo1, jack1, peter1;
 }
 
 TEST(a4, t1){ ASSERT_EXIT_ZERO(test7); }
