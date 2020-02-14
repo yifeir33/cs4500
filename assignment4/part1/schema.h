@@ -19,18 +19,20 @@ public:
     StringArray _columnNames;
     StringArray _rowNames;
     IntArray _columnTypes;
+    size_t _width;
+    size_t _length;
  
     /** Copying constructor */
-    Schema(Schema& from) : _columnNames(from._columnNames.length()), _rowNames(from._rowNames.length()), _columnTypes(from._columnTypes.length()) {};
+    Schema(Schema& from) : _columnNames(from._columnNames.length()), _rowNames(from._rowNames.length()), _columnTypes(from._columnTypes.length()), _width(from._width), _length(from._length) {};
 
     /** Create an empty schema **/
-    Schema() : _columnNames(10), _rowNames(10), _columnTypes(10) {};
+    Schema() : _columnNames(10), _rowNames(10), _columnTypes(10), _width(0), _length(0) {};
 
     /** Create a schema from a string of types. A string that contains
     * characters other than those identifying the four type results in
     * undefined behavior. The argument is external, a nullptr argument is
     * undefined. **/
-    Schema(const char* types) : _columnNames(10), _rowNames(10), _columnTypes(10) {
+    Schema(const char* types) : _columnNames(10), _rowNames(10), _columnTypes(10), _width(0), _length(0) {
         assert(types);
         const char *c = types;
         while(*c !='\0') {
@@ -38,10 +40,9 @@ public:
                 _columnTypes.push(*c);
             }
             ++c;
+            ++_width;
         }
     };
-
-    ~Schema(); // TODO: Is this needed?
 
     /** Add a column of the given type and name (can be nullptr), name
     * is external. Names are expectd to be unique, duplicates result
@@ -49,12 +50,14 @@ public:
     void add_column(char typ, String* name) {
         _columnTypes.push(typ);
         _columnNames.push(name);
+        ++_width;
     }
 
     /** Add a row with a name (possibly nullptr), name is external.  Names are
     *  expectd to be unique, duplicates result in undefined behavior. */
     void add_row(String* name) {
         _rowNames.push(name);
+        ++_length;
     }
 
     /** Return name of row at idx; nullptr indicates no name. An idx >= width
@@ -88,11 +91,25 @@ public:
 
     /** The number of columns */
     size_t width() {
-        return _columnNames.length();
+        return _width;
     }
 
     /** The number of rows */
     size_t length() {
-        return _rowNames.length();
+        return _length;
+    }
+
+    virtual bool equals(Object* other) {
+        Schema *other_schema = dynamic_cast<Schema*>(other);
+        if(other_schema && this->_width == other_schema->_width && this->_length == other_schema->_length) {
+            return _rowNames.equals(&other_schema->_rowNames) 
+                   && _columnNames.equals(&other_schema->_columnNames) 
+                   && _columnTypes.equals(&other_schema->_columnTypes);
+        }
+        return false;
+    }
+
+    virtual size_t hash_me() {
+        return _rowNames.hash() + _columnNames.hash() + _columnTypes.hash();
     }
 };
