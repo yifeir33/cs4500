@@ -1,11 +1,5 @@
-//
-// Created by 王镱霏 on 2/12/20.
-//
-
-#include "gtest/gtest.h"
-#include <iostream>
-#include <string.h>
-#include <dataframe.h>
+#include <gtest/gtest.h>
+#include "dataframe.h"
 
 #define GT_TRUE(a)   ASSERT_EQ((a),true)
 #define GT_FALSE(a)  ASSERT_EQ((a),false)
@@ -14,7 +8,8 @@
   ASSERT_EXIT(a(), ::testing::ExitedWithCode(0), ".*")
 
 
-void test1(){
+//test Rower by creating a new GPA calculator
+void test7() {
     //set up:
     //create a dataframe storage name(String), age(int), height(float), isMale(Bool)
     String* annie1 = new String("Annie");
@@ -54,34 +49,23 @@ void test1(){
     df.add_row(bo);
     df.add_row(lily);
 
-    //add a new row to dataframe
-    Row peter(df.get_schema());
-    peter.set(0,peter1);
-    peter.set(1, 18);
-    peter.set(2, (float)183.3);
-    peter.set(4, 1);
+    //need to add print fielder
 
-    df.fill_row(4,peter);
-    GT_EQUALS(df.get_int((size_t)0,1), 9);
-    GT_EQUALS(df.get_bool((size_t)0,1), nullptr);
-    GT_EQUALS(df.get_bool((size_t)0,3), 0);
-    GT_EQUALS(df.get_float((size_t)0,2),(double)160.1);
-    GT_EQUALS(df.get_string((size_t)0,0),annie1);
-    GT_EQUALS(df.nrows(), 5);
-    GT_EQUALS(df.ncols(), 5);
+    delete annie1, lily1, bo1, jack1,peter1;
 
-    delete annie1,jack1, bo1, peter1, lily1;
 
-    df.print();
-    exit(0);
+
+
+
+
 }
 
+TEST(a4, t1){ ASSERT_EXIT_ZERO(test7); }
 
-
-TEST(a4, t1){ ASSERT_EXIT_ZERO(test1);
-}
-
-int main(int argc, char * argv[]){
+int main(int argc, char **argv) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }
+
+
+
