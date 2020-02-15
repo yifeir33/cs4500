@@ -1,0 +1,6 @@
+*.o
+tags
+*.zip
+.clang
+.idea
+*.out
