@@ -45,8 +45,9 @@ such as GPA_culculator  used for map and a height filter
 used for filter method.
 
 ## DataFrame example:
+if create with rows:
 ```c++
-//create a schema
+//create a schema and add rows
   Schema s("II");
 
   DataFrame df(s);
@@ -56,8 +57,23 @@ used for filter method.
     r.set(1,(int)i+1);
     df.add_row(r);
   }
+
 ```
 
+if create with cols:
+```c++
+Schema s("II");
+DataFrame df(s);
+IntColumn* i = new IntColumn(5,1,2,3,4,5);
+StringColumn* s = new StringColumn(5, a, b,c,d,e);
+FloatColumn* f_c = new FloatColumn(5, (float)0.1, (float)0.2,(float) 0.3, (float)0.4, (float)0.5);
+BoolColumn* b_c = new BoolColumn(5,(bool)0,(bool)0,(bool)0,(bool)1,(bool)1);
+df.add_column(i, new String("int"));
+df.add_column(s, new String("string"));
+df.add_column(f_c, new String("float"));
+df.add_column(b_c, new String("boolean"));
+
+```
 
 
 
