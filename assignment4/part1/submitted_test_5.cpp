@@ -43,12 +43,17 @@ void test5() {
     GT_EQUALS(sch.width(),4);
     GT_EQUALS(sch.length(), 2);
 
-    delete name, isMale, age, height,pT, pX;
+    delete name;
+    delete isMale;
+    delete age;
+    delete height;
+    delete pT;
+    delete pX;
 
     exit(0);
 }
 
-TEST(a4, t1){ ASSERT_EXIT_ZERO(test5); }
+TEST(a4p1, t5){ ASSERT_EXIT_ZERO(test5); }
 
 int main(int argc, char **argv) {
     testing::InitGoogleTest(&argc, argv);
