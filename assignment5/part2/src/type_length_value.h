@@ -11,7 +11,7 @@
 #define SHUTDOWN        0xFF
 
 
-struct tlv {
+struct TypeLengthValue {
     uint8_t type;
     uint16_t length;
     uint8_t value[DATA_MAX];

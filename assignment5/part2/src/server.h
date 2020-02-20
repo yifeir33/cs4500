@@ -13,18 +13,10 @@
 #include "string.h"
 #include "array.h"
 #include "thread_wrapper.h"
-#include "tlv.h"
+#include "type_length_value.h"
 
 class Server : public Object {
 public:
-    int _server_fd;
-    std::mutex _client_mutex;
-    ObjectArray _clients;
-    ObjectArray _connections;
-    std::atomic<size_t> _passed_update;
-    std::atomic<size_t> _expected_update;
-    std::atomic<bool> _new_update;
-
     class SockAddrWrapper : public Object {
     public:
         struct sockaddr_in addr;
@@ -41,6 +33,20 @@ public:
             return false;
         }
     };
+
+    enum ParseResult {
+        ParseError = -1,
+        Success = 0,
+        Response = 1,
+    };
+
+    int _server_fd;
+    std::mutex _client_mutex;
+    ObjectArray _clients;
+    ObjectArray _connections;
+    std::atomic<size_t> _passed_update;
+    std::atomic<size_t> _expected_update;
+    std::atomic<bool> _new_update;
 
     Server(const char *ip, size_t port) : _server_fd(-1), _clients(10), _connections(10), _passed_update(0), _expected_update(0), _new_update(false) {
         if((_server_fd = socket(AF_INET, SOCK_STREAM | SOCK_NONBLOCK, 0)) < 0) {
@@ -149,7 +155,9 @@ public:
     // CONNECTION FUNCTIONS
     bool client_update(int conn_fd) {
         this->_client_mutex.lock();
-        tlv packet{0};
+        size_t pos = 0;
+        uint8_t buffer[sizeof(TypeLengthValue)];
+        TypeLengthValue packet{0};
         packet.type = CLIENT_UPDATE;
         for(size_t i = 0; i < _clients.length(); ++i){
             SockAddrWrapper *saw = dynamic_cast<SockAddrWrapper*>(_clients.get(i));
@@ -160,7 +168,19 @@ public:
         }
         this->_client_mutex.unlock();
 
-        if(send(conn_fd, &packet, sizeof(packet), 0) < 0){
+        // encode into buffer to avoid packing issues/potential vtable/c++ weirdness
+        size_t packet_size = sizeof(packet.type) + sizeof(packet.length) + packet.length;
+        // type
+        memcpy(buffer + pos, &packet.type, sizeof(packet.type));
+        pos += sizeof(packet.type);
+        // length
+        memcpy(buffer + pos, &packet.length, sizeof(packet.length));
+        pos += sizeof(packet.length);
+        // value
+        memcpy(buffer + pos, &packet.value, packet.length);
+        pos += packet.length;
+
+        if(send(conn_fd, &buffer, pos, 0) < 0){
             // TODO: if this becomes non-blocking then i need to check for EAGAIN/EWOULDBLOCK
             perror("Failed to send: ");
             return false;
@@ -192,4 +212,33 @@ public:
         finished = true; // mark thread as finished so it can be joined & destroyed
     }
 
+    ParseResult parse_data(int conn_fd, TypeLengthValue& tlv, sockaddr_in* sender){
+        switch(tlv.type){
+            case CHAR_MSG:
+            case ERROR_MSG:
+                {
+                    if(tlv.type == CHAR_MSG)
+                        p("Message Received:\n");
+                    else 
+                        p("Error Received:\n");
+
+                    char msg[tlv.length + 1];
+                    memcpy(msg, &tlv.value, tlv.length);
+                    msg[tlv.length] = '\0';
+                    p(msg).p('\n');
+                    if(sender){
+                        p("Sender:\n");
+                        print_addr(sender);
+                    }
+                    return ParseResult::Success;
+                }
+            default:
+                return ParseResult::ParseError;
+        }
+    }
+
+    void print_addr(sockaddr_in* info){
+        if(!info) return;
+        p("Addr"); // TODO
+    }
 };
