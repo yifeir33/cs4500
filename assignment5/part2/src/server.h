@@ -5,6 +5,7 @@
 #include <errno.h>
 #include <unistd.h>
 #include <assert.h>
+#include <sys/types.h>
 #include <sys/socket.h>
 #include <netinet/ip.h>
 
@@ -12,14 +13,36 @@
 #include "string.h"
 #include "array.h"
 #include "thread_wrapper.h"
+#include "tlv.h"
 
 class Server : public Object {
 public:
     int _server_fd;
-    StringArray _clients;
+    std::mutex _client_mutex;
+    ObjectArray _clients;
     ObjectArray _connections;
+    std::atomic<size_t> _passed_update;
+    std::atomic<size_t> _expected_update;
+    std::atomic<bool> _new_update;
 
-    Server(const char *ip, size_t port) : _server_fd(-1), _clients(10), _connections(10) {
+    class SockAddrWrapper : public Object {
+    public:
+        struct sockaddr_in addr;
+        socklen_t addrlen;
+
+        bool equals(Object *other){
+            SockAddrWrapper *saw = dynamic_cast<SockAddrWrapper*>(other);
+            if(saw){
+                return this->addrlen == saw->addrlen
+                       && this->addr.sin_addr.s_addr == saw->addr.sin_addr.s_addr
+                       && this->addr.sin_port == saw->addr.sin_port
+                       && this->addr.sin_family == saw->addr.sin_family;
+            }
+            return false;
+        }
+    };
+
+    Server(const char *ip, size_t port) : _server_fd(-1), _clients(10), _connections(10), _passed_update(0), _expected_update(0), _new_update(false) {
         if((_server_fd = socket(AF_INET, SOCK_STREAM | SOCK_NONBLOCK, 0)) < 0) {
             perror("Failed to create socket!");
             exit(1);
@@ -61,24 +84,36 @@ public:
         }
     }
 
+    // MAIN THREAD FUNCTIONS
     void wait_for_connection() {
+        SockAddrWrapper *saw = new SockAddrWrapper;
+        size_t periodic_update = 0;
         while(true) {
             int new_connection_fd = 0;
-            if((new_connection_fd = accept(_server_fd, nullptr, nullptr)) < 0) {
+            if((new_connection_fd = accept(_server_fd, reinterpret_cast<sockaddr*>(&saw->addr), &saw->addrlen)) < 0) {
                 if(errno != EAGAIN && errno != EWOULDBLOCK) { // Since _server_fd is non-blocking to allow clean_up of threads
                     perror("Failed to Accept Connection");
                     exit(1);
                 }
             } else {
+                SockAddrWrapper *accepted_saw = saw;
+                saw = new SockAddrWrapper;
                 // Found Connection
                 ThreadWrapper *tw = new ThreadWrapper();
                 std::thread *new_thread = new std::thread(&Server::handle_connection, this, new_connection_fd, tw->finished);
                 tw->set_thread(new_thread);
                 _connections.push(tw);
+                this->update_and_alert(accepted_saw);
+                periodic_update = 0;
             }
             this->_cleanup_closed();
             sleep(1); // sleep for 1 second
-        }
+            if(++periodic_update >= 25){
+                this->_cleanup_closed();
+                this->update_and_alert(nullptr);
+                periodic_update = 0;
+            }
+        } // while
     }
 
     void _cleanup_closed() {
@@ -97,13 +132,64 @@ public:
         }
     }
 
-    void handle_connection(int conn_fd, std::atomic<bool>& finished){
+    void update_and_alert(SockAddrWrapper *saw) {
+        if(saw){
+            // update
+            this->_client_mutex.lock();
+            this->_clients.push(saw);
+            this->_client_mutex.unlock();
+        }
+        // clean-up & alert
+        this->_cleanup_closed();
+        this->_expected_update = this->_connections.length();
+        this->_new_update = true;
+    }
+
+
+    // CONNECTION FUNCTIONS
+    bool client_update(int conn_fd) {
+        this->_client_mutex.lock();
+        tlv packet{0};
+        packet.type = CLIENT_UPDATE;
+        for(size_t i = 0; i < _clients.length(); ++i){
+            SockAddrWrapper *saw = dynamic_cast<SockAddrWrapper*>(_clients.get(i));
+            assert(saw);
+            memcpy(&packet.value[packet.length], &saw->addr, saw->addrlen);
+            packet.length += saw->addrlen;
+            assert(packet.length + saw->addrlen < DATA_MAX);
+        }
+        this->_client_mutex.unlock();
+
+        if(send(conn_fd, &packet, sizeof(packet), 0) < 0){
+            // TODO: if this becomes non-blocking then i need to check for EAGAIN/EWOULDBLOCK
+            perror("Failed to send: ");
+            return false;
+        }
+        if(++this->_passed_update >= _expected_update){
+            this->_passed_update = 0;
+            this->_new_update = false;
+        }
+        return true;
+    }
+
+    void handle_connection(int conn_fd, SockAddrWrapper& client, std::atomic<bool>& finished){
         assert(conn_fd > 0); // ensure valid fd
         finished = false;
+        this->client_update(conn_fd);
         while(true){
             // TODO
+            // Should this also not block? To allow for faster client updates?
+            if(this->_new_update) {
+                if(!client_update(conn_fd)) {
+                    break;
+                }
+            }
         }
         close(conn_fd);
+        this->_client_mutex.lock();
+        this->_clients.remove(this->_clients.index_of(&client));
+        this->_client_mutex.unlock();
         finished = true; // mark thread as finished so it can be joined & destroyed
     }
+
 };
