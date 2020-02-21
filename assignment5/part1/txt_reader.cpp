@@ -10,27 +10,34 @@
 #include "column.h"
 #include "row.h"
 #include "dataframe.h"
+#include "modified_dataframe.h"
 
 using namespace std;
 
 
-int main() {
+class Txt_reader :public Object{
+
+public:
+    Txt_reader()   {
+//        _mdf = this->output();
+}
+public:ModifiedDataFrame* output(){
+        //this is the order same as my dataset
+
+        Schema sch("ISSIISSFFFFFSISSSSSSSSSSFFFFFSFFSBBBBBBBBBBBBBSSSS");
+        ModifiedDataFrame* mdf = new ModifiedDataFrame(sch);
+
     FILE *fPointer;
     fPointer = fopen("/Users/wangyifei/gitcs4500/assignment5/part1/datafile.txt", "r");
     if (fPointer == NULL) {
         cerr << "File wouldn't open:" << strerror(errno) << "\n" << endl;
-        return -1;
+        return mdf;
     }
     //load column
     char singleLine[1024];
     char *token;
     const char s[2] = ",";
 
-
-    //this is the order same as my dataset
-    //"ISSIISSFFSSFSSSSSSSSSSSSFFFFFSFFSBBBBBBBBBBBBBBSSSS"
-    Schema sch("ISSIISSFFFFFSISSSSSSSSSSFFFFFSFFSBBBBBBBBBBBBBSSSS");
-    DataFrame df(sch);
     int id;
     String *ID;
     String *source;
@@ -83,18 +90,15 @@ int main() {
     String *astronomical_twilight;
 
 
-    while (!feof(fPointer)) {
-
-
-
-
+    while (1) {
         fgets(singleLine, 1024, fPointer);
-        if (singleLine!=NULL){
         puts(singleLine);
         token = strtok(singleLine, ",");
+
         id = (int) atoi(token);
         token = strtok(NULL, ",");
-        assert(token);
+//        assert(token);
+        if (token != 0){
         ID = new String(token);
         token = strtok(NULL, ",");
         source = new String(token);
@@ -192,72 +196,68 @@ int main() {
         nautical_twilight = new String(token);
         token = strtok(NULL, ",");
         astronomical_twilight = new String(token);
-        token = strtok(NULL, ",");
-//        Row r(sch);
-//        r.set(0,id);
-//        r.set(1,ID);
-//        r.set(2,source);
-//        r.set(3,tmc);
-//        r.set(4,severity);
-//        r.set(5,start_time);
-//        r.set(6,end_time);
-//        r.set(7,start_lat);
-//        r.set(8,start_lng);
-//        r.set(9, end_lat);
-//        r.set(10, end_lng);
-//        r.set(11,distance);
-//        r.set(12,description);
-//        r.set(13,num);
-//        r.set(14,street);
-//        r.set(15,side);
-//        r.set(16,city);
-//        r.set(17,county);
-//        r.set(18,state);
-//        r.set(19,zip);
-//        r.set(20,country);
-//        r.set(21,timezone);
-//        r.set(22,airport_code);
-//        r.set(23,weather_condition);
-//        r.set(24,temperature);
-//        r.set(25,wind_chill);
-//        r.set(26,humidity);
-//        r.set(27,pressure);
-//        r.set(28,visibility);
-//        r.set(29,wind_direction);
-//        r.set(30,wind_speed);
-//        r.set(31,precipitation);
-//        r.set(32,weather_condition);
-//        r.set(33,amenity);
-//        r.set(34,bump);
-//        r.set(35,crossing);
-//        r.set(36,give_way);
-//        r.set(37,junction);
-//        r.set(38,no_exit);
-//        r.set(39,railway);
-//        r.set(40,roundabout);
-//        r.set(41,station);
-//        r.set(42,stop);
-//        r.set(43,traffic_calming);
-//        r.set(44,traffic_signal);
-//        r.set(45,turning_loop);
-//        r.set(46,sunrise_sunset);
-//        r.set(47,civil_twilight);
-//        r.set(48,nautical_twilight);
-//        r.set(49,astronomical_twilight);
-//        df.add_row(r);
-        cout << "here" << endl;
+//        token = strtok(NULL, ",");
+
+        Row r(sch);
+        r.set(0,id);
+        r.set(1,ID);
+        r.set(2,source);
+        r.set(3,tmc);
+        r.set(4,severity);
+        r.set(5,start_time);
+        r.set(6,end_time);
+        r.set(7,start_lat);
+        r.set(8,start_lng);
+        r.set(9, end_lat);
+        r.set(10, end_lng);
+        r.set(11,distance);
+        r.set(12,description);
+        r.set(13,num);
+        r.set(14,street);
+        r.set(15,side);
+        r.set(16,city);
+        r.set(17,county);
+        r.set(18,state);
+        r.set(19,zip);
+        r.set(20,country);
+        r.set(21,timezone);
+        r.set(22,airport_code);
+        r.set(23,weather_condition);
+        r.set(24,temperature);
+        r.set(25,wind_chill);
+        r.set(26,humidity);
+        r.set(27,pressure);
+        r.set(28,visibility);
+        r.set(29,wind_direction);
+        r.set(30,wind_speed);
+        r.set(31,precipitation);
+        r.set(32,weather_condition);
+        r.set(33,amenity);
+        r.set(34,bump);
+        r.set(35,crossing);
+        r.set(36,give_way);
+        r.set(37,junction);
+        r.set(38,no_exit);
+        r.set(39,railway);
+        r.set(40,roundabout);
+        r.set(41,station);
+        r.set(42,stop);
+        r.set(43,traffic_calming);
+        r.set(44,traffic_signal);
+        r.set(45,turning_loop);
+        r.set(46,sunrise_sunset);
+        r.set(47,civil_twilight);
+        r.set(48,nautical_twilight);
+        r.set(49,astronomical_twilight);
+        mdf->add_row(r);
+
         } else{
-            cout <<"Closing File"<<endl;
-            fclose(fPointer);
+            break;
         }
     }
 
+    fclose(fPointer);
 
-//    fclose(fPointer);
-
-
-
-    cout<<"File closed" <<endl;
     delete ID;
     delete source;
     delete start_time;
@@ -279,18 +279,8 @@ int main() {
     delete timezone;
     delete airport_code;
     delete weather_timestamp;
-    cout<<"here2"<<endl;
 
 
-
-
-//    while( token != NULL ) {
-//        printf( "%s\n", token );
-//
-//
-//    }
-    if (token == NULL) {
-        return (0);
+    return mdf;
     }
-    return (-1);
-}
+};
