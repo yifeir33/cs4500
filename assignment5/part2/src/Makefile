@@ -17,7 +17,7 @@ client: client_main.cpp client.h helper.h array.h packet.h socket_addr.h
 clean:
 	rm *.o
 
-test: server client
+run: server client
 	./server -ip 127.0.0.1 &
 	./client -ip 127.0.0.1 &
 	./client -ip 127.0.0.1 &
