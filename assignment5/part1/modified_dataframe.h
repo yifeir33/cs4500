@@ -3,8 +3,8 @@
 #include <thread>
 #include <mutex>
 
-#include "../object.h"
-#include "../string.h"
+#include "../part1/object.h"
+#include "../part1/string.h"
 #include "../part1/dataframe.h"
 #include "../part1/column.h"
 #include "../part1/schema.h"
