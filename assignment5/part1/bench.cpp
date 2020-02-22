@@ -45,7 +45,7 @@ void benchmark1() {
             mdf->map(sr);
             auto single_thread_end = std::chrono::steady_clock::now();
             size_t single_thread_time = std::chrono::duration_cast<std::chrono::milliseconds>(single_thread_end - single_thread_start).count();
-            std::cout <<"Single Thread Time: " <<single_thread_time <<" ms" <<std::endl;
+            /* std::cout <<"Single Thread Time: " <<single_thread_time <<" ms" <<std::endl; */
             size_t single_thread_result = sr.get_sofar();
 
             sr.reset();
@@ -54,7 +54,7 @@ void benchmark1() {
             mdf->pmap(sr);
             auto multi_thread_end = std::chrono::steady_clock::now();
             size_t multi_thread_time = std::chrono::duration_cast<std::chrono::milliseconds>(multi_thread_end - multi_thread_start).count();
-            std::cout <<"Multi-threaded Time: " <<multi_thread_time <<" ms" <<std::endl;
+            /* std::cout <<"Multi-threaded Time: " <<multi_thread_time <<" ms" <<std::endl; */
 
             size_t multi_thread_result = sr.get_sofar();
 
@@ -103,7 +103,7 @@ void benchmark2() {
             mdf->map(cr);
             auto single_thread_end = std::chrono::steady_clock::now();
             size_t single_thread_time = std::chrono::duration_cast<std::chrono::milliseconds>(single_thread_end - single_thread_start).count();
-            std::cout <<"Single Thread Time: " <<single_thread_time <<" ms" <<std::endl;
+            /* std::cout <<"Single Thread Time: " <<single_thread_time <<" ms" <<std::endl; */
 
             bool single_thread_result1 = cr.get_bool();
             int single_thread_result2 = cr.get_weather_sum();
@@ -116,7 +116,7 @@ void benchmark2() {
             mdf->pmap(cr);
             auto multi_thread_end = std::chrono::steady_clock::now();
             size_t multi_thread_time = std::chrono::duration_cast<std::chrono::milliseconds>(multi_thread_end - multi_thread_start).count();
-            std::cout <<"Multi-threaded Time: " <<multi_thread_time <<" ms" <<std::endl;
+            /* std::cout <<"Multi-threaded Time: " <<multi_thread_time <<" ms" <<std::endl; */
 
             bool multi_thread_result1 = cr.get_bool();
             int multi_thread_result2 = cr.get_weather_sum();
