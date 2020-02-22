@@ -25,6 +25,8 @@ void benchmark1() {
     for(int i = 0; i < 3; ++i) {
         size_t multi_thread_faster = 0;
         double avg_speedup = 0;
+        double sum_single = 0;
+        double sum_multi = 0;
 
         size_t ROWS = 0;
         if (i == 0) {
@@ -36,7 +38,6 @@ void benchmark1() {
         }
         ModifiedDataFrame* mdf = load_dataframe(ROWS);
         assert(mdf);
-        std::cout <<"Columns: " <<mdf->ncols() <<", Rows: " <<mdf->nrows() <<std::endl;
         for(int j = 0; j < LOOPS; ++j){
             SimpleRower sr;
 
@@ -44,7 +45,7 @@ void benchmark1() {
             mdf->map(sr);
             auto single_thread_end = std::chrono::steady_clock::now();
             size_t single_thread_time = std::chrono::duration_cast<std::chrono::milliseconds>(single_thread_end - single_thread_start).count();
-            /* std::cout <<"Single Thread Time: " <<single_thread_time <<" ms" <<std::endl; */
+            std::cout <<"Single Thread Time: " <<single_thread_time <<" ms" <<std::endl;
             size_t single_thread_result = sr.get_sofar();
 
             sr.reset();
@@ -53,12 +54,14 @@ void benchmark1() {
             mdf->pmap(sr);
             auto multi_thread_end = std::chrono::steady_clock::now();
             size_t multi_thread_time = std::chrono::duration_cast<std::chrono::milliseconds>(multi_thread_end - multi_thread_start).count();
-            /* std::cout <<"Multi-threaded Time: " <<multi_thread_time <<" ms" <<std::endl; */
+            std::cout <<"Multi-threaded Time: " <<multi_thread_time <<" ms" <<std::endl;
 
             size_t multi_thread_result = sr.get_sofar();
 
             assert(single_thread_result == multi_thread_result);
 
+            sum_single += single_thread_time;
+            sum_multi += multi_thread_time;
             if(multi_thread_time < single_thread_time) {
                 ++multi_thread_faster;
                 avg_speedup += (((double) single_thread_time) / ((double) multi_thread_time));
@@ -66,8 +69,10 @@ void benchmark1() {
         }
 
         std::cout <<"Benchmark 1" <<std::endl;
-        std::cout <<"Dataframe Size: " <<ROWS <<std::endl;
+        std::cout <<"Columns: " <<mdf->ncols() <<", Rows: " <<mdf->nrows() <<std::endl;
         std::cout <<"Times Multi-Threaded was faster: " <<multi_thread_faster <<"/" <<LOOPS <<std::endl;
+        std::cout <<"Averate Single-threaded Time: " <<(sum_single / LOOPS) <<std::endl;
+        std::cout <<"Averate Multi-threaded Time: " <<(sum_multi / LOOPS) <<std::endl;
         std::cout <<"Average Speedup: " <<(double)(avg_speedup / multi_thread_faster) <<std::endl;
         delete mdf;
         mdf = nullptr;
@@ -78,6 +83,8 @@ void benchmark2() {
     for(int i = 0; i < 3; ++i) {
         size_t multi_thread_faster = 0;
         double avg_speedup = 0;
+        double sum_single = 0;
+        double sum_multi = 0;
 
         size_t ROWS = 0;
         if (i == 0) {
@@ -89,7 +96,6 @@ void benchmark2() {
         }
         ModifiedDataFrame* mdf = load_dataframe(ROWS);
         assert(mdf);
-        std::cout <<"Columns: " <<mdf->ncols() <<", Rows: " <<mdf->nrows() <<std::endl;
         for(int j = 0; j < LOOPS; ++j){
             ComplexRower cr;
 
@@ -97,7 +103,7 @@ void benchmark2() {
             mdf->map(cr);
             auto single_thread_end = std::chrono::steady_clock::now();
             size_t single_thread_time = std::chrono::duration_cast<std::chrono::milliseconds>(single_thread_end - single_thread_start).count();
-            /* std::cout <<"Single Thread Time: " <<single_thread_time <<" ms" <<std::endl; */
+            std::cout <<"Single Thread Time: " <<single_thread_time <<" ms" <<std::endl;
 
             bool single_thread_result1 = cr.get_bool();
             int single_thread_result2 = cr.get_weather_sum();
@@ -110,7 +116,7 @@ void benchmark2() {
             mdf->pmap(cr);
             auto multi_thread_end = std::chrono::steady_clock::now();
             size_t multi_thread_time = std::chrono::duration_cast<std::chrono::milliseconds>(multi_thread_end - multi_thread_start).count();
-            /* std::cout <<"Multi-threaded Time: " <<multi_thread_time <<" ms" <<std::endl; */
+            std::cout <<"Multi-threaded Time: " <<multi_thread_time <<" ms" <<std::endl;
 
             bool multi_thread_result1 = cr.get_bool();
             int multi_thread_result2 = cr.get_weather_sum();
@@ -122,14 +128,18 @@ void benchmark2() {
             assert(single_thread_result3 == multi_thread_result3);
             assert(single_thread_result4 == multi_thread_result4);
 
+            sum_single += single_thread_time;
+            sum_multi += multi_thread_time;
             if(multi_thread_time < single_thread_time) {
                 ++multi_thread_faster;
                 avg_speedup += (((double) single_thread_time) / ((double) multi_thread_time));
             }
         }
         std::cout <<"Benchmark 2" <<std::endl;
-        std::cout <<"Dataframe Size: " <<ROWS <<std::endl;
+        std::cout <<"Columns: " <<mdf->ncols() <<", Rows: " <<mdf->nrows() <<std::endl;
         std::cout <<"Times Multi-Threaded was faster: " <<multi_thread_faster <<"/" <<LOOPS <<std::endl;
+        std::cout <<"Averate Single-threaded Time: " <<(sum_single / LOOPS) <<std::endl;
+        std::cout <<"Averate Multi-threaded Time: " <<(sum_multi / LOOPS) <<std::endl;
         std::cout <<"Average Speedup: " <<(double)(avg_speedup / multi_thread_faster) <<std::endl;
         delete mdf;
         mdf = nullptr;
@@ -137,13 +147,9 @@ void benchmark2() {
 }
 
 
-/* TEST(a5, b1){ ASSERT_EXIT_ZERO(benchmark1); } */
-/* TEST(a5, b2){ ASSERT_EXIT_ZERO(benchmark2); } */
 
 int main(int argc, char **argv) {
     benchmark1();
     benchmark2();
-    /* testing::InitGoogleTest(&argc, argv); */
-    /* return RUN_ALL_TESTS(); */
 }
 
