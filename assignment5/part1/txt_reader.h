@@ -11,20 +11,21 @@
 #include "row.h"
 #include "modified_dataframe.h"
 
-ModifiedDataFrame* load_dataframe() {
+ModifiedDataFrame* load_dataframe(size_t nrows) {
     FILE *fPointer;
     fPointer = fopen("./datafile.txt", "r");
     if (fPointer == NULL) {
-        std::cerr << "File wouldn't open:" << strerror(errno) << "\n" << std::endl;
+        std::cerr << "File wouldn't open: " << strerror(errno) << "\n" << std::endl;
         return nullptr;
     }
     //this is the order same as my dataset
     //"ISSIISSFFSSFSSSSSSSSSSSSFFFFFSFFSBBBBBBBBBBBBBBSSSS"
     Schema *sch = new Schema("ISSIISSFFFFFSISSSSSSSSSSFFFFFSFFSBBBBBBBBBBBBBSSSS");
     ModifiedDataFrame *mdf = new ModifiedDataFrame(*sch);
-    char singleLine[1024];
-    while(!feof(fPointer)){
-        if(fgets(singleLine, 1024, fPointer) == NULL) break;
+    char singleLine[2048];
+    size_t r_count = 0;
+    while(!feof(fPointer) && r_count < nrows){
+        if(fgets(singleLine, 2048, fPointer) == NULL) break;
 
         Row r(*sch);
         int r_index = 0;
@@ -62,6 +63,7 @@ ModifiedDataFrame* load_dataframe() {
         }
 
         mdf->add_row(r);
+        ++r_count;
     }
     fclose(fPointer);
 

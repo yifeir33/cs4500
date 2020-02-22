@@ -82,35 +82,31 @@ public:
         }
     };
 
-    ComplexFielder_1* cf1;
-    ComplexFielder_2* cf2;
-    ComplexFielder_3* cf3;
-    ComplexFielder_4* cf4;
     size_t index;
-    DataFrame df;
     int _int_sum;
     float _float_sum;
     int _weather_float_num;
     bool _poi_sum;
 
 
-    ComplexRower(Schema& sch): cf1(),cf2(),cf3(),cf4(),index(0), df(sch), _int_sum(0),_float_sum(0),
-    _weather_float_num(0),_poi_sum((bool)0){
-    }
+    ComplexRower(): index(0), _int_sum(0),_float_sum(0), _weather_float_num(0),_poi_sum(0){}
 
     bool accept(Row& r){
+        ComplexFielder_1 cf1;
+        ComplexFielder_2 cf2;
+        ComplexFielder_3 cf3;
+        ComplexFielder_3 cf4;
         for(size_t i = 0; i < r.width(); i++){
-            r.visit(i,*cf1);
-            r.visit(i,*cf2);
-            r.visit(i,*cf3);
-            r.visit(i,*cf4);
+            r.visit(i,cf1);
+            r.visit(i,cf2);
+            r.visit(i,cf3);
+            r.visit(i,cf4);
         }
         index++;
-        _int_sum += cf1->get_int_sum();
-        _float_sum += cf1->get_float_sum();
-        _weather_float_num += cf2->get_weather_num();
-        _poi_sum =_poi_sum && cf3->get_POI();
-
+        _int_sum += cf1.get_int_sum();
+        _float_sum += cf1.get_float_sum();
+        _weather_float_num += cf2.get_weather_num();
+        _poi_sum =_poi_sum && cf3.get_POI();
 
         return true;
     }
@@ -146,6 +142,10 @@ public:
          _float_sum =0;
         _weather_float_num =0;
         _poi_sum = (bool)0;
+    }
+
+    Object *clone(){
+        return new ComplexRower();
     }
 
 };

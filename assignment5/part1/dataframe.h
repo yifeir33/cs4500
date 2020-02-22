@@ -258,7 +258,13 @@ public:
 
     /** The number of rows in the dataframe. */
     size_t nrows() {
-        return static_cast<Column*>(_columns.get(0))->size();
+        if(ncols() > 0){
+            Column *c =  dynamic_cast<Column*>(_columns.get(0));
+            assert(c);
+            return c->size();
+        } else {
+            return _schema.length();
+        } 
     }
 
     /** The number of columns in the dataframe.*/
