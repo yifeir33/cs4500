@@ -38,12 +38,13 @@ public:
     }
 
     void listen_on_socket(int conn_count){
+        // TODO: watchdog
         if(listen(_sock_fd, conn_count) < 0){
             perror("Error listening on socket: ");
             exit(1);
         }
         this->_running = true;
-        this->_inital();
+        this->_initial();
 
         while(this->_running){
             if(this->_accept_connection()){

@@ -5,7 +5,7 @@
 
 class CtCConnection : public Connection {
 public:
-    Client& _client
+    Client& _client;
     bool _receiver;
 
     CtCConnection(int fd, SockAddrWrapper *other, Client& c, bool r) : Connection(fd, other), _client(c), _receiver(r) {}

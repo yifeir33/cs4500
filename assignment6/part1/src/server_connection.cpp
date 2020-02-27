@@ -5,10 +5,19 @@ ServerConnection::ServerConnection(int cfd, SockAddrWrapper* o, Server& s) : Con
 ServerConnection::~ServerConnection(){}
 
 void ServerConnection::run() {
+    // TODO: add watchdog
     while(!this->is_finished()){
         this->receive_and_parse();
-        sleep(100);
-    }
+        if(_server._new_update){
+            Packet *packet = _server.get_clients();
+            if(!this->_send_packet(packet)){
+                delete packet;
+                break;
+            }
+            delete packet;
+        }
+        sleep(500);
+    } // while
 
     close(_conn_fd);
     _conn_fd = 0;

@@ -154,9 +154,9 @@ public:
                     else 
                         p("Error Received:\n");
 
-                    char msg[packet.vallen];
-                    memcpy(msg, &packet.value, packet.vallen);
-                    msg[packet.vallen - 1] = '\0';
+                    char msg[packet.length + 1];
+                    memcpy(msg, &packet.value, packet.length);
+                    msg[packet.length] = '\0';
                     p(msg).p('\n');
                     p("Sender:\n");
                     char addr_str[INET_ADDRSTRLEN];

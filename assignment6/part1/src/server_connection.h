@@ -11,7 +11,7 @@ public:
 
     ServerConnection(int cfd, SockAddrWrapper *c, Server& s);
 
-    ~ServerConnection();;
+    ~ServerConnection();
 
     void run() override;
 

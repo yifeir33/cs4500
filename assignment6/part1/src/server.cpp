@@ -48,12 +48,11 @@ Packet* Server::get_clients(){
         char *saw_c_str = saw->c_str();
         p(saw_c_str).p('\n');
         delete saw_c_str;
-        memcpy(packet->value + packet->vallen, &saw->addr, saw->addrlen);
-        packet->vallen += saw->addrlen;
-        assert(packet->vallen + saw->addrlen < DATA_MAX);
+        memcpy(packet->value + packet->length, &saw->addr, saw->addrlen);
+        packet->length += saw->addrlen;
+        assert(packet->length + saw->addrlen < DATA_MAX);
     }
-    std::cout.flush();
-    packet->vallen += 1;
+    packet->length += 1;
     this->_client_mutex.unlock();
     if(++this->_passed_update >= _expected_update){
         this->_passed_update = 0;
