@@ -8,13 +8,13 @@
 #include "object.h"
 
 #define DATA_MAX        256
+#define PACKET_MAX_SIZE (1 + 2 + DATA_MAX) // Type + Length + DATA_MAX
 
-// flags
-#define FORWARD 0x02
-
-// type
-#define CLIENT_UPDATE   0x01
-#define CHAR_MSG        0x02
+// types
+#define REGISTER        0x01
+#define DEREGISTER      0x02
+#define CLIENT_UPDATE   0x03
+#define CHAR_MSG        0x04
 #define ERROR_MSG       0xFE
 #define SHUTDOWN        0xFF
 
@@ -27,37 +27,34 @@ enum ParseResult {
 class Packet : public Object {
 public:
     uint8_t type;
-    uint16_t vallen;
+    uint16_t length;
     uint8_t value[DATA_MAX];
 
-    Packet() : type(0), vallen(0) {}
-
-    static size_t MaxSize() {
-        return sizeof(type) + sizeof(vallen) + DATA_MAX;
+    Packet() : type(0), length(0) {
+        memset(value, 0, DATA_MAX);
     }
 
     size_t get_size(){
-        return sizeof(type) + sizeof(vallen) + vallen;
+        return sizeof(type) + sizeof(length) + length;
     }
 
-    uint8_t *pack(){
+    int pack(uint8_t *buffer, size_t buflen){
+        if(this->get_size() < buflen) return -1;
         size_t pos = 0;
-        uint8_t *buffer = new uint8_t[this->get_size()];
-        // pack packet
-        
+
         // type
         memcpy(buffer + pos, &type, sizeof(type));
         pos += sizeof(type);
 
         // length
-        memcpy(buffer + pos, &vallen, sizeof(vallen));
-        pos += sizeof(vallen);
+        memcpy(buffer + pos, &length, sizeof(length));
+        pos += sizeof(length);
 
         // value
-        memcpy(buffer + pos, &value, vallen);
-        pos += vallen;
+        memcpy(buffer + pos, &value, length);
+        pos += length;
 
-        return buffer;
+        return pos;
     }
 
     size_t unpack(uint8_t *buffer, size_t buflen){
@@ -75,29 +72,29 @@ public:
         memcpy(&this->type, buffer + pos, sizeof(type));
         pos += sizeof(type);
 
-        // unpack vallen
-        if(pos + sizeof(vallen) >= buflen){
-            p("Too short for vallen!\n").p("Pos: ").p(pos).p(" BufLen: ").p(buflen).p('\n');
+        // unpack length
+        if(pos + sizeof(length) >= buflen){
+            p("Too short for length!\n").p("Pos: ").p(pos).p(" BufLen: ").p(buflen).p('\n');
             std::cout.flush();
             goto TOO_SHORT;
         }
-        memcpy(&this->vallen, buffer + pos, sizeof(vallen));
-        pos += sizeof(vallen);
+        memcpy(&this->length, buffer + pos, sizeof(length));
+        pos += sizeof(length);
         
         // unpack value
-        if(pos + vallen >= buflen){
+        if(pos + length >= buflen){
             p("Too short for value!\n").p("Pos: ").p(pos).p(" BufLen: ").p(buflen).p('\n');
             std::cout.flush();
             goto TOO_SHORT;
         }
-        memcpy(&this->value, buffer + pos, vallen);
-        pos += vallen;
+        memcpy(&this->value, buffer + pos, length);
+        pos += length;
 
         return pos;
 
         TOO_SHORT:
             this->type = 0;
-            this->vallen = 0;
+            this->length = 0;
             memset(&this->value, 0, DATA_MAX);
             return -1;
     }

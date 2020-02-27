@@ -13,7 +13,7 @@ public:
     struct sockaddr_in addr;
     socklen_t addrlen;
 
-    SockAddrWrapper(){}
+    SockAddrWrapper() : addrlen(sizeof(addr)) {}
 
     SockAddrWrapper(SockAddrWrapper *other){
         this->addr = other->addr;
