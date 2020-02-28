@@ -9,31 +9,34 @@
 #include <cstdlib>
 
 class Deserializer: public Object {
-public: Deserializer(){}
+    size_t pos_;
+public: Deserializer():pos_(0){}
 
     int readInt(char* c, size_t clen){
         int i;
         assert(sizeof(int)<= clen);
-        memcpy(&i, &c, sizeof(int));
+        memcpy(&i, c, sizeof(int));
+        pos_ += sizeof(int);
         return i;
     }
     float readFloat(char* c, size_t clen){
         float f;
         assert(sizeof(float)<= clen);
-        memcpy(&f, &c, sizeof(float));
-
+        memcpy(&f, c, sizeof(float));
+        pos_ += sizeof(float);
         return f;
     }
     bool readBool(char* c , size_t clen){
         bool b;
         assert(sizeof(bool)<= clen);
-        memcpy(&b, &c, sizeof(bool));
+        memcpy(&b, c, sizeof(bool));
+        pos_ += sizeof(bool);
         return b;
     }
     String* readString(char* c, size_t clen){
         StrBuff sb;
         size_t size = 0;
-        memcpy(&size, &c, sizeof(size));
+        memcpy(&size, c, sizeof(size));
         int pos = sizeof(size);
         assert(pos<=clen);
         char *str = c + pos;
@@ -64,24 +67,24 @@ public: Deserializer(){}
     }
     FloatArray readFloatArray(char* c, size_t clen){
         FloatArray fa(10);
-        size_t pos = 0;
-        memcpy(&fa.data_+pos, c , sizeof(fa.data_));
-        pos += sizeof(fa.data_);
-        assert(pos<= clen);
+        memcpy(&fa.data_+pos_, c , sizeof(fa.data_));
+        pos_ += sizeof(fa.data_);
+        assert(pos_<= clen);
         // capacity
-        memcpy(&fa.capacity_ + pos, c, sizeof(fa.capacity_));
-        pos += sizeof(fa.capacity_);
-        assert(pos<= clen);
+        memcpy(&fa.capacity_ + pos_, c, sizeof(fa.capacity_));
+        pos_ += sizeof(fa.capacity_);
+        assert(pos_<= clen);
         // length
-        memcpy(&fa.length_ + pos, c, sizeof(fa.length_));
-        pos += sizeof(fa.length_);
-        assert(pos<= clen);
+        memcpy(&fa.length_ + pos_, c, sizeof(fa.length_));
+        pos_ += sizeof(fa.length_);
+        assert(pos_<= clen);
         return fa;
     }
     sockaddr_in readSockAddrIn(char* c, size_t clen) {
         sockaddr_in sai;
-        memcpy(&sai, c, sizeof(sai));
         assert(sizeof(sai)<= clen);
+        memcpy(&sai, c, sizeof(sai));
+        pos_ += sizeof(sockaddr_in);
         return sai;
     }
 

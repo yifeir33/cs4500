@@ -12,23 +12,28 @@
 
 //This is a class
 class Primitive_Serialize{
+public:
     float f;
     bool b;
     int i;
+    size_t pos = 0;
 
-public:Primitive_Serialize():f(0.0),b((bool)0), i(0){
-    }
+    Primitive_Serialize():f(0.0),b((bool)0), i(0){}
 
-public:Primitive_Serialize(float f_i, bool b_i, int i_i):f(f_i),b(b_i),i(i_i){
-    }
+    Primitive_Serialize(float f_i, bool b_i, int i_i):f(f_i),b(b_i),i(i_i){}
+
     char* serialize(Serializer s){
+
         s.write(f);
+
         s.write(b);
+
         s.write(i);
+
+
         return s.get();
     }
     void deserilize(Deserializer ds, char* buffer){
-        size_t pos = 0;
         this->i =ds.readInt(buffer+pos, sizeof(this->i));
         pos += sizeof(int);
         this->f =ds.readFloat(buffer+pos,sizeof(this->f));

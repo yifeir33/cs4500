@@ -10,30 +10,42 @@
 #define DATA_MAX        256
 
 class Serializer: public Object {
-    char* buffer = new char[DATA_MAX];
+public:
+    char* buffer;
     size_t pos_;
-public: Serializer(): pos_(0){
-    }
+
+    Serializer(): buffer(new char[DATA_MAX]), pos_(0){}
+
     ~Serializer(){
         delete[]  buffer;
     }
+
+    size_t length() {
+        return pos_;
+    }
+
     void write(int i){
+        p("Write Int\n");
         memcpy(buffer+pos_, &i, sizeof(int));
-//        std::cout<< sizeof(int)<<std::endl;
+
         pos_+= sizeof(int);
+        std::cout<< pos_<<std::endl;
 //        std::cout<<buffer<<std::endl;
         assert(pos_<= DATA_MAX);
     }
-    void write(double d){
-        memcpy(buffer+pos_, &d, sizeof(double));
+    void write(float f){
+        memcpy(buffer+pos_, &f, sizeof(float));
 //        std::cout<< sizeof(double)<<std::endl;
-        pos_+= sizeof(double);
+        pos_+= sizeof(float);
+        std::cout<< pos_<<std::endl;
 //        std::cout<<buffer<<std::endl;
         assert(pos_<= DATA_MAX);
     }
     void write(bool b){
+        p("Write Bool\n");
         memcpy(buffer+pos_, &b, sizeof(bool));
         pos_+= sizeof(bool);
+        std::cout<< "here929182"<<pos_<<std::endl;
 //        std::cout<< sizeof(bool)<<std::endl;
 //        std::cout<<buffer<<std::endl;
         assert(pos_<= DATA_MAX);
@@ -41,42 +53,44 @@ public: Serializer(): pos_(0){
     void write(String* s){
         size_t size = s->size(); // number of characters excluding terminate (\0)
         char *cstr = s->c_str();
-        memcpy(buffer+pos_, &size, sizeof(size));
+        memcpy(buffer + pos_, &size, sizeof(size));
+        pos_ += sizeof(size);
+
+        memcpy(buffer+pos_, cstr, size);
+        pos_ += size;
         pos_+= sizeof(size);
         assert(pos_<= DATA_MAX);
-        memcpy(buffer+pos_, cstr, size);
-        pos_+= size;
-        assert(pos_<= DATA_MAX);
+//        memcpy(buffer+pos_, cstr, size);
+//        pos_+= size;
+//        assert(pos_<= DATA_MAX);
     }
     void write(StringArray sa){
         ObjectArray oa = sa._array;
-        size_t pos = 0;
-        memcpy(buffer+pos, &oa.data_, sizeof(oa.data_));
-        pos += sizeof(oa.data_);
-        assert(pos<= DATA_MAX);
+        memcpy(buffer+pos_, &oa.data_, sizeof(oa.data_));
+        pos_ += sizeof(oa.data_);
+        assert(pos_<= DATA_MAX);
         // capacity
-        memcpy(buffer + pos, &oa.capacity_, sizeof(oa.capacity_));
-        pos += sizeof(oa.capacity_);
-        assert(pos<= DATA_MAX);
+        memcpy(buffer + pos_, &oa.capacity_, sizeof(oa.capacity_));
+        pos_ += sizeof(oa.capacity_);
+        assert(pos_<= DATA_MAX);
         // length
-        memcpy(buffer+ pos, &oa.capacity_, sizeof(oa.length_));
-        pos += sizeof(oa.length_);
-        assert(pos<= DATA_MAX);
+        memcpy(buffer+ pos_, &oa.length_, sizeof(oa.length_));
+        pos_ += sizeof(oa.length_);
+        assert(pos_<= DATA_MAX);
     }
 
     void write(FloatArray fa){
-        size_t pos = 0;
-        memcpy(buffer+pos, &fa.data_, sizeof(fa.data_));
-        pos += sizeof(fa.data_);
-        assert(pos<= DATA_MAX);
+        memcpy(buffer+pos_, &fa.data_, sizeof(fa.data_));
+        pos_ += sizeof(fa.data_);
+        assert(pos_<= DATA_MAX);
         // capacity
-        memcpy(buffer + pos, &fa.capacity_, sizeof(fa.capacity_));
-        pos += sizeof(fa.capacity_);
-        assert(pos<= DATA_MAX);
+        memcpy(buffer + pos_, &fa.capacity_, fa.capacity_);
+        pos_ += sizeof(fa.capacity_);
+        assert(pos_<= DATA_MAX);
         // length
-        memcpy(buffer+ pos, &fa.capacity_, sizeof(fa.length_));
-        pos += sizeof(fa.length_);
-        assert(pos<= DATA_MAX);
+        memcpy(buffer+ pos_, &fa.length_, fa.length_);
+        pos_ += sizeof(fa.length_);
+        assert(pos_<= DATA_MAX);
     }
 
     void write(sockaddr_in sai){
