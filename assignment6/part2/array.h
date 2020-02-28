@@ -1,7 +1,8 @@
 #pragma once
 #include <iostream>
 #include <cstring>
-
+#include <cstdlib>
+#include <cmath>
 #include "object.h"
 #include "string.h"
 #include "assert.h"
