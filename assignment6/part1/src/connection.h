@@ -13,7 +13,8 @@
 #include "socket_addr.h"
 #include "util.h"
 
-#define BUFFER_SIZE (5 * PACKET_MAX_SIZE)
+#define WATCHDOG_TIMEOUT  60 // seconds
+#define BUFFER_SIZE (2 * PACKET_MAX_SIZE)
 
 class Connection : public Thread {
 public:
@@ -22,9 +23,11 @@ public:
     std::atomic<bool> _finished;
     size_t _r_buf_pos;
     uint8_t _r_buffer[BUFFER_SIZE];
+    std::chrono::time_point<std::chrono::steady_clock> _watchdog;
 
-    Connection(int cfd, SockAddrWrapper *c) : Thread(), _conn_fd(cfd), _conn_other(c), _finished(false) {
-        p("New Connection!\n");
+    Connection(int cfd, SockAddrWrapper *c) : Thread(), _conn_fd(cfd), _conn_other(c), _finished(false), _r_buf_pos(0), _watchdog(std::chrono::steady_clock::now()) {
+        memset(_r_buffer, 0, BUFFER_SIZE);
+        /* p("New Connection!\n"); */
         make_non_blocking(_conn_fd);
     }
 
@@ -37,20 +40,57 @@ public:
         }
     }
 
+    void feed_dog(){
+        _watchdog = std::chrono::steady_clock::now();
+    }
+
+    bool dog_is_alive(){
+        bool out =  std::chrono::duration_cast<std::chrono::seconds>(std::chrono::steady_clock::now() - _watchdog).count()
+                    < WATCHDOG_TIMEOUT;
+        if(!out){
+            p("Watchdog Timed Out!").p('\n');
+        }
+        return out;
+    }
+
+    bool _keep_alive() {
+        Packet packet;
+        packet.type = KEEP_ALIVE;
+        packet.length = 0;
+        return this->_send_packet(&packet);
+    }
+
+    void _send_shutdown() {
+        Packet packet;
+        packet.type = SHUTDOWN;
+        packet.length = 0;
+        this->_send_packet(&packet); // regardless we shutdown
+        this->_finished = true;
+    }
+
     bool _send_packet(Packet *packet) {
-        p("_send_packet\n");
+        assert(packet);
         uint8_t w_buffer[PACKET_MAX_SIZE];
         int p_size = packet->pack(w_buffer, PACKET_MAX_SIZE);
-        if(p_size < -1) return false;
+        if(p_size < 0) return false;
         int attempt = 0;
+        ssize_t sent = 0;
 
         while(attempt < 5){
-            if(send(_conn_fd, w_buffer, p_size, 0) < 0){
+            if(this->_check_for_socket_errors() > 0){
+                if(errno != EWOULDBLOCK && errno != EAGAIN && errno != 0) {
+                    perror("Socket Errors Found: ");
+                    p("errno value: ").p(errno).p('\n');
+                    return false;
+                }
+            }
+            if((sent = send(_conn_fd, w_buffer, p_size, 0)) < 0){
                 if(errno != EWOULDBLOCK && errno != EAGAIN) {
                     perror("Error sending packet: ");
                     return false;
                 }
-            } else {
+            } else if(sent > 0) {
+                /* p("Sent Packet!").p('\n'); */
                 return true;
             }
             sleep(100); // sleep 100 milliseconds
@@ -68,14 +108,16 @@ public:
         int opt = 0;
         socklen_t optlen = sizeof(opt);
         if(getsockopt(_conn_fd, SOL_SOCKET, SO_ERROR, &opt, &optlen) < 0){
-            perror("Error checking socket: ");
-            exit(1);
+            if(errno != EWOULDBLOCK && errno != EAGAIN && errno != 0) {
+                perror("Error checking socket: ");
+                p("Errno Value: ").p(errno).p('\n');
+                this->_finished = true;
+            }
         }
         return opt;
     }
 
     int receive_data() {
-        Packet p;
         int received = 0;
         int attempt = 0;
 
@@ -86,7 +128,9 @@ public:
                     return received;
                 }
             } else {
+                /* p("Received: ").p(received).p('\n'); */
                 _r_buf_pos += received;
+                return received;
             }
             ++attempt;
         } // while
@@ -106,46 +150,32 @@ public:
     }
 
     virtual ParseResult _parse_data(Packet& packet){
-        p("_parse_data\n");
+        /* p("_parse_data\n"); */
         std::cout.flush();
 
         switch(packet.type){
-            /*
             case CLIENT_UPDATE:
-                {
-                    p("Client Update!\n");
-                    std::cout.flush();
-                    // reset other clients
-                    while(_other_clients.length() > 0){
-                        delete _other_clients.pop();
-                    }
-
-                    size_t i = 0;
-                    while(i + sizeof(sockaddr_in) < packet.vallen){
-                        SockAddrWrapper *saw = new SockAddrWrapper();
-                        saw->addrlen = sizeof(sockaddr_in);
-                        memcpy(&saw->addr, packet.value + i, saw->addrlen);
-                        i += saw->addrlen + 1;
-                        if(!_self.equals(saw)){
-                            _other_clients.push(saw);
-                            char *saw_c_str = saw->c_str();
-                            p(saw_c_str).p('\n');
-                            delete saw_c_str;
-                            std::cout.flush();
-                            char addr_str[INET_ADDRSTRLEN];
-                            inet_ntop(AF_INET,
-                                      &(saw->addr.sin_addr),
-                                      addr_str,
-                                      INET_ADDRSTRLEN);
-                            p(addr_str).p(":").p(ntohs(saw->addr.sin_port)).p('\n');
-                        } else {
-                            delete saw;
-                        }
-                    }
                 break;
-            }*/
             case REGISTER:
                 break;
+            case KEEP_ALIVE:
+                this->_respond(packet);
+                break;
+            case ASK_FOR_ID:
+                return ParseResult::Response;
+            case ID:
+                {
+                    if(packet.length != sizeof(sockaddr_in)) {
+                        return ParseResult::ParseError;
+                    }
+                    SockAddrWrapper *saw = new SockAddrWrapper();
+                    memcpy(&saw->addr, packet.value, packet.length);
+                    if(this->_conn_other){
+                        delete this->_conn_other;
+                    }
+                    this->_conn_other = saw;
+                    break;
+                }
             case CHAR_MSG:
             case ERROR_MSG:
                 {
@@ -158,30 +188,37 @@ public:
                     memcpy(msg, &packet.value, packet.length);
                     msg[packet.length] = '\0';
                     p(msg).p('\n');
-                    p("Sender:\n");
-                    char addr_str[INET_ADDRSTRLEN];
-                    p(inet_ntop(AF_INET, &(_conn_other->addr.sin_addr), addr_str, INET_ADDRSTRLEN));
-                    p(":").p(ntohs((_conn_other->addr.sin_port)));
-                    p("\n");
-                    std::cout.flush();
+                    /* p("Sender:\n"); */
+                    /* char addr_str[INET_ADDRSTRLEN]; */
+                    /* p(inet_ntop(AF_INET, &(_conn_other->addr.sin_addr), addr_str, INET_ADDRSTRLEN)); */
+                    /* p(":").p(ntohs((_conn_other->addr.sin_port))); */
+                    /* p("\n"); */
                     break;
                 }
+            case SHUTDOWN:
+                p("Shutdown Received!").p('\n');
+                this->_finished = true;
+                break;
             default:
                 p("Unrecognized Type: ").p(packet.type).p('\n');
-                std::cout.flush();
                 return ParseResult::ParseError;
         }
         return ParseResult::Success;
     }
 
+    virtual int _respond(Packet& msg){ return 0; }
+
     bool receive_and_parse() {
         if(this->receive_data() < 0) {
             return false;
         }
+        /* p("Data Received!").p('\n'); */
+        /* this->print_read_buffer(); */
 
         Packet packet;
         while(_r_buf_pos > 0){
             if(!this->unpack(packet)){
+                p("Failed to unpack data!").p('\n');
                 break;
             }
 
@@ -189,7 +226,7 @@ public:
                 case Success:
                     return true;
                 case Response:
-                    // TODO
+                    this->_respond(packet);
                     break;
                 case ParseError:
                         return false;
@@ -208,20 +245,24 @@ public:
                 FD_SET(_conn_fd, &fdset);
                 if(select(_conn_fd + 1, nullptr, &fdset, nullptr, nullptr) < 0){ 
                     perror("Error on select: ");
-                    exit(1);
+                    this->_finished = true;
+                    return;
                 }
                 if(FD_ISSET(_conn_fd, &fdset)){
                     if(this->_check_for_socket_errors()){
                         perror("Error in socket: ");
-                        exit(1);
+                        this->_finished = true;
+                        return;
                     }
                 }
             } else {
                 perror("Failed to connect to target: ");
-                exit(1);
+                this->_finished = true;
+                return;
             }
         }
     }
+
 
     void ask_to_finish(){
         this->_finished = true;
@@ -229,5 +270,18 @@ public:
 
     bool is_finished(){
         return _finished;
+    }
+
+    void print_read_buffer(){
+        p("Read Buffer (Length: ").p(_r_buf_pos).p("): ").p('\n');
+        for(size_t i = 0; i < _r_buf_pos; ++i){
+            p(_r_buffer[i]);
+            if(i > 0 && i % 8 == 0) {
+                p('\n');
+            }else {
+                p(' ');
+            }
+        }
+        p('\n');
     }
 };

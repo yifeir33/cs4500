@@ -15,6 +15,9 @@
 #define DEREGISTER      0x02
 #define CLIENT_UPDATE   0x03
 #define CHAR_MSG        0x04
+#define ASK_FOR_ID      0x05
+#define ID              0x06
+#define KEEP_ALIVE      0xFD
 #define ERROR_MSG       0xFE
 #define SHUTDOWN        0xFF
 
@@ -39,7 +42,7 @@ public:
     }
 
     int pack(uint8_t *buffer, size_t buflen){
-        if(this->get_size() < buflen) return -1;
+        if(this->get_size() > buflen) return -1;
         size_t pos = 0;
 
         // type
@@ -58,8 +61,7 @@ public:
     }
 
     size_t unpack(uint8_t *buffer, size_t buflen){
-        p("unpack, buflen: ").p(buflen).p('\n');
-        std::cout.flush();
+        /* p("unpack, buflen: ").p(buflen).p('\n'); */
         size_t pos = 0;
 
         // unpack type
@@ -93,6 +95,7 @@ public:
         return pos;
 
         TOO_SHORT:
+            p("Failed To Unpack!");
             this->type = 0;
             this->length = 0;
             memset(&this->value, 0, DATA_MAX);

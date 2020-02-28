@@ -32,5 +32,7 @@ public:
 
     bool new_client_update();
 
+    void _on_clean_up(Connection *c) override;
+
     Connection* _new_connection(int new_conn_fd, SockAddrWrapper *other) override;
 };

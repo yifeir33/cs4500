@@ -23,9 +23,13 @@ public:
     std::mutex _oclient_mutex;
     ObjectArray _other_clients;
     std::atomic<bool> _client_update; 
-    size_t _received;
+    //
+    std::mutex _greeted_mutex;
+    ObjectArray _greeted_clients;
+    std::atomic<size_t> _received;
+    //
 
-    Client(const char *ip, in_port_t port);
+    Client(const char *client_ip, const char *server_ip, in_port_t port);
 
     ~Client();
 
@@ -34,4 +38,12 @@ public:
     Connection* _new_connection(int new_conn_fd, SockAddrWrapper *other) override;
 
     void _initial() override;
+
+    void _main_loop_work() override;
+
+    void _look_to_greet();
+
+    void _say_hello(SockAddrWrapper *osaw);
+
+    void _check_done();
 };

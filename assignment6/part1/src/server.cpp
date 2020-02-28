@@ -30,30 +30,37 @@ void Server::update_and_alert(SockAddrWrapper *saw) {
         this->_client_mutex.unlock();
     }
     // clean-up & alert
-    this->_cleanup_closed();
+    this->_clean_up_closed();
+
     _connections_mutex.lock();
     this->_expected_update = this->_connections.length();
     _connections_mutex.unlock();
+
     this->_new_update = true;
 }
 
 Packet* Server::get_clients(){
-    this->_client_mutex.lock();
     Packet *packet = new Packet();
     packet->type = CLIENT_UPDATE;
+    packet->length = 0;
+
+    this->_client_mutex.lock();
     p("Clients:\n");
     for(size_t i = 0; i < _clients.length(); ++i){
         SockAddrWrapper *saw = dynamic_cast<SockAddrWrapper*>(_clients.get(i));
         assert(saw);
+
         char *saw_c_str = saw->c_str();
         p(saw_c_str).p('\n');
         delete saw_c_str;
+
+        assert(packet->length + saw->addrlen <= DATA_MAX);
+        assert(saw->addrlen == sizeof(saw->addr));
         memcpy(packet->value + packet->length, &saw->addr, saw->addrlen);
         packet->length += saw->addrlen;
-        assert(packet->length + saw->addrlen < DATA_MAX);
     }
-    packet->length += 1;
     this->_client_mutex.unlock();
+
     if(++this->_passed_update >= _expected_update){
         this->_passed_update = 0;
         this->_new_update = false;
@@ -63,8 +70,12 @@ Packet* Server::get_clients(){
 
 void Server::remove_client(SockAddrWrapper* client) {
     this->_client_mutex.lock();
-    this->_clients.remove(this->_clients.index_of(client));
+    int index = this->_clients.index_of(client);
+    if(index >= 0){
+        this->_clients.remove(index);
+    }
     this->_client_mutex.unlock();
+    this->_new_update = true;
 }
 
 bool Server::new_client_update() {
@@ -73,4 +84,10 @@ bool Server::new_client_update() {
 
 Connection *Server::_new_connection(int new_connection_fd, SockAddrWrapper *other){
     return new ServerConnection(new_connection_fd, other, *this);
+}
+
+void Server::_on_clean_up(Connection *c) {
+    SockAddrWrapper *osaw = c->get_conn_other();
+    this->remove_client(osaw);
+    delete osaw;
 }

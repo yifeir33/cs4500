@@ -11,19 +11,21 @@
 
 #include "socket_addr.h"
 
-inline void get_socket_info(int fd, SockAddrWrapper& saw){
+inline bool get_socket_info(int fd, SockAddrWrapper& saw){
     if(getsockname(fd, reinterpret_cast<sockaddr *>(&saw.addr), &saw.addrlen) < 0){
         perror("Error getting socket info: ");
-        exit(1);
+        return false;
     }
+    return true;
 }
 
-inline void make_non_blocking(int fd){
+inline bool make_non_blocking(int fd){
     // set socket to non-blocking
     if(fcntl(fd, F_SETFL, fcntl(fd, F_GETFL, 0) | O_NONBLOCK) < 0){
         perror("Failed to set socket to non-blocking!");
-        exit(1);
+        return false;
     }
+    return true;
 }
 
 inline int create_socket(SockAddrWrapper& self, bool non_block){
@@ -31,23 +33,26 @@ inline int create_socket(SockAddrWrapper& self, bool non_block){
     // create socket
     if((sock_fd = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
         perror("Failed to create socket!");
-        exit(1);
+        return -1;
     }
 
     if(non_block){
-        make_non_blocking(sock_fd);
+        if(!make_non_blocking(sock_fd)){
+            std::cerr <<"Failed to make socket non-blocking!" <<std::endl;
+            return -1;
+        }
     }
 
     // let multiple sockets use same ip
     int opt = 1;
     if(setsockopt(sock_fd, SOL_SOCKET, SO_REUSEADDR, &opt, sizeof(opt)) < 0){
         perror("Error setting socket options: ");
-        exit(1);
+        return -1;
     }
     // bind to address
     if(bind(sock_fd, reinterpret_cast<sockaddr *>(&self.addr), self.addrlen) < 0){
         perror("Failed to bind to address!");
-        exit(1);
+        return -1;
     }
 
 
@@ -65,7 +70,7 @@ inline int create_socket(const char *ip, in_port_t port, SockAddrWrapper *self, 
     if(ip){
         if(inet_pton(AF_INET, ip, &(self->addr.sin_addr)) <= 0){ // convert to proper format
             perror("Error converting address: ");
-            exit(1);
+            return -1;
         }
     } else {
         self->addr.sin_addr.s_addr = INADDR_ANY;
@@ -77,7 +82,10 @@ inline int create_socket(const char *ip, in_port_t port, SockAddrWrapper *self, 
 
     // if we let the operating system set the port, get the info on where it was bound
     if(!ip || port == 0){
-        get_socket_info(sock_fd, *self);
+        if(!get_socket_info(sock_fd, *self)){
+            std::cerr <<"Failed to get socket info!" <<std::endl;
+            return -1;
+        }
     }
 
     return sock_fd;

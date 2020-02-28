@@ -1,16 +1,26 @@
 #include <iostream>
+#include <signal.h>
 
-#include "server.h"
-
-#define SERVER_PORT     8080
+#include "network.h"
 
 int main(int argc, char** argv) {
+    // SIGPIPE is the stupidest thing - nothing like failing silently
+    struct sigaction sa{{SIG_IGN}};
+    sigaction(SIGPIPE, &sa, NULL);
+
     // parse args
     char *ip = nullptr;
+    in_port_t port = SERVER_PORT;
     int i = 0;
     while(i < argc){
         if(strcmp(argv[i], "-ip") == 0){
             ip = argv[++i];
+        } else if(strcmp(argv[i], "-port") == 0){
+            port = std::stoi(argv[++i]);
+            if(port == 0) {
+                std::cout <<"Invalid Port Provided!" <<std::endl;
+                return 1;
+            }
         }
         ++i;
     }
@@ -21,6 +31,6 @@ int main(int argc, char** argv) {
     std::cout <<"Server IP: " <<ip <<std::endl;
 
     Server serv(ip, SERVER_PORT);
-    serv.server_listen();
+    serv.listen_on_socket(10);
     return 0;
 }

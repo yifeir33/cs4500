@@ -4,6 +4,7 @@
 #include <cstdlib>
 #include <cstring>
 #include <iostream>
+#include <iomanip>
 
 /** Helper class providing some C++ functionality and convenience
  *  functions. This class has no data, constructors, destructors or
@@ -19,7 +20,7 @@ public:
     Sys& p(int i) { std::cout << i;  return *this; }
     Sys& p(size_t i) { std::cout << i;  return *this; }
     Sys& p(const char* c) { std::cout << c;  return *this; }
-    Sys& p(char c) { std::cout << c;  return *this; }
+    Sys& p(char c) { c == '\n' ? std::cout << std::endl : std::cout << c;  return *this; }
     Sys& pln() { std::cout << "\n";  return *this; }
     Sys& pln(int i) { std::cout << i << "\n";  return *this; }
     Sys& pln(char* c) { std::cout << c << "\n";  return *this; }
