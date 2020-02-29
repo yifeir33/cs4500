@@ -1,16 +1,12 @@
 #pragma once
 #include <iostream>
 #include <cstring>
-#include <cstdlib>
-#include <cmath>
+
 #include "object.h"
 #include "string.h"
 #include "assert.h"
-#include "serial.h"
 
 #define FLOAT_EQUALITY 0.001
-
-
 
 /**
  * An Array class to which elements can be added to and removed from.
@@ -593,7 +589,7 @@ public:
 /**
  * An Array class to which elements can be added to and removed from.
  * author: chasebish */
-class StringArray : public Serial {
+class StringArray : public Object {
 public:
 
   /** VARIABLES */
@@ -670,71 +666,5 @@ public:
   String* replace(size_t index, String* new_value) {
       return static_cast<String*>(_array.replace(index, new_value));
   }
-
-  int serial_size() override {
-      int req = FIELD_START_LEN + STRING_TAG_LEN + ARR_TAG_LEN + VALUE_START_LEN + VALUE_END_LEN + FIELD_END_LEN;
-      for(size_t i = 0; i < this->length(); ++i){
-          String *s = dynamic_cast<String*>(_array.get(i));
-          assert(s);
-          req += FIELD_START_LEN + STRING_TAG_LEN + VALUE_START_LEN + s->size() + VALUE_END_LEN + FIELD_END_LEN;
-      }
-      return req;
-  }
-
-  int marshal(char *buffer, int buffer_len) override {
-      if(buffer_len < this->serial_size()){
-          return -1;
-      }
-      // start array field
-      size_t pos = 0;
-      memcpy(buffer + pos, FIELD_START, FIELD_START_LEN);
-      pos += FIELD_START_LEN;
-
-      // String
-      memcpy(buffer + pos, STRING_TAG, STRING_TAG_LEN);
-      pos += STRING_TAG_LEN;
-
-      // ARR
-      memcpy(buffer + pos, ARR_TAG, ARR_TAG_LEN);
-      pos += ARR_TAG_LEN;
-
-      // value start
-      memcpy(buffer + pos, VALUE_START, VALUE_START_LEN);
-      pos += VALUE_START_LEN;
-
-      for(size_t i = 0; i < this->length(); ++i){
-          String *s = dynamic_cast<String*>(_array.get(i));
-          assert(s);
-          for(size_t j = 0; j < s->size(); ++j){
-              memcpy(buffer + pos, FIELD_START, FIELD_START_LEN);
-              pos += FIELD_START_LEN;
-
-              memcpy(buffer + pos, STRING_TAG, STRING_TAG_LEN);
-              pos += STRING_TAG_LEN;
-
-              memcpy(buffer + pos, VALUE_START, VALUE_START_LEN);
-              pos += VALUE_START_LEN;
-
-              memcpy(buffer + pos, s->c_str(), s->size());
-              pos += s->size();
-
-              memcpy(buffer + pos, VALUE_END, VALUE_END_LEN);
-              pos += VALUE_END_LEN;
-
-              memcpy(buffer + pos, FIELD_END, FIELD_END_LEN);
-              pos += FIELD_END_LEN;
-          } // inner for
-      } // outer for
-
-      // value end
-      memcpy(buffer + pos, VALUE_END, VALUE_END_LEN);
-      pos += VALUE_END_LEN;
-      // field end
-      memcpy(buffer + pos, FIELD_END, FIELD_END_LEN);
-      pos += FIELD_END_LEN;
-
-      return pos;
-  }
-
 
 };
