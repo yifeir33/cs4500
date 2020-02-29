@@ -49,7 +49,7 @@ public:
         assert(size < DATA_MAX - pos_);
         char *cstr = s->c_str();
         memcpy(buffer + pos_, cstr, size);
-        pos_ += size;
+        pos_ += size + 1;
     }
 
     void write(StringArray *sa){
